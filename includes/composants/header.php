@@ -7,9 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Scratch OverFlow | Tutorat </title>
     <link rel="stylesheet" href="../../ressources/css/style.css">
-    <link rel="stylesheet" href="../../ressources/css/nav-bar.css">
-    <link rel="stylesheet" href="../../ressources/css/footer.css">
-
 </head>
 <body>
 <div class="page">
