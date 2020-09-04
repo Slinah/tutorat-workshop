@@ -1,3 +1,12 @@
 * {
-    background-color: red;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all ease-in-out 0.3s;
+    scroll-behavior: smooth;
+
+}
+
+.page {
+    min-height: 95vh;
 }
