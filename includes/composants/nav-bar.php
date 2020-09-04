@@ -4,7 +4,7 @@
         <li><a href="">Les Cours</a></li>
         <li><a href="">Donner un cours</a></li>
         <li><a href="">Suggerer un cours</a></li>
-        <li><a href="">Forum</a></li>
+        <li><a href="forum">Forum</a></li>
     </ul>
     <a class="nav-profile" href="profile">Profile</a>
 </nav>
