@@ -35,4 +35,5 @@ switch ($request) {  // Selectionée le body de la page en fonction
 
 
 
+
 include "includes/footer.php"; // Recup le footer
