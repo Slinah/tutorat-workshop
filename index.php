@@ -8,6 +8,7 @@ include "includes/header.php";  // Recup le header
 
 
 
+
 // Mise en place du router :
 
 $request = $_SERVER['REQUEST_URI'];  // recuperer l'url demandée par le client
