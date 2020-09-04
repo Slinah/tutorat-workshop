@@ -15,6 +15,11 @@ switch ($request) {  // Selectionée le body de la page en fonction
     case '/about' : // ne pas oublier le "/" devant le chemin
         require 'views/about.php';   // Exemple pour une potentiel page about
         break;
+
+    case '/forum' : // ne pas oublier le "/" devant le chemin
+        require 'views/forum.php';   // Exemple pour une potentiel page about
+        break;
+
     default:
         http_response_code(404);  // par defaut (comprendre : si le chemin ne correspond a aucune des route precedement definie)
         require 'views/404.php'; // Rediriger vers une erreur 404 (avec un contenue custom)
