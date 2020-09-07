@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="../../ressources/css/nav-bar.css">
 <nav>
     <h1 class="nav-h1"><a href="/">ScratchOverFlow</a></h1>
     <ul class="nav-list">

@@ -8,10 +8,3 @@
     <title>Scratch OverFlow | Tutorat </title>
 
 
-    <link rel="stylesheet" href="../../ressources/css/style.css">
-
-
-</head>
-<body>
-<div class="page">
-
