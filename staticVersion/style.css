@@ -1,0 +1,93 @@
+/* Section - Title - Footer - Body & Font */
+* {
+    font-family: rooney-sans, sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+    max-width: 100vw;
+    text-align: center;
+}
+
+html {
+    scroll-behavior: smooth
+}
+
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #2D2D2D
+}
+
+a, article, aside, div, footer, hr, section, svg, p {
+    color: #fff;
+    font-weight: normal;
+    transition: all 0.3s ease-in-out;
+}
+
+h1, h2, h3, header, section {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+section {
+    padding: 0;
+    margin: 2em 0;
+}
+
+#backgroundTutorat{
+    margin-bottom: 8vh;
+    overflow: hidden;
+}
+#backgroundTutorat img{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    transform: rotateZ(30deg) translateY(-30vw) translateX(20vw);
+    box-shadow: -1px 1px 5px 1px #111111;
+    border-radius: 10%;
+}
+
+.headerTitle{
+    justify-content: flex-start;
+    flex-flow: row nowrap;
+    width: 100%;
+    background: #606060;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 3px 6px #111111
+}
+.headerTitle h2{
+    margin: 1em;
+}
+
+footer{
+    width: 100%;
+    background:#111111;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-flow: row nowrap;
+    padding: 1em 0;
+}
+
+@media (min-width: 1200px){
+    *{
+        font-size: 14px;
+    }
+}
+@media (min-width: 1920px){
+    *{
+        font-size: 16px;
+    }
+}
