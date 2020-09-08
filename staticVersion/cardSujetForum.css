@@ -1,0 +1,30 @@
+.card{
+    position: relative;
+    width: 90%;
+}
+.card p{
+    margin: 2em;
+}
+.card .buttonDownRight{
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+.card .dateUpRight{
+    position: absolute;
+    right:20px;
+    top:20px;
+}
+.card .nameUpLeft{
+    position: absolute;
+    left:20px;
+    top:20px;
+}
+
+
+@media (min-width: 1200px){
+
+}
+@media (min-width: 1920px){
+
+}

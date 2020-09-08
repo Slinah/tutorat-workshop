@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="nav.css">
     <link rel="stylesheet" href="button.css">
     <link rel="stylesheet" href="card.css">
-    <link rel="stylesheet" href="cardCour.css">
+    <link rel="stylesheet" href="cardSujetForum.css">
+    <link rel="stylesheet" href="modal.css">
     <script src="https://kit.fontawesome.com/58f998f035.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -55,16 +56,13 @@
 <section id="backgroundTutorat">
     <img src="images/imageBackground.jpg" alt="background Tutorat">
 </section>
-<section>
-    <p>Tu ne trouves pas le cours que tu voulais ?</p>
-    <button>Suggérer un cour</button>
-</section>
 <section class="headerTitle">
-    <h2>Cette semaine</h2>
+    <h2>Titre du sujet</h2>
 </section>
 <section class="cardContainer">
     <section class="card">
-        <header>Cour 1</header>
+        <!--        todo liens vers la page du sujet -->
+        <header>Post principal</header>
         <p>Lorem ipsum dolor sit amet,
             consectetur adipiscing elit.
             Duis vel est vestibulum ligula
@@ -74,33 +72,15 @@
             Duis vel est vestibulum ligula
             porta dapibus.
         </p>
-        <button type="button">S'inscrire</button>
-        <div class="classeUpLeft">Classe</div>
-        <div class="dateUpRight">Date/Date</div>
-        <div class="wifiDownRight"><i class="fas fa-wifi"></i></div>
+        <div class="dateUpRight">Date/Date/Heure</div>
+        <div class="nameUpLeft">Nom - Prenom</div>
+        <!--        todo ouverture modal -->
+        <button type="button" class="buttonDownRight">Commenter &nbsp;<i class="far fa-comment"></i></button>
     </section>
-    <section class="card">
-        <header>Cour 2</header>
-        <p>Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit.
-            Duis vel est vestibulum ligula
-            porta dapibus.
-            Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit.
-            Duis vel est vestibulum ligula
-            porta dapibus.
-        </p>
-        <button type="button">S'inscrire</button>
-        <div class="classeUpLeft">Classe</div>
-        <div class="dateUpRight">Date/Date</div>
-    </section>
-</section>
-<section class="headerTitle">
-    <h2>Semaine prochaine</h2>
 </section>
 <section class="cardContainer">
     <section class="card">
-        <header>Cour 1</header>
+        <!--        todo liens vers la page du sujet -->
         <p>Lorem ipsum dolor sit amet,
             consectetur adipiscing elit.
             Duis vel est vestibulum ligula
@@ -110,13 +90,13 @@
             Duis vel est vestibulum ligula
             porta dapibus.
         </p>
-        <button type="button">S'inscrire</button>
-        <div class="classeUpLeft">Classe</div>
-        <div class="dateUpRight">Date/Date</div>
-        <div class="wifiDownRight"><i class="fas fa-wifi"></i></div>
+        <div class="dateUpRight">Date/Date/Heure</div>
+        <div class="nameUpLeft">Nom - Prenom</div>
+<!--        todo ouverture modal -->
+        <button type="button" class="buttonDownRight">Répondre &nbsp;<i class="far fa-comment"></i></button>
     </section>
     <section class="card">
-        <header>Cour 2</header>
+        <!--        todo liens vers la page du sujet -->
         <p>Lorem ipsum dolor sit amet,
             consectetur adipiscing elit.
             Duis vel est vestibulum ligula
@@ -126,12 +106,13 @@
             Duis vel est vestibulum ligula
             porta dapibus.
         </p>
-        <button type="button">S'inscrire</button>
-        <div class="classeUpLeft">Classe</div>
-        <div class="dateUpRight">Date/Date</div>
+        <div class="dateUpRight">Date/Date/Heure</div>
+        <div class="nameUpLeft">Nom - Prenom</div>
+        <!--        todo ouverture modal -->
+        <button type="button" class="buttonDownRight">Répondre &nbsp;<i class="far fa-comment"></i></button>
     </section>
     <section class="card">
-        <header>Cour 3</header>
+        <!--        todo liens vers la page du sujet -->
         <p>Lorem ipsum dolor sit amet,
             consectetur adipiscing elit.
             Duis vel est vestibulum ligula
@@ -141,32 +122,25 @@
             Duis vel est vestibulum ligula
             porta dapibus.
         </p>
-        <button type="button">S'inscrire</button>
-        <div class="classeUpLeft">Classe</div>
-        <div class="dateUpRight">Date/Date</div>
-        <div class="wifiDownRight"><i class="fas fa-wifi"></i></div>
+        <div class="dateUpRight">Date/Date/Heure</div>
+        <div class="nameUpLeft">Nom - Prenom</div>
+        <!--        todo ouverture modal -->
+        <button type="button" class="buttonDownRight">Répondre &nbsp;<i class="far fa-comment"></i></button>
     </section>
 </section>
-<section class="headerTitle">
-    <h2>Plus tard</h2>
-</section>
-<section class="cardContainer">
-    <section class="card">
-        <header>Cour 1</header>
-        <p>Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit.
-            Duis vel est vestibulum ligula
-            porta dapibus.
-            Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit.
-            Duis vel est vestibulum ligula
-            porta dapibus.
-        </p>
-        <button type="button">S'inscrire</button>
-        <div class="classeUpLeft">Classe</div>
-        <div class="dateUpRight">Date/Date</div>
-        <div class="wifiDownRight"><i class="fas fa-wifi"></i></div>
-    </section>
+<section id="modalId" class="modal">
+    <div class="container">
+        <div class="comment">
+            <form action="POST">
+                <textarea class="textinput" placeholder="Comment"></textarea>
+                <button type="submit">Envoyer le commentaire</button>
+            </form>
+        </div>
+        <div class="closeButton" onclick="clickCloseBtnModal()">
+            <i class="far fa-times-circle"></i>
+        </div>
+    </div>
+
 </section>
 <footer>
 <!--    todo liens pour le footer -->
@@ -206,6 +180,11 @@
             animationNavBtn.setDirection(1);
             navBarBtn = 0;
         }
+    }
+    function clickCloseBtnModal(){
+        var modal = document.getElementById("modalId");
+        modal.style.opacity = '0';
+        modal.style.zIndex = '-1';
     }
 </script>
 
