@@ -2,14 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35713217-039d-4ba4-8c82-491ca6d2b49f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/staticVersion/cardCour.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticVersion/cardForum.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticVersion/forum.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticVersion/lesCours.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticVersion/button.css" beforeDir="false" afterPath="$PROJECT_DIR$/staticVersion/button.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ressources/img/favicon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/composants/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/composants/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/composants/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/composants/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/composants/header_options.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/composants/header_options.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/composants/nav-bar.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/composants/nav-bar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/router.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/router.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ressources/css/forum.css" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/css/forum.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ressources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticVersion/button.css" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/css/button.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticVersion/card.css" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/css/card.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticVersion/cardCour.css" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/css/cardCour.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticVersion/cardForum.css" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/css/cardForum.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticVersion/fonction.js" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/js/fonction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticVersion/forum.html" beforeDir="false" afterPath="$PROJECT_DIR$/staticVersion/forum.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticVersion/images/chalkboard-teacher-solid.svg" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/img/chalkboard-teacher-solid.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticVersion/images/chevron-down-solid.svg" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/img/chevron-down-solid.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticVersion/images/globe-europe-solid.svg" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/img/globe-europe-solid.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticVersion/images/hands-helping-solid.svg" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/img/hands-helping-solid.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticVersion/images/imageBackground.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/img/imageBackground.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticVersion/images/psdBank/imageBackground.psd" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/img/psdBank/imageBackground.psd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticVersion/images/question-solid.svg" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/img/question-solid.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticVersion/images/wifi-solid.svg" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/img/wifi-solid.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/staticVersion/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/staticVersion/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticVersion/nav.css" beforeDir="false" afterPath="$PROJECT_DIR$/staticVersion/nav.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticVersion/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/staticVersion/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticVersion/lesCours.html" beforeDir="false" afterPath="$PROJECT_DIR$/staticVersion/lesCours.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticVersion/lottie.js" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/js/lottie.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticVersion/nav.css" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/css/nav.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticVersion/navBtn.js" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/js/navBtn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticVersion/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticVersion/stylesheets.css" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/css/stylesheets.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/forum.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/forum.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/forum_question.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/forum_question.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,7 +42,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ComposerSettings">
-    <execution />
+    <execution>
+      <executable />
+    </execution>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -40,14 +67,24 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\tutorat-workshop\ressources\img" />
+      <recent name="C:\wamp64\www\tutorat-workshop\ressources\js" />
+      <recent name="C:\wamp64\www\tutorat-workshop\ressources\css" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\tutorat-workshop\staticVersion" />
     </key>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="35713217-039d-4ba4-8c82-491ca6d2b49f" name="Default Changelist" comment="" />

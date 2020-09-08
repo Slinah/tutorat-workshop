@@ -5,77 +5,72 @@ include_once "includes/composants/nav-bar.php";
 
 ?>
 
-<div class="section_haute">
-    <h2>Forum</h2>
 
-    <h3>Discute avec tous le monde ! Et apprends de nouvelles choses !</h3>
+<section id="backgroundTutorat">
+    <img src="/ressources/img/imageBackground.jpg" alt="background Tutorat">
+</section>
+<section>
+    <p>Discute avec tous le monde ! et apprends de nouvelles choses !</p>
+    <button onclick="window.location.href = '/forum/create';">Créer un sujet</button onc>
+</section>
+<section class="headerTitle">
+    <h2>Sujets</h2>
+</section>
+<section class="cardContainer">
 
-
-    <a href="/forum/create">Créer un post</a>
-
-</div>
-
-<div class="list-posts">
-    <h2>Sujet ouverts en ce moment </h2>
 
     <?php
     foreach (http_get("http://localhost:4567/api/getForumQuestions") as $p) {
         ?>
-        <div class="posts">
-            <div class="vote">
-                <a>
-                    ➕
-                </a>
-                <p>
-                    <?php
-                    echo $p->votes;
-                    ?>
-                </p>
-            </div>
-            <div class="right-post">
-                <p>
-                    <?php
-                    echo $p->prenom;
-                    ?>
 
-                    <?php
-                    echo date('j/m', strtotime($p->date));
-                    ?>
-                </p>
 
-                <h3>
-                    <a href="/forum/<?php
-                    echo $p->id_question;
-                    ?>">
-                        <?php
-                        echo $p->titre;
-                        ?>
-                    </a>
-                    <?php
+        <section class="card">
+            <!--        todo liens vers la page du sujet -->
+            <header><a href="/forum/<?php echo $p->id_question; ?>">
+                    <?php echo $p->titre; ?>
+                    &nbsp;-&nbsp;<?php
                     echo $p->status == 0 ? "❓" : "✔✔"
                     ?>
-                </h3>
-                <p>
-                    <?php
-                    echo $p->description;
-                    ?>
-                </p>
-                <p>
-                    <?php
-                    echo $p->intitule;
-                    ?>
-                </p>
-
-                <p>Nombre de com :
-                    <?php
-                    echo $p->comments;
-                    ?>
-                </p>
+                </a></header>
+            <p>
+                <?php
+                echo $p->intitule;
+                ?>
+            </p>
+            <p>
+                <?php
+                echo $p->description;
+                ?>
+            </p>
+            <p>
+                Nombre de commentaire :
+                <?php
+                echo $p->comments;
+                ?>
+            </p>
+            <div class="classeDownRight">Classe</div>
+            <div class="dateUpRight">
+                <?php
+                echo date('j/m', strtotime($p->date));
+                ?>
             </div>
-        </div>
+            <div class="nameUpLeft">
+                <?php
+                echo $p->prenom;
+                ?>
 
+            </div>
+            <button type="button" class="buttonDownLeft"><i class="far fa-thumbs-up"></i> <?php
+                echo $p->votes;
+                ?></button>
+        </section>
         <?php
     }
     ?>
 
-</div>
+
+</section>
+<section class="headerTitle">
+    <h2>Tu veux créer ton sujet ? </h2>
+    <button>Créer un sujet</button>
+</section>
