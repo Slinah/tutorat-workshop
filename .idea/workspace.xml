@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="35713217-039d-4ba4-8c82-491ca6d2b49f" name="Default Changelist" comment="">
+    <list default="true" id="35713217-039d-4ba4-8c82-491ca6d2b49f" name="Default Changelist" comment="List todo - add">
+      <change afterPath="$PROJECT_DIR$/staticVersion/askForCourse.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticVersion/giveCourse.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticVersion/listTodo" beforeDir="false" afterPath="$PROJECT_DIR$/staticVersion/listTodo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticVersion/form.css" beforeDir="false" afterPath="$PROJECT_DIR$/staticVersion/form.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +37,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/staticVersion" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -52,7 +55,7 @@
       <option name="presentableId" value="Default" />
       <updated>1599558587378</updated>
       <workItem from="1599558588482" duration="927000" />
-      <workItem from="1599569685869" duration="15193000" />
+      <workItem from="1599569685869" duration="17180000" />
     </task>
     <task id="LOCAL-00001" summary="Version static Tutorat&#10;&#10;page d'accueil - ok">
       <created>1599558783732</created>
@@ -96,7 +99,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599585070039</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="List todo - add">
+      <created>1599585998291</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1599585998291</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -109,17 +119,18 @@
     <MESSAGE value="ajout forum.html&#10;lesCours.html&#10;forum.html" />
     <MESSAGE value="Remise en place des fichiers (copy) &#10;pour que le static fonctionne" />
     <MESSAGE value="Modal css fix&#10;sujet forum fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modal css fix&#10;sujet forum fix" />
+    <MESSAGE value="List todo - add" />
+    <option name="LAST_COMMIT_MESSAGE" value="List todo - add" />
   </component>
   <component name="WindowStateProjectService">
     <state x="724" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1599577715714">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="724" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1599577715714" />
-    <state x="585" y="88" key="CommitChangelistDialog2" timestamp="1599585069276">
+    <state x="585" y="88" key="CommitChangelistDialog2" timestamp="1599587564626">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="88" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1599585069276" />
+    <state x="585" y="88" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1599587564626" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1599585683597">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -132,13 +143,17 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="598" y="281" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1599582758283" />
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1599585072012">
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1599586001004">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1599585072012" />
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1599586001004" />
     <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1599582720963">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1599582720963" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1599585872960">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1599585872960" />
   </component>
 </project>
