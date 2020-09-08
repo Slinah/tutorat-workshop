@@ -14,7 +14,6 @@ switch ($request) {  // Selectionée le body de la page en fonction
         // "http://https://scratchoverflow.fr/" vont cherche le contenue
         // de /views/home.php
         break;
-
     case '/about' : // ne pas oublier le "/" devant le chemin
         header_options(["style"]);
         require 'views/about.php';   // Exemple pour une potentiel page about
