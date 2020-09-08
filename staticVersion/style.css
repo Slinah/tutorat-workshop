@@ -83,11 +83,11 @@ footer{
 
 @media (min-width: 1200px){
     *{
-        font-size: 16px;
+        font-size: 14px;
     }
 }
 @media (min-width: 1920px){
     *{
-        font-size: 20px;
+        font-size: 16px;
     }
 }

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="35713217-039d-4ba4-8c82-491ca6d2b49f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/staticVersion/cardCour.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticVersion/cardForum.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticVersion/forum.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticVersion/lesCours.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticVersion/button.css" beforeDir="false" afterPath="$PROJECT_DIR$/staticVersion/button.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticVersion/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/staticVersion/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticVersion/nav.css" beforeDir="false" afterPath="$PROJECT_DIR$/staticVersion/nav.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticVersion/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/staticVersion/style.css" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1hDvgLY7ggA6Sk25PD89QOU5wY0" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\tutorat-workshop\staticVersion" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="35713217-039d-4ba4-8c82-491ca6d2b49f" name="Default Changelist" comment="" />
+      <created>1599558587378</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1599558587378</updated>
+      <workItem from="1599558588482" duration="927000" />
+      <workItem from="1599569685869" duration="305000" />
+    </task>
+    <task id="LOCAL-00001" summary="Version static Tutorat&#10;&#10;page d'accueil - ok">
+      <created>1599558783732</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1599558783732</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Version static Tutorat&#10;&#10;page d'accueil - ok" />
+    <option name="LAST_COMMIT_MESSAGE" value="Version static Tutorat&#10;&#10;page d'accueil - ok" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="585" y="88" key="CommitChangelistDialog2" timestamp="1599558782219">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="585" y="88" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1599558782219" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1599558655816">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1599558655816" />
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1599558786841">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1599558786841" />
+  </component>
+</project>
