@@ -37,9 +37,16 @@ include_once "includes/composants/nav-bar.php";
                     <?php
                     echo $p->prenom;
                     ?>
+
+                    <?php
+                    echo date('j/m', strtotime($p->date));
+                    ?>
                 </p>
+
                 <h3>
-                    <a href="hello">
+                    <a href="/forum/<?php
+                    echo $p->id_question;
+                    ?>">
                         <?php
                         echo $p->titre;
                         ?>
