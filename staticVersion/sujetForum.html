@@ -128,12 +128,12 @@
     <div class="container">
         <div class="comment">
             <form action="POST">
-                <div contenteditable="true" class="textinput">
+                <div contenteditable="true" class="textinput" id="modalTxt">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Aperiam blanditiis error hic omnis recusandae reiciendis suscipit totam vero voluptas?
                     A delectus dignissimos esse iste pariatur quis quo quos rem vero!
                 </div>
-                <button type="button">Envoyer le commentaire</button>
+                <button type="button" onclick="recuperationTxtModal()">Envoyer le commentaire</button>
             </form>
         </div>
         <div class="closeButton" onclick="clickCloseBtnModal()">
@@ -190,6 +190,10 @@
         var modal = document.getElementById("modalId");
         modal.style.opacity = '1';
         modal.style.zIndex = '5';
+    }
+    function recuperationTxtModal(){
+        var modalTxt = document.getElementById("modalTxt").textContent;
+    //    todo faire des trucs avec ça (texte de la balise complète récupéré ^^ )
     }
 </script>
 

@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="35713217-039d-4ba4-8c82-491ca6d2b49f" name="Default Changelist" comment="List todo - add">
-      <change afterPath="$PROJECT_DIR$/staticVersion/askForCourse.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticVersion/giveCourse.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticVersion/form.css" beforeDir="false" afterPath="$PROJECT_DIR$/staticVersion/form.css" afterDir="false" />
+    <list default="true" id="35713217-039d-4ba4-8c82-491ca6d2b49f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/staticVersion/sujetForum.html" beforeDir="false" afterPath="$PROJECT_DIR$/staticVersion/sujetForum.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +52,7 @@
       <option name="presentableId" value="Default" />
       <updated>1599558587378</updated>
       <workItem from="1599558588482" duration="927000" />
-      <workItem from="1599569685869" duration="17180000" />
+      <workItem from="1599569685869" duration="17513000" />
     </task>
     <task id="LOCAL-00001" summary="Version static Tutorat&#10;&#10;page d'accueil - ok">
       <created>1599558783732</created>
@@ -106,7 +103,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599585998291</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Ajout askForCourse.html&#10;et giveCourse.html&#10;+ form css fix responsive &#10;&#10;-&gt; + maj list todo&#10;&#10;-&gt; besoin de fix le datepicker aussi">
+      <created>1599587905986</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1599587905986</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,17 +124,18 @@
     <MESSAGE value="Remise en place des fichiers (copy) &#10;pour que le static fonctionne" />
     <MESSAGE value="Modal css fix&#10;sujet forum fix" />
     <MESSAGE value="List todo - add" />
-    <option name="LAST_COMMIT_MESSAGE" value="List todo - add" />
+    <MESSAGE value="Ajout askForCourse.html&#10;et giveCourse.html&#10;+ form css fix responsive &#10;&#10;-&gt; + maj list todo&#10;&#10;-&gt; besoin de fix le datepicker aussi" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout askForCourse.html&#10;et giveCourse.html&#10;+ form css fix responsive &#10;&#10;-&gt; + maj list todo&#10;&#10;-&gt; besoin de fix le datepicker aussi" />
   </component>
   <component name="WindowStateProjectService">
     <state x="724" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1599577715714">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="724" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1599577715714" />
-    <state x="585" y="88" key="CommitChangelistDialog2" timestamp="1599587564626">
+    <state x="585" y="88" key="CommitChangelistDialog2" timestamp="1599587905179">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="88" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1599587564626" />
+    <state x="585" y="88" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1599587905179" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1599585683597">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -143,10 +148,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="598" y="281" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1599582758283" />
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1599586001004">
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1599587907517">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1599586001004" />
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1599587907517" />
     <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1599582720963">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
