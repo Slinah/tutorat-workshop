@@ -74,9 +74,8 @@
         </p>
         <div class="dateUpRight">Date/Date/Heure</div>
         <div class="nameUpLeft">Nom - Prenom</div>
-        <!--        todo ouverture modal -->
-        <button type="button" class="buttonDownRight">Commenter &nbsp;<i class="far fa-comment"></i></button>
     </section>
+    <div class="commentContainer"><button type="button" onclick="clickOpenBtnModal()">Commenter &nbsp;<i class="far fa-comment"></i></button></div>
 </section>
 <section class="cardContainer">
     <section class="card">
@@ -92,9 +91,8 @@
         </p>
         <div class="dateUpRight">Date/Date/Heure</div>
         <div class="nameUpLeft">Nom - Prenom</div>
-<!--        todo ouverture modal -->
-        <button type="button" class="buttonDownRight">Répondre &nbsp;<i class="far fa-comment"></i></button>
     </section>
+    <div class="commentContainer"><button type="button" onclick="clickOpenBtnModal()">Répondre &nbsp;<i class="far fa-comment"></i></button></div>
     <section class="card">
         <!--        todo liens vers la page du sujet -->
         <p>Lorem ipsum dolor sit amet,
@@ -108,9 +106,8 @@
         </p>
         <div class="dateUpRight">Date/Date/Heure</div>
         <div class="nameUpLeft">Nom - Prenom</div>
-        <!--        todo ouverture modal -->
-        <button type="button" class="buttonDownRight">Répondre &nbsp;<i class="far fa-comment"></i></button>
     </section>
+    <div class="commentContainer"><button type="button" onclick="clickOpenBtnModal()">Répondre &nbsp;<i class="far fa-comment"></i></button></div>
     <section class="card">
         <!--        todo liens vers la page du sujet -->
         <p>Lorem ipsum dolor sit amet,
@@ -124,16 +121,19 @@
         </p>
         <div class="dateUpRight">Date/Date/Heure</div>
         <div class="nameUpLeft">Nom - Prenom</div>
-        <!--        todo ouverture modal -->
-        <button type="button" class="buttonDownRight">Répondre &nbsp;<i class="far fa-comment"></i></button>
     </section>
+    <div class="commentContainer"><button type="button" onclick="clickOpenBtnModal()">Répondre &nbsp;<i class="far fa-comment"></i></button></div>
 </section>
 <section id="modalId" class="modal">
     <div class="container">
         <div class="comment">
             <form action="POST">
-                <textarea class="textinput" placeholder="Comment"></textarea>
-                <button type="submit">Envoyer le commentaire</button>
+                <div contenteditable="true" class="textinput">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Aperiam blanditiis error hic omnis recusandae reiciendis suscipit totam vero voluptas?
+                    A delectus dignissimos esse iste pariatur quis quo quos rem vero!
+                </div>
+                <button type="button">Envoyer le commentaire</button>
             </form>
         </div>
         <div class="closeButton" onclick="clickCloseBtnModal()">
@@ -185,6 +185,11 @@
         var modal = document.getElementById("modalId");
         modal.style.opacity = '0';
         modal.style.zIndex = '-1';
+    }
+    function clickOpenBtnModal(){
+        var modal = document.getElementById("modalId");
+        modal.style.opacity = '1';
+        modal.style.zIndex = '5';
     }
 </script>
 

@@ -1,6 +1,7 @@
 .card{
     position: relative;
     width: 90%;
+    padding: 1em 0 0 0;
 }
 .card p{
     margin: 2em;
@@ -19,6 +20,15 @@
     position: absolute;
     left:20px;
     top:20px;
+}
+.commentContainer{
+    width: 90%;
+    display: flex;
+    flex-flow: row-reverse nowrap;
+    justify-content: flex-start;
+}
+section{
+    margin :2em 0 0.5em 0;
 }
 
 

@@ -11,8 +11,7 @@
     border-radius: 20px;
 }
 .container {
-    max-width: 820px;
-    margin: 0px auto;
+    width: 90%;
     margin-top: 50px;
 }
 
@@ -38,9 +37,10 @@
 }
 
 .textinput {
-    float: left;
-    width: 100%;
     min-height: 70vh;
+    height: 70vh;
+    max-height: 70vh;
+    min-width: 90%;
     outline: none;
     resize: none;
     border: 1px solid grey;
@@ -48,7 +48,11 @@
     background-color: #2D2D2D;
     color: #fff;
     text-align: center;
-    vertical-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+    overflow: hidden;
 }
 .modal button{
     margin: 2em;
