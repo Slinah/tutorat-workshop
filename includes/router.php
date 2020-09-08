@@ -7,8 +7,12 @@ $request = $_SERVER['REQUEST_URI'];
 switch ($request) {
     case '':
     case '/' :
-        header_options(["style", "nav", "button"]);
+        header_options(["style", "nav", "button", "card"]);
         require 'views/home.php';
+        break;
+    case '/cours' :
+        header_options(["style", "nav", "button","card"]);
+        require 'views/cours.php';
         break;
     case '/about' :
         header_options(["style", "nav", "button"]);
