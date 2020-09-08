@@ -1,0 +1,121 @@
+.posts {
+    background-color: #212121;
+    margin: 50px;
+    padding: 15px;
+    border-radius: 12px;
+    display: flex;
+    width: 80%;
+}
+
+
+.vote {
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: inherit;
+}
+
+.vote a {
+    cursor: pointer;
+    font-size: 23px;
+    text-align: center;
+    margin-bottom: 3px;
+    background-color: #044f39;
+    border-radius: 8px;
+}
+
+
+.vote a :hover {
+    background-color: darkorange;
+    color: darkorange;
+}
+
+.right-post a:hover {
+    color: darkorange;
+}
+
+
+.section_haute {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+
+.section {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60vw;
+}
+
+label {
+    background-color: #707070;
+
+    padding: 5px;
+    border-radius: 8px;
+    margin: 5px;
+}
+
+input {
+    width: 40vw;
+    color: #1a1a1a;
+    height: inherit;
+}
+
+textarea, select, option {
+    color: #1a1a1a;
+}
+
+
+.description {
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.submit {
+
+}
+
+.btn {
+    display: flex;
+    justify-content: revert;
+    width: 100%;
+}
+
+
+.error {
+
+
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    width: inherit;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+
+
+
+
+
+
+
+
+

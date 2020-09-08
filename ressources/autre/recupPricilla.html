@@ -1,0 +1,274 @@
+
+
+<!DOCTYPE html> <!-- cdn font awesome-->
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>ScratchOverflow</title>
+
+    {% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/forum.css') }}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Lato|Roboto:400,900' rel='stylesheet' type='text/css'>
+    {% endblock %}
+</head>
+
+<body>
+<header id="header">
+    {# Message de succès #}
+    {% for message in app.flashes('success') %}
+    <div class="alert alert-success">
+        {{ message }}
+    </div>
+    {% endfor %}
+
+    {# Message d'erreur #}
+    {% for message in app.flashes('error') %}
+    <div class="alert alert-success"> {# voir classe pour erreur #}
+        {{ message }}
+    </div>
+    {% endfor %}
+
+    {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
+    {% else %}
+    <div class="navbar-collapse navbar-light">
+        <ul class="navbar-nav h3">
+            <li class="nav-item">
+                <a class="nav-link pr-5 h3"  href="{{ path('app_login') }}" style="float: right">Se connecter</a>
+            </li>
+        </ul>
+    </div>
+    {% endif %}
+
+    {% if is_granted('ROLE_USER') %}
+    <div class="navbar-collapse">
+        <ul class="navbar-nav mr-5">
+            <li class="nav-item">
+                <a class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"  href="#" style="float: right">{{ app.user.nom }} {{ app.user.prenom }}<img src="https://img.icons8.com/nolan/64/edit-user-male.png"></a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="{{ path('my_profil') }}">Mon profil</a>
+                    <a class="dropdown-item" href="{{ path('app_logout') }}">Se déconnecter</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    {% elseif is_granted('ROLE_ADMIN') %}
+    <div class="navbar-collapse">
+        <ul class="navbar-nav mr-5">
+            <li class="nav-item">
+                <a class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"  href="#" style="float: right">{{ app.user.nom }} {{ app.user.prenom }}<img src="https://img.icons8.com/nolan/64/edit-user-male.png"></a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="{{ path('my_profil') }}">Mon profil</a>
+                    <a class="dropdown-item" href="{{ path('admin') }}">Pannel admin</a>
+                    <a class="dropdown-item" href="{{ path('stats_global') }}">Stats</a>
+                    <a class="dropdown-item" href="{{ path('app_logout') }}">Se déconnecter</a>
+
+                </div>
+            </li>
+        </ul>
+    </div>
+    {% endif %}
+
+    <nav class="navbar navbar-expand navbar-light">
+        <a class="navbar-brand " href="{{ path('home') }}" style="font-size: 35px"><img src="https://img.icons8.com/dotty/80/000000/elephant.png">ScratchOverFlow</a>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+            <ul class="navbar-nav h3">
+                <li class="nav-item dropdown ">
+                    <a class="nav-link dropdown-toggle pr-5" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                        Les cours
+                    </a>
+                    <div class="dropdown-menu pr-5" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item h4 p-4" href="{{ path('courses') }}">Tutorats</a>
+                        <a class="dropdown-item  h4 p-4" href="{{ path('internship') }}">Les Stages</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link pr-5 h3" href="{{ path('give_courses') }}">Donner un cours</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link pr-5 h3" href="{{ path('suggest_courses') }}">Suggérer un cours</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link pr-4 h3" href="{{ path('forum') }}">Forum</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    {# End navBar #}
+
+    {% block titre %}{% endblock %}
+</header>
+
+{% block body %}{% endblock %}
+
+{% block javascripts %}
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="{{ asset('js/jquery-1.12.4.js') }}"></script>
+<script src="{{ asset('js/script.js') }}"></script>
+{% endblock %}
+
+<footer>
+    {# NavBar #}
+    {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('my_profil') }}">Mon profil</a> |
+    {% endif %}
+    <a href="{{ path('rules') }}">Règlement</a> | <a href="{{ path('contact_us') }}">Nous contacter</a>
+    {# End navBar #}
+</footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% extends 'base.html.twig' %}
+
+{% block titre %}
+<div class="jumbotron" style="margin: 110px; background: none; text-align: center; margin-right:59% ">
+    <h1 class="display-4 pb-5">Tutorat & Entraide</h1>
+
+    <a href="{{ path('courses') }}">
+        <div class="button">
+            <ul>
+                <li>
+                    Les cours
+                    <span></span><span></span><span></span><span></span>
+                </li>
+            </ul>
+        </div>
+    </a>
+</div>
+{% endblock %}
+
+{% block body %}
+<div class="media">
+    <img src="image/tutorat1.jpg" class="mr-5" alt="Le tutorat c'est quoi?" width="30%">
+    <div class="media-body">
+        <h2 class="mt-4">Media heading</h2>
+        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
+            Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
+            nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+        <div class="button">
+            <ul>
+                <li>
+                    En savoir plus
+                    <span></span><span></span><span></span><span></span>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <img src="image/tutorat2.jpg" class="mr-5 ml-5" alt="Participer" width="10%" height="20%">
+    <div class="col">
+        <div class="card">
+            <h4>Les cours</h4>
+            <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
+                Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
+                nisi vulputate fringilla. Donec lacinia congue felis in faucibus. </p>
+            <a href="{{ path('courses') }}" class="button">
+                <div>
+                    <ul>
+                        <li>
+                            En savoir plus
+                            <span></span><span></span><span></span><span></span>
+                        </li>
+                    </ul>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="card">
+            <h4>Donner un cours</h4>
+            <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
+                Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
+                nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+            <a href="{{ path('give_courses') }}" class="button">
+                <div>
+                    <ul>
+                        <li>
+                            En savoir plus
+                            <span></span><span></span><span></span><span></span>
+                        </li>
+
+                    </ul>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="card">
+            <h4>Suggérer un cours</h4>
+            <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
+                Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
+                nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+
+            <a href="{{ path('suggest_courses') }}" class="button">
+                <div>
+                    <ul>
+                        <li>
+                            En savoir plus
+                            <span></span><span></span><span></span><span></span>
+                        </li>
+                    </ul>
+                </div>
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<div class="media">
+    <div class="media-body">
+        <h2 class="mt-4">Media heading</h2>
+        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
+            Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
+            nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+        <a href="{{ path('courses') }}" class="button">
+            <div>
+                <ul>
+                    <li>
+                        Tutorer
+                        <span></span><span></span><span></span><span></span>
+                    </li>
+                </ul>
+            </div>
+        </a>
+        <a href="{{ path('rules') }}" class="button">
+            <div>
+                <ul>
+                    <li>
+                        Le règlement
+                        <span></span><span></span><span></span><span></span>
+                    </li>
+                </ul>
+            </div>
+        </a>
+    </div>
+    <img src="image/tutorat3.jpg" class="mr-5" alt="Le tutorat c'est quoi?" width="40%">
+</div>
+
+{% endblock %}
