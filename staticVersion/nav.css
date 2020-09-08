@@ -112,7 +112,7 @@ ul {
         justify-content: space-evenly;
         align-items: center;
     }
-    #navDesktop li a{
+    #navDesktop li:nth-child(2) a{
         font-weight: bold;
     }
 }

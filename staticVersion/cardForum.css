@@ -1,0 +1,32 @@
+.card{
+    position: relative;
+}
+.card .classeDownRight{
+    position: absolute;
+    right: 3%;
+    bottom: 3%;
+}
+.card .dateUpRight{
+    position: absolute;
+    right:3%;
+    top:3%;
+}
+.card .nameUpLeft{
+    position: absolute;
+    left:3%;
+    top:3%;
+}
+
+.card .buttonDownLeft{
+    position: absolute;
+    left:3%;
+    bottom:3%;
+    font-size: 1.05em;
+}
+
+@media (min-width: 1200px){
+
+}
+@media (min-width: 1920px){
+
+}

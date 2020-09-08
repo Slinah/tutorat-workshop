@@ -11,6 +11,9 @@ button{
 .card button{
     border: 2px #606060 solid;
 }
+.headerTitle button{
+    border: 2px #606060 solid;
+}
 button:hover{
     border: 2px white solid;
     background: #2D2D2D;
