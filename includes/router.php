@@ -23,6 +23,10 @@ switch ($request) {
         header_options(["style", "nav", "button", "card", "cardForum"]);
         require 'views/forum.php';
         break;
+    case '/admin' :
+        header_options(["style", "nav", "button", "card"]);
+        require 'views/panel_admin.php';
+        break;
     case '/forum/create' :
         header_options(["style", "forum", "nav", "button"]);
         require 'views/forum_create.php';
