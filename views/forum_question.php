@@ -19,83 +19,95 @@ if (is_null($question)) {
 }
 ?>
 
-<div class="posts">
-    <div class="vote">
-        <a>
-            ➕
-        </a>
-        <p>
-            <?php
-            echo $question->votes;
-            ?>
-        </p>
-    </div>
-    <div class="right-post">
-        <p>
-            <?php
-            echo $question->prenom;
-            ?>
-
-            <?php
-            echo date('j/m', strtotime($question->date));
-            ?>
-        </p>
-
-        <h3>
-            <a href="/forum/<?php
-            echo $question->id_question;
-            ?>">
-                <?php
-                echo $question->titre;
-                ?>
+    <div class="posts">
+        <div class="vote">
+            <a>
+                ➕
             </a>
-            <?php
-            echo $question->status == 0 ? "❓" : "✔"
-            ?>
-        </h3>
-        <p>
-            <?php
-            echo $question->description;
-            ?>
-        </p>
-        <p>
-            <?php
-            echo $question->intitule;
-            ?>
-        </p>
+            <p>
+                <?php
+                echo $question->votes;
+                ?>
+            </p>
+        </div>
+        <div class="right-post">
+            <p>
+                <?php
+                echo $question->prenom;
+                ?>
 
-        <p>Nombre de com :
-            <?php
-            echo $question->comments;
-            ?>
-        </p>
+                <?php
+                echo date('j/m', strtotime($question->date));
+                ?>
+            </p>
+
+            <h3>
+                <a href="/forum/<?php
+                echo $question->id_question;
+                ?>">
+                    <?php
+                    echo $question->titre;
+                    ?>
+                </a>
+                <?php
+                echo $question->status == 0 ? "❓" : "✔"
+                ?>
+            </h3>
+            <p>
+                <?php
+                echo $question->description;
+                ?>
+            </p>
+            <p>
+                <?php
+                echo $question->intitule;
+                ?>
+            </p>
+
+            <p>Nombre de com :
+                <?php
+                echo $question->comments;
+                ?>
+            </p>
+        </div>
     </div>
-</div>
 
 <?php
 
 $t = http_get("http://localhost:4567/api/getCommentaire/" . $id_question);
-foreach ($t as $c) {
+if (!is_null($t)) {
+
+    foreach ($t as $c) {
 //    var_dump($c);
+        ?>
+
+        <div class="comment">
+            <p>
+                <?php
+                echo $c->nom;
+                ?> - <?php
+                echo $c->prenom;
+                ?></p>
+            <h3><?php
+                echo $c->contenu;
+                ?></h3>
+            <p><?php
+                echo date('j/m', strtotime($c->dateCreation));
+                ?></p>
+            <a href="">reply</a>
+        </div>
+
+
+        <?php
+    }
+} else {
     ?>
 
-    <div class="comment">
-        <p>
-            <?php
-            echo $c->nom;
-            ?> - <?php
-            echo $c->prenom;
-            ?></p>
-        <h3><?php
-            echo $c->contenu;
-            ?></h3>
-        <p><?php
-            echo date('j/m', strtotime($c->dateCreation));
-            ?></p>
-        <a href="">reply</a>
-    </div>
+    <p>Auccun commentaire </p>
 
 
     <?php
+
 }
+
 ?>

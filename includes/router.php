@@ -1,6 +1,7 @@
 <?php
 
 require_once "composants/header_options.php";
+require_once "composants/footer_options.php";
 
 
 $request = $_SERVER['REQUEST_URI'];

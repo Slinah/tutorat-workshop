@@ -6,6 +6,10 @@ nav {
     padding: 1em
 }
 
+.logo {
+    height: 3vh;
+}
+
 ul {
     margin: 1em 0 0 0;
     padding: 0
