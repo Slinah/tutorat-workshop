@@ -1,11 +1,33 @@
-<nav>
-    <h1 class="nav-h1"><a href="/">ScratchOverFlow</a></h1>
-    <ul class="nav-list">
-        <li><a href="">Les Cours</a></li>
-        <li><a href="">Donner un cours</a></li>
-        <li><a href="">Suggerer un cours</a></li>
-        <li><a href="forum">Forum</a></li>
-    </ul>
-    <a class="nav-profile" href="profile">Profile</a>
-</nav>
-<div class="nav-spacer"></div>
+<header class="navHeader">
+    <div id="navTop">
+        <a href="#"><img src="/ressources/img/favicon.png" alt="logo" class="logo"></a>
+        <a class="disabled" onclick="clickNavBtn();" id="navBtnPhone">
+            <div id="navBtn"></div>
+        </a>
+    </div>
+    <div id="navHidden">
+        <nav>
+            <ul>
+                <!--                todo liens menu-->
+                <li><a href="/cours" onclick="clickNavBtn();">Les cours</a></li>
+                <li><a href="/cours/give" onclick="clickNavBtn();">Donner un cours</a></li>
+                <li><a href="/cours/suggest" onclick="clickNavBtn();">Suggérer un cours</a></li>
+                <li><a href="/forum" onclick="clickNavBtn();">Forum</a></li>
+                <li><a href="/profile" onclick="clickNavBtn();">Mon profil</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="navDesktop">
+        <ul>
+            <li><a href="/"><img src="/ressources/img/favicon.png" alt="logo" class="logo"></a></li>
+            <li><a href="/">Scratch Overflow</a></li>
+            <li><a href="/cours">Les cours</a></li>
+            <li><a href="/cours/give">Donner un cours</a></li>
+            <li><a href="/cours/suggest">Suggérer un cours</a></li>
+            <li><a href="/forum">Forum</a></li>
+            <!--            todo si connecter afficher 'Mon profil', si ce n'est pas le cas, afficher 'Connexion / Inscription' -->
+            <li><a href="/profile">Mon profil</a></li>
+        </ul>
+    </div>
+</header>
+

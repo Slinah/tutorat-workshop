@@ -1,9 +1,20 @@
-</div>
 <footer>
-    <a href="profile">Mon profil</a> |
-    <a href="reglement">Règlement</a> | <a href="contact">Nous contacter</a>
+    <!--    todo liens pour le footer -->
+    <a href="">
+        Mon profil
+    </a>
+    <a href="">
+        Règlements
+    </a>
+    <a href="">
+        Nous contacter
+    </a>
 </footer>
+<!-- Script Lottie & bodymovin ae -->
 
 
 </body>
 </html>
+
+
+

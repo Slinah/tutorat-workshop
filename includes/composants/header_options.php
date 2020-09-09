@@ -7,7 +7,7 @@ function header_options(array $styles)
 
         echo "<link rel='stylesheet' href='/ressources/css/" . $s . ".css'>";
     }
-    echo "</head><body><div class='page'>";
+    echo "</head><body>";
 }
 
 
