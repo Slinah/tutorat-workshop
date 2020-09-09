@@ -90,6 +90,9 @@ ul {
 #navDesktop{
     display: none;
 }
+.underNav{
+    height: 6vh;
+}
 
 /* Version Mobile, changement d'affichage pour la nav bar */
 @media (min-width: 1200px){

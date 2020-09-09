@@ -21,7 +21,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: #2D2D2D
+    background-color: #2D2D2D;
 }
 
 a, article, aside, div, footer, hr, section, svg, p {
@@ -80,7 +80,6 @@ footer{
     flex-flow: row nowrap;
     padding: 1em 0;
 }
-
 @media (min-width: 1200px){
     *{
         font-size: 14px;

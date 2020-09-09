@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- todo title site tutorat -->
+    <title>Tutorat web App</title>
+    <!-- todo description site tutorat -->
+    <meta name="description" content="description site tutorat">
+    <link rel="icon" type="image/png" href="images/favIcon.png"/>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="button.css">
+    <link rel="stylesheet" href="card.css">
+    <link rel="stylesheet" href="cardCour.css">
+    <link rel="stylesheet" href="profil.css">
+    <script src="https://kit.fontawesome.com/58f998f035.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!--        todo liens (onclick) js sur tous les buttons / envoie des données dans un formulaire etc -->
+<!-- Nav Bar -->
+<header class="navHeader">
+    <div id="navTop">
+        <!--        todo ajout du logo -->
+        <a href="#"><img src="images" alt="logo"></a>
+        <a class="disabled" onclick="clickNavBtn();" id="navBtnPhone">
+            <div id="navBtn"></div>
+        </a>
+    </div>
+    <div id="navHidden">
+        <nav>
+            <ul>
+                <!--                todo liens menu-->
+                <li><a href="#" onclick="clickNavBtn();">Les cours</a></li>
+                <li><a href="#" onclick="clickNavBtn();">Donner un cours</a></li>
+                <li><a href="#" onclick="clickNavBtn();">Suggérer un cours</a></li>
+                <li><a href="#" onclick="clickNavBtn();">Forum</a></li>
+                <li><a href="#" onclick="clickNavBtn();">Mon profil</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="navDesktop">
+        <ul>
+            <li><a href="#"><img src="images" alt="logo"></a></li>
+            <li><a href="#">Scratch Overflow</a></li>
+            <li><a href="#">Les cours</a></li>
+            <li><a href="#">Donner un cours</a></li>
+            <li><a href="#">Suggérer un cours</a></li>
+            <li><a href="#">Forum</a></li>
+            <!--            todo si connecter afficher 'Mon profil', si ce n'est pas le cas, afficher 'Connexion / Inscription' -->
+            <li><a href="#">Mon profil</a></li>
+        </ul>
+    </div>
+</header>
+<section id="backgroundTutorat">
+    <img src="images/imageBackground.jpg" alt="background Tutorat">
+</section>
+<section class="headerTitle">
+    <h2>Profil</h2>
+</section>
+<section id="profilSection">
+    <div>
+        <h2>Nom</h2>
+        <h2>Prenom</h2>
+        <h2>Classe</h2>
+        <h2>Expérience :</h2>
+    </div>
+    <div class="exp">
+        <div class="experienceContainer">
+            <div class="whiteBack">
+                <div id="experienceColor"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="headerTitle">
+    <h2>Mes cours à venir</h2>
+</section>
+<section class="cardContainer">
+    <section class="card">
+        <header>Cour 1</header>
+        <p>Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.
+            Duis vel est vestibulum ligula
+            porta dapibus.
+            Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.
+            Duis vel est vestibulum ligula
+            porta dapibus.
+        </p>
+        <button type="button">S'inscrire</button>
+        <div class="classeUpLeft">Classe</div>
+        <div class="dateUpRight">Date/Date</div>
+        <div class="wifiDownRight"><i class="fas fa-wifi"></i></div>
+    </section>
+    <section class="card">
+        <header>Cour 2</header>
+        <p>Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.
+            Duis vel est vestibulum ligula
+            porta dapibus.
+            Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.
+            Duis vel est vestibulum ligula
+            porta dapibus.
+        </p>
+        <button type="button">S'inscrire</button>
+        <div class="classeUpLeft">Classe</div>
+        <div class="dateUpRight">Date/Date</div>
+        <div class="wifiDownRight"><i class="fas fa-wifi"></i></div>
+    </section>
+    <section class="card">
+        <header>Cour 3</header>
+        <p>Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.
+            Duis vel est vestibulum ligula
+            porta dapibus.
+            Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.
+            Duis vel est vestibulum ligula
+            porta dapibus.
+        </p>
+        <button type="button">S'inscrire</button>
+        <div class="classeUpLeft">Classe</div>
+        <div class="dateUpRight">Date/Date</div>
+        <div class="wifiDownRight"><i class="fas fa-wifi"></i></div>
+    </section>
+</section>
+<section class="headerTitle">
+    <h2>Mes spécialités</h2>
+</section>
+<section class="specialiteContainer">
+    <div class="specialite">HTML/CSS</div>
+    <div class="specialite">PHP</div>
+    <div class="specialite">C</div>
+    <div class="specialite">C#</div>
+    <div class="specialite">C++</div>
+    <div class="specialite">Design</div>
+    <div class="specialite">Bootstrap</div>
+    <div class="specialite">Réseaux</div>
+</section>
+<section class="headerTitle">
+    <h2>Mes notifications</h2>
+</section>
+<section class="cardContainer">
+    <section class="card">
+        <header>Notification 1</header>
+        <p>Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.
+            Duis vel est vestibulum ligula
+            porta dapibus.
+            Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.
+            Duis vel est vestibulum ligula
+            porta dapibus.
+        </p>
+        <button type="button">Supprimer</button>
+        <div class="dateUpRight">Date/Date</div>
+    </section>
+    <section class="card">
+        <header>Notification 2</header>
+        <p>Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.
+            Duis vel est vestibulum ligula
+            porta dapibus.
+            Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.
+            Duis vel est vestibulum ligula
+            porta dapibus.
+        </p>
+        <button type="button">Supprimer</button>
+        <div class="dateUpRight">Date/Date</div>
+    </section>
+    <section class="card">
+        <header>Notification 3</header>
+        <p>Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.
+            Duis vel est vestibulum ligula
+            porta dapibus.
+            Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.
+            Duis vel est vestibulum ligula
+            porta dapibus.
+        </p>
+        <button type="button">Supprimer</button>
+        <div class="dateUpRight">Date/Date</div>
+    </section>
+</section>
+<footer>
+    <!--    todo liens pour le footer -->
+    <a href="">
+        Mon profil
+    </a>
+    <a href="">
+        Règlements
+    </a>
+    <a href="">
+        Nous contacter
+    </a>
+</footer>
+<!-- Script Lottie & bodymovin ae -->
+<script src="lottie.js"></script>
+<script src="navBtn.js"></script>
+<script>
+    var navBarBtn = 0;
+
+    function clickNavBtn() {
+        animationNavBtn.play();
+        if (navBarBtn === 0) {
+            document.getElementById("navHidden").style.zIndex = '2';
+            document.getElementById("navHidden").style.opacity = '100%';
+        } else {
+            document.getElementById("navHidden").style.opacity = '0%';
+        }
+        setTimeout(swapingAnimation, 350)
+    }
+
+    function swapingAnimation() {
+        if (navBarBtn === 0) {
+            animationNavBtn.pause();
+            animationNavBtn.setDirection(-1);
+            navBarBtn = 1;
+        } else {
+            animationNavBtn.pause();
+            document.getElementById("navHidden").style.zIndex = '-1';
+            animationNavBtn.setDirection(1);
+            navBarBtn = 0;
+        }
+    }
+</script>
+
+</body>
+</html>
