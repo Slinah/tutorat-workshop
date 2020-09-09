@@ -45,10 +45,12 @@ $question = http_get("http://localhost:4567/api/getQuestion/" . $id_question)[0]
             <?php echo date('j/m/Y', strtotime($question->date)); ?>
         </div>
         <div class="nameUpLeft">
-            Nom - <?php echo $question->prenom; ?>
+            Nom - <?php echo $question->prenom; ?><br>
+            vote :
+            <?php echo $question->votes; ?>
         </div>
         <div class="vote">
-            <?php echo $question->votes; ?>
+
         </div>
     </section>
     <div class="commentContainer">
@@ -73,15 +75,23 @@ $question = http_get("http://localhost:4567/api/getQuestion/" . $id_question)[0]
                     ?>
                 </p>
                 <div class="dateUpRight"><?php
-                    echo date('j/m/Y', strtotime($c->dateCreation));
+                    echo date('j/m/Y H:i:s', strtotime($c->dateCreation));
                     ?></div>
                 <div class="nameUpLeft">
                     <?php
                     echo $c->nom;
                     ?> - <?php
                     echo $c->prenom;
-                    ?></div>
+                    ?>
+
+                </div>
             </section>
+            <?php
+            if ($c->sub > 0) {
+                echo "Voire Plus";
+            }
+            ?>
+
             <div class="commentContainer">
                 <button type="button" onclick="clickOpenBtnModal()">Répondre &nbsp;<i class="far fa-comment"></i>
                 </button>
@@ -98,6 +108,7 @@ $question = http_get("http://localhost:4567/api/getQuestion/" . $id_question)[0]
 
 </section>
 <section id="modalId" class="modal">
+    <input type="hidden" id="personne_id" value="<?php echo "6593c62a-f0e3-11ea-adc1-0242ac120002"; ?>">
     <div class="container">
         <div class="comment">
             <form action="POST">
