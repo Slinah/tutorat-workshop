@@ -9,6 +9,7 @@ switch ($request) {
     case '/' :
         header_options(["style", "nav", "button", "card"]);
         require 'views/home.php';
+        footer_options(["lottie","navBtn",]);
         break;
     case '/cours' :
         header_options(["style", "nav", "button","card"]);
