@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- todo title site tutorat -->
+    <title>Tutorat web App</title>
+    <!-- todo description site tutorat -->
+    <meta name="description" content="description site tutorat">
+    <link rel="icon" type="image/png" href="images/favIcon.png"/>
+    <link rel="stylesheet" href="../ressources/css/style.css">
+    <link rel="stylesheet" href="../ressources/css/nav.css">
+    <link rel="stylesheet" href="../ressources/css/button.css">
+    <link rel="stylesheet" href="../ressources/css/form.css">
+    <script src="https://kit.fontawesome.com/58f998f035.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!--        todo liens (onclick) js sur tous les buttons / envoie des données dans un formulaire etc -->
+<!-- Nav Bar -->
+<header class="navHeader">
+    <div id="navTop">
+<!--        todo ajout du logo -->
+        <a href="#"><img src="images" alt="logo"></a>
+        <a class="disabled" onclick="clickNavBtn();" id="navBtnPhone"><div id="navBtn"></div></a>
+    </div>
+    <div id="navHidden">
+        <nav>
+            <ul>
+<!--                todo liens menu-->
+                <li><a href="#" onclick="clickNavBtn();">Les cours</a></li>
+                <li><a href="#" onclick="clickNavBtn();">Donner un cours</a></li>
+                <li><a href="#" onclick="clickNavBtn();">Suggérer un cours</a></li>
+                <li><a href="#" onclick="clickNavBtn();">Forum</a></li>
+                <li><a href="#" onclick="clickNavBtn();">Mon profil</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="navDesktop">
+        <ul>
+            <li><a href="#"><img src="images" alt="logo"></a></li>
+            <li><a href="#">Scratch Overflow</a></li>
+            <li><a href="#">Les cours</a></li>
+            <li><a href="#">Donner un cours</a></li>
+            <li><a href="#">Suggérer un cours</a></li>
+            <li><a href="#">Forum</a></li>
+<!--            todo si connecter afficher 'Mon profil', si ce n'est pas le cas, afficher 'Connexion / Inscription' -->
+            <li><a href="#">Mon profil</a></li>
+        </ul>
+    </div>
+</header>
+<div class="login-box">
+    <h2>Connexion</h2>
+    <form>
+        <div class="user-box">
+            <input type="text" name="" required="">
+            <label>Nom d'utilisateur</label>
+        </div>
+        <div class="user-box">
+            <input type="password" name="" required="">
+            <label>Mot de passe</label>
+        </div>
+        <a href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Se connecter
+        </a>
+    </form>
+</div>
+<!-- Script Lottie & bodymovin ae -->
+<script src="../ressources/js/lottie.js"></script>
+<script src="../ressources/js/navBtn.js"></script>
+<script>
+    var navBarBtn = 0;
+    function clickNavBtn(){
+        animationNavBtn.play();
+        if (navBarBtn === 0) {
+            document.getElementById("navHidden").style.zIndex = '2';
+            document.getElementById("navHidden").style.opacity = '100%';
+        } else {
+            document.getElementById("navHidden").style.opacity = '0%';
+        }
+        setTimeout(swapingAnimation, 350)
+    }
+    function swapingAnimation() {
+        if (navBarBtn === 0) {
+            animationNavBtn.pause();
+            animationNavBtn.setDirection(-1);
+            navBarBtn = 1;
+        } else {
+            animationNavBtn.pause();
+            document.getElementById("navHidden").style.zIndex = '-1';
+            animationNavBtn.setDirection(1);
+            navBarBtn = 0;
+        }
+    }
+</script>
+
+</body>
+</html>
