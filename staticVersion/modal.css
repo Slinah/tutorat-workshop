@@ -7,35 +7,30 @@
     left: 5vw;
     opacity: 0;
     z-index: -1;
-    background-color: black;
+    background-color: #1B1B1B;
     border-radius: 20px;
 }
 .container {
     width: 90%;
     margin-top: 50px;
 }
-
 .comment {
     float: left;
     width: 100%;
     height: auto;
 }
-
 .commenter {
     float: left;
 }
-
 .commenter img {
     width: 35px;
     height: 35px;
 }
-
 .comment-text-area {
     float: left;
     width: 100%;
     height: auto;
 }
-
 .textinput {
     min-height: 70vh;
     height: 70vh;

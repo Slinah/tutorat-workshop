@@ -12,13 +12,11 @@
     background: #fff;
     border-radius: .3em
 }
-
 .whiteBack div {
     height: 20px;
-    background: #b24c59;
+    background: #044F39;
     border-radius: .3em 0 0 .3em
 }
-
 #experienceColor {
     width: 200px
 }
@@ -46,10 +44,9 @@
         align-items: center;
         flex-flow: row wrap;
     }
-
     .whiteBack div {
         height: 20px;
-        background: #b24c59;
+        background: #044F39;
         border-radius: .3em 0 0 .3em;
         width: 0 !important;
         transition: width 1s ease-in-out
