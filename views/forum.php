@@ -1,5 +1,4 @@
 <?php
-
 include_once "includes/composants/nav-bar.php";
 
 ?>
