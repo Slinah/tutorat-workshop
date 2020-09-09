@@ -14,11 +14,9 @@
     <link rel="stylesheet" href="../ressources/css/nav.css">
     <link rel="stylesheet" href="../ressources/css/button.css">
     <link rel="stylesheet" href="../ressources/css/card.css">
-    <link rel="stylesheet" href="../ressources/css/cardCour.css">
+    <link rel="stylesheet" href="../ressources/css/cardSujetForum.css">
+    <link rel="stylesheet" href="../ressources/css/modal.css">
     <script src="https://kit.fontawesome.com/58f998f035.js" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <!-- Script perso -->
-    <script src="../ressources/js/fonction.js"></script>
 </head>
 <body>
 
@@ -58,16 +56,13 @@
 <section id="backgroundTutorat">
     <img src="../ressources/img/imageBackground.jpg" alt="background Tutorat">
 </section>
-<section>
-    <p>Tu ne trouves pas le cours que tu voulais ?</p>
-    <button>Suggérer un cour</button>
-</section>
 <section class="headerTitle">
-    <h2>Cette semaine</h2>
+    <h2>Titre du sujet</h2>
 </section>
 <section class="cardContainer">
     <section class="card">
-        <header>Cour 1</header>
+        <!--        todo liens vers la page du sujet -->
+        <header>Post principal</header>
         <p>Lorem ipsum dolor sit amet,
             consectetur adipiscing elit.
             Duis vel est vestibulum ligula
@@ -77,33 +72,14 @@
             Duis vel est vestibulum ligula
             porta dapibus.
         </p>
-        <button type="button">S'inscrire</button>
-        <div class="classeUpLeft">Classe</div>
-        <div class="dateUpRight">Date/Date</div>
-        <div class="wifiDownRight"><i class="fas fa-wifi"></i></div>
+        <div class="dateUpRight">Date/Date/Heure</div>
+        <div class="nameUpLeft">Nom - Prenom</div>
     </section>
-    <section class="card">
-        <header>Cour 2</header>
-        <p>Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit.
-            Duis vel est vestibulum ligula
-            porta dapibus.
-            Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit.
-            Duis vel est vestibulum ligula
-            porta dapibus.
-        </p>
-        <button type="button">S'inscrire</button>
-        <div class="classeUpLeft">Classe</div>
-        <div class="dateUpRight">Date/Date</div>
-    </section>
-</section>
-<section class="headerTitle">
-    <h2>Semaine prochaine</h2>
+    <div class="commentContainer"><button type="button" onclick="clickOpenBtnModal()">Commenter &nbsp;<i class="far fa-comment"></i></button></div>
 </section>
 <section class="cardContainer">
     <section class="card">
-        <header>Cour 1</header>
+        <!--        todo liens vers la page du sujet -->
         <p>Lorem ipsum dolor sit amet,
             consectetur adipiscing elit.
             Duis vel est vestibulum ligula
@@ -113,13 +89,12 @@
             Duis vel est vestibulum ligula
             porta dapibus.
         </p>
-        <button type="button">S'inscrire</button>
-        <div class="classeUpLeft">Classe</div>
-        <div class="dateUpRight">Date/Date</div>
-        <div class="wifiDownRight"><i class="fas fa-wifi"></i></div>
+        <div class="dateUpRight">Date/Date/Heure</div>
+        <div class="nameUpLeft">Nom - Prenom</div>
     </section>
+    <div class="commentContainer"><button type="button" onclick="clickOpenBtnModal()">Répondre &nbsp;<i class="far fa-comment"></i></button></div>
     <section class="card">
-        <header>Cour 2</header>
+        <!--        todo liens vers la page du sujet -->
         <p>Lorem ipsum dolor sit amet,
             consectetur adipiscing elit.
             Duis vel est vestibulum ligula
@@ -129,12 +104,12 @@
             Duis vel est vestibulum ligula
             porta dapibus.
         </p>
-        <button type="button">S'inscrire</button>
-        <div class="classeUpLeft">Classe</div>
-        <div class="dateUpRight">Date/Date</div>
+        <div class="dateUpRight">Date/Date/Heure</div>
+        <div class="nameUpLeft">Nom - Prenom</div>
     </section>
+    <div class="commentContainer"><button type="button" onclick="clickOpenBtnModal()">Répondre &nbsp;<i class="far fa-comment"></i></button></div>
     <section class="card">
-        <header>Cour 3</header>
+        <!--        todo liens vers la page du sujet -->
         <p>Lorem ipsum dolor sit amet,
             consectetur adipiscing elit.
             Duis vel est vestibulum ligula
@@ -144,32 +119,28 @@
             Duis vel est vestibulum ligula
             porta dapibus.
         </p>
-        <button type="button">S'inscrire</button>
-        <div class="classeUpLeft">Classe</div>
-        <div class="dateUpRight">Date/Date</div>
-        <div class="wifiDownRight"><i class="fas fa-wifi"></i></div>
+        <div class="dateUpRight">Date/Date/Heure</div>
+        <div class="nameUpLeft">Nom - Prenom</div>
     </section>
+    <div class="commentContainer"><button type="button" onclick="clickOpenBtnModal()">Répondre &nbsp;<i class="far fa-comment"></i></button></div>
 </section>
-<section class="headerTitle">
-    <h2>Plus tard</h2>
-</section>
-<section class="cardContainer">
-    <section class="card">
-        <header>Cour 1</header>
-        <p>Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit.
-            Duis vel est vestibulum ligula
-            porta dapibus.
-            Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit.
-            Duis vel est vestibulum ligula
-            porta dapibus.
-        </p>
-        <button type="button">S'inscrire</button>
-        <div class="classeUpLeft">Classe</div>
-        <div class="dateUpRight">Date/Date</div>
-        <div class="wifiDownRight"><i class="fas fa-wifi"></i></div>
-    </section>
+<section id="modalId" class="modal">
+    <div class="container">
+        <div class="comment">
+            <form action="POST">
+                <div contenteditable="true" class="textinput" id="modalTxt">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Aperiam blanditiis error hic omnis recusandae reiciendis suscipit totam vero voluptas?
+                    A delectus dignissimos esse iste pariatur quis quo quos rem vero!
+                </div>
+                <button type="button" onclick="recuperationTxtModal()">Envoyer le commentaire</button>
+            </form>
+        </div>
+        <div class="closeButton" onclick="clickCloseBtnModal()">
+            <i class="far fa-times-circle"></i>
+        </div>
+    </div>
+
 </section>
 <footer>
 <!--    todo liens pour le footer -->
@@ -184,33 +155,7 @@
     </a>
 </footer>
 <!-- Script Lottie & bodymovin ae -->
-<script src="../ressources/js/lottie.js"></script>
-<script src="../ressources/js/navBtn.js"></script>
-<script>
-    var navBarBtn = 0;
-    function clickNavBtn(){
-        animationNavBtn.play();
-        if (navBarBtn === 0) {
-            document.getElementById("navHidden").style.zIndex = '2';
-            document.getElementById("navHidden").style.opacity = '100%';
-        } else {
-            document.getElementById("navHidden").style.opacity = '0%';
-        }
-        setTimeout(swapingAnimation, 350)
-    }
-    function swapingAnimation() {
-        if (navBarBtn === 0) {
-            animationNavBtn.pause();
-            animationNavBtn.setDirection(-1);
-            navBarBtn = 1;
-        } else {
-            animationNavBtn.pause();
-            document.getElementById("navHidden").style.zIndex = '-1';
-            animationNavBtn.setDirection(1);
-            navBarBtn = 0;
-        }
-    }
-</script>
+
 
 </body>
 </html>

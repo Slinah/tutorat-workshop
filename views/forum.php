@@ -2,7 +2,6 @@
 
 include_once "includes/composants/nav-bar.php";
 
-
 ?>
 
 
@@ -22,8 +21,6 @@ include_once "includes/composants/nav-bar.php";
     <?php
     foreach (http_get("http://localhost:4567/api/getForumQuestions") as $p) {
         ?>
-
-
         <section class="card">
             <!--        todo liens vers la page du sujet -->
             <header><a href="/forum/<?php echo $p->id_question; ?>">
@@ -58,7 +55,6 @@ include_once "includes/composants/nav-bar.php";
                 <?php
                 echo $p->prenom;
                 ?>
-
             </div>
             <button type="button" class="buttonDownLeft"><i class="far fa-thumbs-up"></i> <?php
                 echo $p->votes;
@@ -66,6 +62,8 @@ include_once "includes/composants/nav-bar.php";
         </section>
         <?php
     }
+
+
     ?>
 
 

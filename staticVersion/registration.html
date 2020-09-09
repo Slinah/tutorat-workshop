@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../ressources/css/style.css">
     <link rel="stylesheet" href="../ressources/css/nav.css">
     <link rel="stylesheet" href="../ressources/css/button.css">
-    <link rel="stylesheet" href="../ressources/css/card.css">
+    <link rel="stylesheet" href="../ressources/css/form.css">
     <script src="https://kit.fontawesome.com/58f998f035.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -51,91 +51,52 @@
         </ul>
     </div>
 </header>
-<section id="backgroundTutorat">
-    <img src="../ressources/img/imageBackground.jpg" alt="background Tutorat">
-</section>
 <section class="headerTitle">
-    <h2>Le tutorat c'est quoi ?</h2>
+    <h2>Connexion</h2>
 </section>
-<section>
-    <p>"Enseigner, c'est apprendre deux fois.''
-        <br>
-        <br>Lorem ipsum dolor sit amet,
-        <br>consectetur adipiscing elit.
-        <br>Duis vel est vestibulum ligula
-        <br>porta dapibus.
-    </p>
-    <button type="button">Les cours</button>
-</section>
-<section class="headerTitle">
-    <h2>Participer</h2>
-</section>
-<section class="cardContainer">
-    <section class="card">
-        <header><i class="fas fa-chalkboard-teacher"></i>&nbsp;Les cours</header>
-        <p>Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit.
-            Duis vel est vestibulum ligula
-            porta dapibus.
-            Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit.
-            Duis vel est vestibulum ligula
-            porta dapibus.
-        </p>
-        <button type="button">En savoir plus</button>
-    </section>
-    <section class="card">
-        <header><i class="fas fa-hands-helping"></i>&nbsp;Donner un cour</header>
-        <p>Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit.
-            Duis vel est vestibulum ligula
-            porta dapibus.
-            Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit.
-            Duis vel est vestibulum ligula
-            porta dapibus.
-        </p>
-        <button type="button">En savoir plus</button>
-    </section>
-    <section class="card">
-        <header><i class="fas fa-question"></i>&nbsp;Suggérer un cour</header>
-        <p>Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit.
-            Duis vel est vestibulum ligula
-            porta dapibus.
-            Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit.
-            Duis vel est vestibulum ligula
-            porta dapibus.
-        </p>
-        <button type="button">En savoir plus</button>
-    </section>
-</section>
-<section class="headerTitle">
-    <h2>Pourquoi donner un cour ?</h2>
-</section>
-<section>
-    <p>"Enseigner, c'est apprendre deux fois.''
-        <br>
-        <br>Lorem ipsum dolor sit amet,
-        <br>consectetur adipiscing elit.
-        <br>Duis vel est vestibulum ligula
-        <br>porta dapibus.
-    </p>
-    <button type="button">En savoir plus</button>
-</section>
-<footer>
-<!--    todo liens pour le footer -->
-    <a href="">
-        Mon profil
-    </a>
-    <a href="">
-        Règlements
-    </a>
-    <a href="">
-        Nous contacter
-    </a>
-</footer>
+<div class="login-box">
+    <h2>Créer un compte</h2>
+    <form>
+
+        <div class="user-box">
+            <select name="school" id="school-select">
+                <option value="">Choisir l'école</option>
+                <option value="ecole1">Ecole 1</option>
+                <option value="ecole2">Ecole 2</option>
+            </select>
+        </div>
+        <div class="user-box">
+            <select name="promo" id="promo-select" disabled>
+                <option value="">Choisir promo</option>
+                <option value="promo1">Promo 1</option>
+                <option value="promo2">Promo 2</option>
+            </select>
+        </div>
+        <div class="user-box">
+            <input type="text" name="" required="">
+            <label>Prénom</label>
+        </div>
+        <div class="user-box">
+            <input type="text" name="" required="">
+            <label>Nom</label>
+        </div>
+        <div class="user-box">
+            <input type="text" name="" required="">
+            <label>Mail</label>
+        </div>
+        <div class="user-box">
+            <input type="password" name="" required="">
+            <label>Password</label>
+        </div>
+        <a href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            S'enregistrer
+        </a>
+    </form>
+</div>
 <!-- Script Lottie & bodymovin ae -->
 <script src="../ressources/js/lottie.js"></script>
 <script src="../ressources/js/navBtn.js"></script>
