@@ -112,7 +112,9 @@ textarea, select, option {
 
 
 
-
+.comment {
+    background-color: red;
+}
 
 
 
