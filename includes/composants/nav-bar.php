@@ -19,7 +19,7 @@
     </div>
     <div id="navDesktop">
         <ul>
-            <li><a href="/"><img src="/ressources/img/favicon.png" alt="logo" class="logo"></a></li>
+            <li><a href="/"><img src="#" alt="logo" class="logo"></a></li>
             <li><a href="/">Scratch Overflow</a></li>
             <li><a href="/cours">Les cours</a></li>
             <li><a href="/cours/give">Donner un cours</a></li>

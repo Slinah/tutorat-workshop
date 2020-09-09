@@ -1,6 +1,7 @@
 <?php
 
 require_once "composants/header_options.php";
+require_once "composants/footer_options.php";
 
 
 $request = $_SERVER['REQUEST_URI'];
@@ -26,9 +27,9 @@ switch ($request) {
         footer_options(["lottie","navBtn","fonction"]);
         break;
     case '/admin' :
-        header_options(["style", "nav", "button", "card"]);
+        header_options(["style", "nav", "button", "card", "formAdmin"]);
         require 'views/panel_admin.php';
-        footer_options(["lottie","navBtn","fonction"]);
+        footer_options(["lottie","navBtn","fonction", "jquery"]);
         break;
     case '/forum/create' :
         header_options(["style", "forum", "nav", "button"]);

@@ -11,7 +11,3 @@ function footer_options(array $js)
 }
 
 
-lottie
-< script src = "/ressources/js/navBtn.js" ></script >
-<script src = "/ressources/js/fonction.js" ></script >
-
