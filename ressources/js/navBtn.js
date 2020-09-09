@@ -3,5 +3,5 @@ var animationNavBtn = bodymovin.loadAnimation({
     renderer: 'svg',
     loop: 0,
     autoplay: false,
-    path: 'navBtn/data.json'
+    path: '/ressources/img/navBtn/data.json'
 });

@@ -72,5 +72,30 @@ if (is_null($question)) {
     </div>
 </div>
 
+<?php
+
+$t = http_get("http://localhost:4567/api/getCommentaire/" . $id_question);
+foreach ($t as $c) {
+//    var_dump($c);
+    ?>
+
+    <div class="comment">
+        <p>
+            <?php
+            echo $c->nom;
+            ?> - <?php
+            echo $c->prenom;
+            ?></p>
+        <h3><?php
+            echo $c->contenu;
+            ?></h3>
+        <p><?php
+            echo date('j/m', strtotime($c->dateCreation));
+            ?></p>
+        <a href="">reply</a>
+    </div>
 
 
+    <?php
+}
+?>
