@@ -5,16 +5,13 @@ nav {
     align-items: center;
     padding: 1em
 }
-
 ul {
     margin: 1em 0 0 0;
     padding: 0
 }
-
 .navHeader {
     display: block
 }
-
 #navBtn {
     max-width: 20%;
     height: 50%;
@@ -23,7 +20,6 @@ ul {
     right: 0;
     padding-right: 1em
 }
-
 #navTop {
     z-index: 3;
     display: flex;
@@ -34,16 +30,14 @@ ul {
     margin: 0;
     padding: 0
 }
-
 #navTop img {
-    padding-left: 1em;
     max-width: 100%;
     max-height: 100%;
-    height: 100%;
+    height: 80%;
     position: absolute;
-    left: 0
+    left: 5%;
+    top: 5%;
 }
-
 #navHidden {
     padding: 0;
     margin: 6vh 0;
@@ -71,7 +65,6 @@ ul {
 #navTop a {
     width: 50%
 }
-
 #navTop a:nth-child(2) {
     display: flex;
     justify-content: left;
@@ -79,20 +72,66 @@ ul {
     flex-direction: row-reverse;
     padding: 1em
 }
-
 #navTop a:nth-child(1) {
     display: flex;
     justify-content: right;
     align-items: center;
     flex-direction: row
 }
-
 #navDesktop{
     display: none;
 }
-
+.underNav{
+    height: 6vh;
+}
 /* Version Mobile, changement d'affichage pour la nav bar */
 @media (min-width: 1200px){
+    nav {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 1em
+    }
+    ul {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    ul div{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 100%;
+    }
+    ul div:nth-child(1){
+        width: 30%;
+    }
+    ul div:nth-child(2){
+        width: 70%;
+    }
+    ul li{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+    ul li a{
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        align-items: center;
+    }
+    ul li a img{
+        height: 75%;
+    }
+    ul.li:nth-child(1){
+        justify-self: flex-start !important;
+    }
+    ul.li:nth-child(2){
+        justify-self: flex-start !important;
+    }
+
     #navHidden,#navTop,#navBtn{
         display: none;
     }
@@ -112,12 +151,8 @@ ul {
         justify-content: space-evenly;
         align-items: center;
     }
-    #navDesktop li:nth-child(2) a{
+    .bold a{
         font-weight: bold;
+        font-size: 1.2em;
     }
-}
-
-
-.logo {
-    height: 3vh;
 }

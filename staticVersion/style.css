@@ -1,6 +1,6 @@
 /* Section - Title - Footer - Body & Font */
 * {
-    font-family: rooney-sans, sans-serif;
+    font-family: "Roboto c", sans-serif;
     font-size: 12px;
     font-style: normal;
     box-sizing: border-box;
@@ -34,22 +34,21 @@ h1, h2, h3, header, section {
     justify-content: center;
     text-align: center;
     font-weight: bold;
-    font-size: 1.1em;
+    font-size: 1.15em;
 }
 section {
     padding: 0;
     margin: 2em 0;
 }
 #backgroundTutorat{
-    margin-bottom: 8vh;
+    margin: 0;
     overflow: hidden;
+    max-height: 100vh;
 }
 #backgroundTutorat img{
     width: 100%;
     padding: 0;
     margin: 0;
-    transform: rotateZ(30deg) translateY(-30vw) translateX(20vw);
-    border-radius: 10%;
 }
 .headerTitle{
     justify-content: flex-start;

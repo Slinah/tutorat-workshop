@@ -58,7 +58,7 @@ body {
     font-size: 16px;
     color: #fff;
     border: none;
-    border-bottom: 1px solid #044F39;
+    border-bottom: 1px solid #FEAA0A;
     outline: none;
     background: transparent;
 }
@@ -71,7 +71,7 @@ body {
     font-size: 16px;
     color: #fff;
     border: none;
-    border-bottom: 1px solid #044F39;
+    border-bottom: 1px solid #FEAA0A;
     outline: none;
     background: #242424;
 }
@@ -106,7 +106,7 @@ body {
     letter-spacing: 4px
 }
 .login-box a:hover {
-    background: #044F39;
+    background: #FEAA0A;
     color: #fff;
     border-radius: 5px;
 }
@@ -119,7 +119,7 @@ body {
     left: -100%;
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, transparent, #044F39);
+    background: linear-gradient(90deg, transparent, #FEAA0A);
     animation: btn-anim1 2.5s ease-in-out infinite;
 }
 @keyframes btn-anim1 {
@@ -135,7 +135,7 @@ body {
     right: 0;
     width: 2px;
     height: 100%;
-    background: linear-gradient(180deg, transparent, #044F39);
+    background: linear-gradient(180deg, transparent, #FEAA0A);
     animation: btn-anim2 2.5s ease-in-out infinite;
     animation-delay: 0.625s
 }
@@ -152,7 +152,7 @@ body {
     right: -100%;
     width: 100%;
     height: 2px;
-    background: linear-gradient(270deg, transparent, #044F39);
+    background: linear-gradient(270deg, transparent, #FEAA0A);
     animation: btn-anim3 2.5s ease-in-out infinite;
     animation-delay: 1.25s
 }
@@ -169,7 +169,7 @@ body {
     left: 0;
     width: 2px;
     height: 100%;
-    background: linear-gradient(360deg, transparent, #044F39);
+    background: linear-gradient(360deg, transparent, #FEAA0A);
     animation: btn-anim4 2.5s ease-in-out infinite;
     animation-delay: 1.875s
 }

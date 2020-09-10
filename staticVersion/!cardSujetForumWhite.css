@@ -1,0 +1,32 @@
+.card{
+    position: relative;
+    width: 90%;
+    padding: 1em 0 0 0;
+}
+.card p{
+    margin: 2em;
+}
+.card .buttonDownRight{
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+.card .dateUpRight{
+    position: absolute;
+    right:20px;
+    top:20px;
+}
+.card .nameUpLeft{
+    position: absolute;
+    left:20px;
+    top:20px;
+}
+.commentContainer{
+    width: 90%;
+    display: flex;
+    flex-flow: row-reverse nowrap;
+    justify-content: flex-start;
+}
+section{
+    margin :2em 0 0.5em 0;
+}

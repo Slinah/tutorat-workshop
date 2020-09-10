@@ -14,7 +14,7 @@
 }
 .whiteBack div {
     height: 20px;
-    background: #044F39;
+    background: #FEAA0A;
     border-radius: .3em 0 0 .3em
 }
 #experienceColor {
@@ -46,7 +46,7 @@
     }
     .whiteBack div {
         height: 20px;
-        background: #044F39;
+        background: #FEAA0A;
         border-radius: .3em 0 0 .3em;
         width: 0 !important;
         transition: width 1s ease-in-out
