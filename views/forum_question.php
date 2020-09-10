@@ -86,14 +86,20 @@ $question = http_get("http://localhost:4567/api/getQuestion/" . $id_question)[0]
 
                 </div>
             </section>
-            <?php
-            if ($c->sub > 0) {
-                echo "Voire Plus";
-            }
-            ?>
+
 
             <div class="commentContainer">
-                <button type="button" onclick="clickOpenBtnModal()">Répondre &nbsp;<i class="far fa-comment"></i>
+                <?php if ($c->sub > 0) { ?>
+                    <button type="button" onclick="loadMore('<?php echo $c->id_comment; ?>' )">
+                        Voire Plus&nbsp;
+                        <i class="far fa-comment"></i>
+                        (<?php echo $c->sub; ?>)
+                    </button> <?php
+                } ?>
+
+
+                <button type="button" onclick="clickOpenBtnModal('<?php echo $c->id_comment; ?>' )">Répondre &nbsp;<i
+                            class="far fa-comment"></i>
                 </button>
             </div>
             <?php
@@ -112,11 +118,7 @@ $question = http_get("http://localhost:4567/api/getQuestion/" . $id_question)[0]
     <div class="container">
         <div class="comment">
             <form action="POST">
-                <div contenteditable="true" class="textinput" id="modalTxt">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Aperiam blanditiis error hic omnis recusandae reiciendis suscipit totam vero voluptas?
-                    A delectus dignissimos esse iste pariatur quis quo quos rem vero!
-                </div>
+                <div contenteditable="true" class="textinput" id="modalTxt"></div>
                 <button type="button" onclick="recuperationTxtModal()">Envoyer le commentaire</button>
             </form>
         </div>

@@ -1,22 +1,46 @@
 function http_post(url = "", param = {}) {
-    console.log("http_post");
     return new Promise(async (resolve, reject) => {
-        console.log("Promise");
         const xhttp = new XMLHttpRequest();
         xhttp.open("POST", url, true);
-        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded", "Access-Control-Allow-Origin", "https://localhost:4567");
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         let data = ""
         for (const [key, value] of Object.entries(param)) {
-            console.log("Boucle " + key);
             if (data.length > 0) {
                 data += "&";
             }
-            console.log(key, value);
             data += key + "=" + value;
         }
-        console.log(data);
+        xhttp.onreadystatechange = function () {
+            if (xhttp.readyState === 4) {
+                resolve(xhttp.response.parse());
+            }
+        }
         await xhttp.send(data);
-        await resolve(xhttp.response);
+    });
+}
+
+function http_get(url = "", param = {}) {
+    return new Promise(async (resolve, reject) => {
+        const xhttp = new XMLHttpRequest();
+
+
+        if (param.length > 0) {
+            url += "?";
+            let min = url.length;
+            for (const [key, value] of Object.entries(param)) {
+                if (url.length > min) {
+                    url += "&";
+                }
+                url += key + "=" + value;
+            }
+        }
+        xhttp.open("GET", url, true);
+        xhttp.onreadystatechange = function () {
+            if (xhttp.readyState === 4) {
+                resolve(xhttp.response);
+            }
+        }
+        await xhttp.send();
     });
 }
 
@@ -44,7 +68,6 @@ function clickOpenBtnModal(com = null) {
 async function recuperationTxtModal() {
     var content = encodeURIComponent(document.getElementById("modalTxt").textContent);
     var personne_id = document.getElementById("personne_id").value;
-    console.log(reply);
     let id_question;
     if (reply) {
         http_post("http://localhost:4567/api/replyComQuestion", {
@@ -52,10 +75,8 @@ async function recuperationTxtModal() {
             "id_comment": comment,
             "content": content
         }).then(() => {
-            console.log("RElOAD");
             location.reload();
         });
-
     } else {
         id_question = document.URL.split("/").pop();
         http_post("http://localhost:4567/api/postComQuestion", {
@@ -63,7 +84,6 @@ async function recuperationTxtModal() {
             "id_question": id_question,
             "content": content
         }).then(() => {
-            console.log("RELOAD 0 ");
             location.reload();
         });
     }
@@ -71,9 +91,8 @@ async function recuperationTxtModal() {
 
 
 function loadMore(id) {
-    const xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "http://localhost:4567/api/replyComQuestion", true);
-    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("?id_personne=" + personne_id + "&id_comment=" + comment + "&content=" + content);
-
+    console.log("heu");
+    http_get("http://localhost:4567/api/getCommentaireReply/" + id).then(value => {
+        console.log("Result " + value);
+    });
 }
