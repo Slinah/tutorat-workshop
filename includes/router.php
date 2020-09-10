@@ -29,7 +29,7 @@ switch ($request) {
     case '/admin' :
         header_options(["style", "nav", "button", "card", "formAdmin"]);
         require 'views/panel_admin.php';
-        footer_options(["lottie","navBtn","fonction", "jquery"]);
+        footer_options(["jquery", "panel_admin", "lottie","navBtn","fonction"]);
         break;
     case '/forum/create' :
         header_options(["style", "forum", "nav", "button"]);

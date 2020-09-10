@@ -5,7 +5,7 @@
 //TODO à enlever quand la page de connexion sera dispo
 $_SESSION["role"] = 1;
 
-if (!isset($_SESSION["role"]) || ($_SESSION["role"] != 1)){
+if (!isset($_SESSION["role"]) || ($_SESSION["role"] != 1)) {
 //    Redirigé sur une autre page
 }
 //TODO requête API à sécurisé avec Token
@@ -22,222 +22,208 @@ $dataLevels = hget('http://localhost:4567/api/getLevel');
 <!-- Nav Bar -->
 <div class="login-box">
     <h2>Gestion des utilisateurs</h2>
-    <form>
-        <div class="user-box">
-            <select name="personneSelect" id="personne-select">
-                <option value="">NOM - Prenom - Ecole - Promo - Classe - Role</option>
-                <?php foreach($dataUsers as $dataUser){ ?>
-                    <option value="<?= $dataUser->id_personne ?>"><?= $dataUser->nom .' - '. $dataUser->prenom .' - '.
-                        $dataUser->intituleEcole .' - '. $dataUser->intitulePromo .' - '. $dataUser->intituleClass .' - Role : '. $dataUser->role ?></option>
-                <?php } ?>
-            </select>
-        </div>
-<!--        TODO Action à faire pour les boutons + Requêtes API nécessaire-->
-        <a href="#">
+
+    <div class="user-box">
+        <select name="personneSelect" id="personne-select">
+            <option value="" selected>NOM - Prenom - Ecole - Promo - Classe - Role</option>
+            <?php foreach ($dataUsers as $dataUser) { ?>
+                <option value="<?= $dataUser->id_personne ?>"><?= $dataUser->nom . ' - ' . $dataUser->prenom . ' - ' .
+                    $dataUser->intituleEcole . ' - ' . $dataUser->intitulePromo . ' - ' . $dataUser->intituleClass . ' - Role : ' . $dataUser->role ?></option>
+            <?php } ?>
+        </select>
+    </div>
+    <!--        TODO Action à faire pour les boutons + Requêtes API nécessaire-->
+
+    <form action="/actions/actionsPromoteUser.php" method="post">
+        <input type="hidden" id="idUserPromote" name="idUser" value="">
+        <button type="submit" id="btnPromoteUser">
             Promote
-        </a>
-        <a href="#">
-            Demote
-        </a>
-        <a href="#">
-            Supprimer le compte
-        </a>
+        </button>
     </form>
+    <form action="/actions/actionsDemoteUser.php" method="post">
+        <input type="hidden" id="idUserDemote" name="idUser" value="">
+        <button type="submit" id="btnDemoteUser">
+            Demote
+        </button>
+    </form>
+    <form action="/actions/actionsDeleteUser.php" method="post">
+        <input type="hidden" id="idUserDelete" name="idUser" value="">
+        <button type="submit" id="btnDeleteUser">
+            Supprimer le compte
+        </button>
+    </form>
+
 </div>
 
 <div class="login-box">
     <h2>Gestion des matières</h2>
-    <form>
+    <form action="/actions/actionsDeleteSubject.php" method="post">
         <div class="user-box">
             <select name="matiereSelect" id="matiere-select">
-                <option value="">Liste matière</option>
-                <?php foreach($dataSubjects as $dataSubject){ ?>
-                <option value="<?= $dataSubject->id_matiere ?>"><?= 'Matière : '. $dataSubject->intitule .' - Validation : '. $dataSubject->validationAdmin ?></option>
+                <option value="" selected>Liste matière</option>
+                <?php foreach ($dataSubjects as $dataSubject) { ?>
+                    <option value="<?= $dataSubject->id_matiere ?>"><?= 'Matière : ' . $dataSubject->intitule . ' - Validation : ' . $dataSubject->validationAdmin ?></option>
                 <?php } ?>
             </select>
         </div>
-        <a href="#">
-            Supprimer maière
-        </a>
+        <input type="hidden" id="idDeleteSubject" name="idDeleteSubject" value="">
+        <button type="submit" id="btnDeleteSubject">
+            Supprimer matière
+        </button>
+    </form>
+    <form action="/actions/actionsAddSubject.php" method="post">
         <div class="user-box">
-            <input type="text" name="" required>
+            <input type="text" id="addSubject" name="addSubject" required>
             <label>Nom de la matière à ajouter</label>
         </div>
-        <a href="#">
+        <button type="submit" id="btnAddSubject">
             Ajout matière
-        </a>
+        </button>
     </form>
 </div>
 
 <div class="login-box">
     <h2>Gestion des Ecoles</h2>
-    <form>
-        <div class="user-box">
-            <select name="ecoleSelect" id="ecole-select">
-                <option value="">Liste école</option>
-                <?php foreach($dataSchools as $dataSchool){ ?>
+
+    <div class="user-box">
+        <select name="ecoleSelect" id="ecole-select">
+            <option value="" selected>Liste école</option>
+            <?php foreach ($dataSchools as $dataSchool) { ?>
                 <option value="<?= $dataSchool->id_ecole ?>"><?= $dataSchool->intitule ?></option>
-                <?php } ?>
-            </select>
-        </div>
-        <a href="#">
+            <?php } ?>
+        </select>
+    </div>
+    <form action="/actions/actionsDeleteSchool.php" method="post">
+        <input type="hidden" id="idDeleteSchool" name="idDeleteSchool">
+        <button type="submit" id="btnDeleteSchool">
             Supprimer Ecole
-        </a>
+        </button>
+    </form>
+    <form action="/actions/actionsAddSchool.php" method="post">
         <div class="user-box">
-            <input type="text" name="" required>
+            <input type="text" name="addSchool" required>
             <label>Nom de l'école à ajouter</label>
         </div>
-        <a href="#">
+        <button type="submit">
             Ajout Ecole
-        </a>
+        </button>
     </form>
 </div>
 
 <div class="login-box">
     <h2>Gestion des Promos</h2>
-    <form>
-        <div class="user-box">
-            <select name="ecoleSelect" id="ecole-select2">
-                <option value="">Liste ecole</option>
-                <?php foreach($dataSchools as $dataSchool){ ?>
-                    <option value="<?= $dataSchool->id_ecole ?>"><?= $dataSchool->intitule ?></option>
-                <?php } ?>
-            </select>
-        </div>
-        <div class="user-box">
-            <select name="promoSelect" id="promo-select">
-                <option value="">Liste Promo</option>
-                <?php foreach($dataPromosFromSchools as $dataPromosFromSchool){ ?>
-                <option value="<?= $dataPromosFromSchool->id_promo ?>" class="<?= 'ec_'.$dataPromosFromSchool->id_ecole ?>"><?= $dataPromosFromSchool->intitulePromo ?></option>
-                <?php } ?>
-            </select>
-        </div>
-        <a href="#">
+
+    <div class="user-box">
+        <select name="ecoleSelect" id="ecole-select2">
+            <option value="" selected>Liste ecole</option>
+            <?php foreach ($dataSchools as $dataSchool) { ?>
+                <option value="<?= $dataSchool->id_ecole ?>"><?= $dataSchool->intitule ?></option>
+            <?php } ?>
+        </select>
+    </div>
+    <div class="user-box">
+        <select name="promoSelect" id="promo-select" disabled>
+            <option value="" id="show1" selected>Liste Promo</option>
+            <?php foreach ($dataPromosFromSchools as $dataPromosFromSchool) { ?>
+                <option value="<?= $dataPromosFromSchool->id_promo ?>"
+                        class="<?= 'ec_' . $dataPromosFromSchool->id_ecole ?>"><?= $dataPromosFromSchool->intitulePromo ?></option>
+            <?php } ?>
+        </select>
+    </div>
+    <form action="/actions/actionsDeletePromo.php" method="post">
+        <input type="hidden" id="idDeletePromo" name="idDeletePromo">
+        <button type="submit" id="btnDeletePromo">
             Supprimer promo
-        </a>
+        </button>
+    </form>
+    <form action="/actions/actionsAddPromo.php" method="post">
         <div class="user-box">
-            <input type="text" name="" required>
+            <input type="hidden" id="idSchoolForAddPromo" name="idSchool" value="">
+            <input type="text" id="idAddPromo" name="addPromo" required disabled="disabled">
             <label>Nom de la promo à ajouter</label>
         </div>
-        <a href="#">
+        <button type="submit" id="btnAddPromo">
             Ajout promo
-        </a>
+        </button>
     </form>
 </div>
 
 <div class="login-box">
     <h2>Gestion des classes</h2>
-    <form>
-        <div class="user-box">
-            <select name="ecoleSelect" id="ecole-select3">
-                <option value="">Liste ecole</option>
-                <?php foreach($dataSchools as $dataSchool){ ?>
-                <option value="<?= $dataSchool->id_ecole ?>"><?= $dataSchool->intitule ?></option>
-                <?php } ?>
-            </select>
-        </div>
-        <div class="user-box">
-            <select name="promoSelect" id="promo-select2">
-                <option value="">Liste Promo</option>
-                <?php foreach($dataPromosFromSchools as $dataPromosFromSchool){ ?>
-                <option value="<?= $dataPromosFromSchool->id_promo ?>" class="<?= $dataPromosFromSchool->id_ecole ?>"><?= $dataPromosFromSchool->intitulePromo ?></option>
-                <?php } ?>
 
-            </select>
-        </div>
-        <div class="user-box">
-            <select name="promoSelect" id="classe-select">
-                <option value="">Liste classe</option>
-                <?php foreach($dataClassesFromPromos as $dataClassesFromPromo){ ?>
-                <option value="<?= $dataClassesFromPromo->id_classe ?>" class="<?= $dataClassesFromPromo->id_promo ?>"><?= $dataClassesFromPromo->intituleClasse ?></option>
-                <?php } ?>
-            </select>
-        </div>
-        <a href="#">
+    <div class="user-box">
+        <select name="ecoleSelect" id="ecole-select3">
+            <option value="" selected>Liste ecole</option>
+            <?php foreach ($dataSchools as $dataSchool) { ?>
+                <option value="<?= $dataSchool->id_ecole ?>"><?= $dataSchool->intitule ?></option>
+            <?php } ?>
+        </select>
+    </div>
+    <div class="user-box">
+        <select name="promoSelect" id="promo-select2" disabled>
+            <option value="" id="show2" selected>Liste Promo</option>
+            <?php foreach ($dataPromosFromSchools as $dataPromosFromSchool) { ?>
+                <option value="<?= $dataPromosFromSchool->id_promo ?>"
+                        class="<?= 'ec_' . $dataPromosFromSchool->id_ecole ?>"><?= $dataPromosFromSchool->intitulePromo ?></option>
+            <?php } ?>
+
+        </select>
+    </div>
+    <div class="user-box">
+        <select name="promoSelect" id="classe-select" disabled>
+            <option value="" id="show3" selected>Liste classe</option>
+            <?php foreach ($dataClassesFromPromos as $dataClassesFromPromo) { ?>
+                <option value="<?= $dataClassesFromPromo->id_classe ?>"
+                        class="<?= 'pro_' . $dataClassesFromPromo->id_promo ?>"><?= $dataClassesFromPromo->intituleClasse ?></option>
+            <?php } ?>
+        </select>
+    </div>
+    <form action="/actions/actionsDeleteClasse.php" method="post">
+        <input type="hidden" id="idDeleteClasse" name="idDeleteClasse">
+        <button type="submit" id="btnDeleteClasse">
             Supprimer classe
-        </a>
-        <div class="user-box">
-            <input type="text" name="" required="">
-            <label>Nom de la classe à ajouter</label>
-        </div>
-        <a href="#">
-            Ajout classe
-        </a>
+        </button>
+    </form>
+    <form action="/actions/actionsAddClasse.php" method="post">
+    <div class="user-box">
+        <input type="hidden" id="idSchoolForPromo2" name="idSchool">
+        <input type="hidden" id="idPromoForClasse" name="idPromo">
+        <input type="text" name="addClasse" required>
+        <label>Nom de la classe à ajouter</label>
+    </div>
+    <button type="submit" id="btnAddClasse">
+        Ajout classe
+    </button>
     </form>
 </div>
 
 <div class="login-box">
     <h2>Gestion des niveaux</h2>
-    <form>
+
         <div class="user-box">
             <select name="niveauSelect" id="niveau-select">
-                <option value="">Liste niveau</option>
-                <?php foreach($dataLevels as $dataLevel){ ?>
-                <option value="<?= $dataLevel->id_niveau ?>"><?= $dataLevel->intitule ?></option>
+                <option value="" selected>Liste niveau</option>
+                <?php foreach ($dataLevels as $dataLevel) { ?>
+                    <option value="<?= $dataLevel->id_niveau ?>"><?= $dataLevel->intitule ?></option>
                 <?php } ?>
             </select>
         </div>
-        <a href="#">
+    <form action="/actions/actionsDeleteLevel.php" method="post">
+        <input type="hidden" id="idDeleteLevel" name="idDeleteLevel">
+        <button type="submit" id="btnDeleteLevel">
             Supprimer niveau
-        </a>
+        </button>
+    </form>
+    <form action="/actions/actionsAddLevel.php" method="post">
         <div class="user-box">
-            <input type="text" name="" required="">
+            <input type="text" name="" required>
             <label>Niveau à ajouter</label>
         </div>
-        <a href="#">
+        <button type="submit" id="btnAddLevel">
             Ajout niveau
-        </a>
+        </button>
     </form>
 </div>
 <!--TODO Jquery pour les selecteurs (lié ecole/promo/classe)-->
-<!--
-<script>
 
-    $(document).ready(function() {
 
-        $('#valueEtude').change(function () {
-            if ($(this).val() != '') {
-                $('#valueEtudePlage').removeAttr('disabled', 'disabled');
-                $("#valueEtudePlage").val("");
-                $('#valueEtudePlage option').show();
-                $("#valueEtudePlage option:not(.e_" + $(this).val() + ")").hide();
-                $("#show1").show();
-                $('#idEtude').val($(this).val());
-            } else {
-                $("#valueEtudePlage").attr("disabled", "disabled");
-                $("#valueZone").attr("disabled", "disabled");
-                $('#btnSend').attr("disabled", "disabled");
-                $('#creerZone').attr('disabled', 'disabled');
-            }
-        });
-
-        $('#valueEtudePlage').change(function () {
-            if ($(this).val() != '') {
-                $('#valueZone').removeAttr('disabled', 'disabled');
-                $('#valueZone').val("");
-                $('#valueZone option').show();
-                $("#valueZone option:not(.ep_" + $(this).val() + ")").hide();
-                $('#show2').show();
-                $('#idEtudePlage').val($(this).val());
-                $('#creerZone').removeAttr('disabled', 'disabled');
-            } else {
-                $("#valueZone").attr("disabled", "disabled");
-                $('#btnSend').attr("disabled", "disabled");
-                $('#creerZone').attr('disabled', 'disabled');
-            }
-        });
-
-        $('#valueZone').change(function() {
-            if ($(this).val() != '') {
-                $('#idZone').val($(this).val());
-                $('#btnSend').removeAttr("disabled", "disabled");
-            } else {
-                $('#idZone').val('');
-                $('#btnSend').attr("disabled", "disabled");
-            }
-
-        });
-    });
-
-</script>
--->
