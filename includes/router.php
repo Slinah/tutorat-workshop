@@ -39,7 +39,7 @@ switch ($request) {
     case (preg_match('/\/forum\/./', $request) ? true : false) :
         header_options(["style", "nav", "button", "card", "cardSujetForum", "modal"]);
         require 'views/forum_question.php';
-        footer_options(["lottie", "navBtn", "forum"]);
+        footer_options(["lottie", "navBtn", "fonction", "forum"]);
         break;
     default:
         header_options(["style", "404", "nav", "button"]);

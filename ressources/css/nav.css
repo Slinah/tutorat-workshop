@@ -11,7 +11,7 @@ nav {
 }
 
 
-.navHeader:hover .logo {
+.navHeader:hover  #navDesktop .logo {
     animation-name: squirrel;
     animation-duration: 3s;
     animation-iteration-count: infinite;
