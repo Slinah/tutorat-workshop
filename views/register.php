@@ -1,10 +1,12 @@
 <?php
-include_once "includes/composants/nav-bar.php";
+//include_once "includes/composants/nav-bar.php";
 ?>
 
 <section class="headerTitle">
     <h2>Connexion</h2>
 </section>
+
+
 <div class="login-box">
     <h2>Créer un compte</h2>
     <form>

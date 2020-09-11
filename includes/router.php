@@ -44,12 +44,12 @@ switch ($request) {
         footer_options(["lottie", "navBtn", "fonction", "forum"]);
         break;
     case '/connexion' :
-        header_options(["style", "forum", "nav", "button"]);
+        header_options(["style", "nav", "button", "form"]);
         require 'views/connexion.php';
         footer_options(["lottie", "navBtn", "fonction"]);
         break;
     case '/register' :
-        header_options(["style", "forum", "nav", "button"]);
+        header_options(["style", "nav", "button", "form"]);
         require 'views/register.php';
         footer_options(["lottie", "navBtn", "fonction"]);
         break;
