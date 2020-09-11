@@ -13,7 +13,7 @@ switch ($request) {
         footer_options(["lottie", "navBtn"]);
         break;
     case '/cours' :
-        header_options(["style", "nav", "button", "card"]);
+        header_options(["style", "nav", "button", "card","cardCours"]);
         require 'views/cours.php';
         footer_options(["lottie", "navBtn", "fonction"]);
         break;
