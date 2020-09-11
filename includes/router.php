@@ -2,12 +2,14 @@
 
 require_once "composants/header_options.php";
 require_once "composants/footer_options.php";
+require_once "Guard.php";
 
 
 $request = $_SERVER['REQUEST_URI'];
 switch ($request) {
     case '':
     case '/' :
+        is_connected();
         header_options(["style", "nav", "button", "card"]);
         require 'views/home.php';
         footer_options(["lottie", "navBtn"]);
@@ -29,7 +31,7 @@ switch ($request) {
     case '/admin' :
         header_options(["style", "nav", "button", "card", "formAdmin"]);
         require 'views/panel_admin.php';
-        footer_options(["jquery", "panel_admin", "lottie","navBtn","fonction"]);
+        footer_options(["jquery", "panel_admin", "lottie", "navBtn", "fonction"]);
         break;
     case '/forum/create' :
         header_options(["style", "forum", "nav", "button"]);
@@ -40,6 +42,16 @@ switch ($request) {
         header_options(["style", "nav", "button", "card", "cardSujetForum", "modal"]);
         require 'views/forum_question.php';
         footer_options(["lottie", "navBtn", "fonction", "forum"]);
+        break;
+    case '/connexion' :
+        header_options(["style", "nav", "button", "form"]);
+        require 'views/connexion.php';
+        footer_options(["lottie", "navBtn", "fonction"]);
+        break;
+    case '/register' :
+        header_options(["style", "nav", "button", "form"]);
+        require 'views/register.php';
+        footer_options(["lottie", "navBtn", "fonction"]);
         break;
     default:
         header_options(["style", "404", "nav", "button"]);
