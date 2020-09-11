@@ -8,7 +8,6 @@
     <div id="navHidden">
         <nav>
             <ul>
-                <!--                todo liens menu-->
                 <li><a href="/cours" onclick="clickNavBtn();">Les cours</a></li>
                 <li><a href="/cours/give" onclick="clickNavBtn();">Donner un cours</a></li>
                 <li><a href="/cours/suggest" onclick="clickNavBtn();">Suggérer un cours</a></li>
@@ -19,8 +18,10 @@
     </div>
     <div id="navDesktop">
         <ul>
-            <li><a href="/"><img src="/ressources/img/favicon.png" alt="logo" class="logo"></a></li>
-            <li><a href="/">Scratch Overflow</a></li>
+            <div>
+                <li><a href="/"><img src="/ressources/img/favicon.png" alt="logo" class="logo"></a></li>
+                <li class="bold"><a href="/">Scratch Overflow</a></li>
+            </div>
             <li><a href="/cours">Les cours</a></li>
             <li><a href="/cours/give">Donner un cours</a></li>
             <li><a href="/cours/suggest">Suggérer un cours</a></li>

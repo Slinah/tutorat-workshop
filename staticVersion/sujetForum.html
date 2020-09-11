@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- todo title site tutorat -->
+    <title>Tutorat web App</title>
+    <!-- todo description site tutorat -->
+    <meta name="description" content="description site tutorat">
+    <link rel="icon" type="image/png" href="images/favIcon.png"/>
+    <link rel="stylesheet" href="!styleWhite.css">
+    <link rel="stylesheet" href="!navWhite.css">
+    <link rel="stylesheet" href="!buttonWhite.css">
+    <link rel="stylesheet" href="!cardWhite.css">
+    <link rel="stylesheet" href="!cardSujetForumWhite.css">
+    <link rel="stylesheet" href="!modalWhite.css">
+    <script src="https://kit.fontawesome.com/58f998f035.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!--        todo liens (onclick) js sur tous les buttons / envoie des données dans un formulaire etc -->
+<!-- Nav Bar -->
+<header class="navHeader">
+    <div id="navTop">
+        <!--        todo ajout du logo -->
+        <li><a href="#"><img src="images/favicon.png" alt="logo"></a></li>
+        <a class="disabled" onclick="clickNavBtn();" id="navBtnPhone">
+            <div id="navBtn"></div>
+        </a>
+    </div>
+    <div id="navHidden">
+        <nav>
+            <ul>
+                <!--                todo liens menu-->
+                <li><a href="#" onclick="clickNavBtn();">Les cours</a></li>
+                <li><a href="#" onclick="clickNavBtn();">Donner un cours</a></li>
+                <li><a href="#" onclick="clickNavBtn();">Suggérer un cours</a></li>
+                <li><a href="#" onclick="clickNavBtn();">Forum</a></li>
+                <li><a href="#" onclick="clickNavBtn();">Mon profil</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="navDesktop">
+        <ul>
+            <div>
+                <li><a href="#"><img src="images/favicon.png" alt="logo"></a></li>
+                <li class="bold"><a href="#">Scratch Overflow</a></li>
+            </div>
+            <div>
+                <li><a href="#">Les cours</a></li>
+                <li><a href="#">Donner un cours</a></li>
+                <li><a href="#">Suggérer un cours</a></li>
+                <li><a href="#">Forum</a></li>
+                <!--            todo si connecter afficher 'Mon profil', si ce n'est pas le cas, afficher 'Connexion / Inscription' -->
+                <li><a href="#">Mon profil</a></li>
+            </div>
+        </ul>
+    </div>
+</header>
+<section id="backgroundTutorat">
+    <img src="images/backgrounds/whiteBackgroundDiscussion.jpg" alt="background Tutorat">
+</section>
+<section class="headerTitle">
+    <h2>Titre du sujet</h2>
+</section>
+<section class="cardContainer">
+    <section class="card">
+        <!--        todo liens vers la page du sujet -->
+        <header>Post principal</header>
+        <p>Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.
+            Duis vel est vestibulum ligula
+            porta dapibus.
+            Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.
+            Duis vel est vestibulum ligula
+            porta dapibus.
+        </p>
+        <div class="dateUpRight">Date/Date/Heure</div>
+        <div class="nameUpLeft">Nom - Prenom</div>
+    </section>
+    <div class="commentContainer"><button type="button" onclick="clickOpenBtnModal()">Commenter &nbsp;<i class="far fa-comment"></i></button></div>
+</section>
+<section class="cardContainer">
+    <section class="card">
+        <!--        todo liens vers la page du sujet -->
+        <p>Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.
+            Duis vel est vestibulum ligula
+            porta dapibus.
+            Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.
+            Duis vel est vestibulum ligula
+            porta dapibus.
+        </p>
+        <div class="dateUpRight">Date/Date/Heure</div>
+        <div class="nameUpLeft">Nom - Prenom</div>
+    </section>
+    <div class="commentContainer"><button type="button" onclick="clickOpenBtnModal()">Répondre &nbsp;<i class="far fa-comment"></i></button></div>
+    <section class="card">
+        <!--        todo liens vers la page du sujet -->
+        <p>Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.
+            Duis vel est vestibulum ligula
+            porta dapibus.
+            Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.
+            Duis vel est vestibulum ligula
+            porta dapibus.
+        </p>
+        <div class="dateUpRight">Date/Date/Heure</div>
+        <div class="nameUpLeft">Nom - Prenom</div>
+    </section>
+    <div class="commentContainer"><button type="button" onclick="clickOpenBtnModal()">Répondre &nbsp;<i class="far fa-comment"></i></button></div>
+    <section class="card">
+        <!--        todo liens vers la page du sujet -->
+        <p>Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.
+            Duis vel est vestibulum ligula
+            porta dapibus.
+            Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.
+            Duis vel est vestibulum ligula
+            porta dapibus.
+        </p>
+        <div class="dateUpRight">Date/Date/Heure</div>
+        <div class="nameUpLeft">Nom - Prenom</div>
+    </section>
+    <div class="commentContainer"><button type="button" onclick="clickOpenBtnModal()">Répondre &nbsp;<i class="far fa-comment"></i></button></div>
+</section>
+<section id="modalId" class="modal">
+    <div class="container">
+        <div class="comment">
+            <form action="POST">
+                <div contenteditable="true" class="textinput" id="modalTxt">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Aperiam blanditiis error hic omnis recusandae reiciendis suscipit totam vero voluptas?
+                    A delectus dignissimos esse iste pariatur quis quo quos rem vero!
+                </div>
+                <button type="button" onclick="recuperationTxtModal()">Envoyer le commentaire</button>
+            </form>
+        </div>
+        <div class="closeButton" onclick="clickCloseBtnModal()">
+            <i class="far fa-times-circle"></i>
+        </div>
+    </div>
+
+</section>
+<footer>
+<!--    todo liens pour le footer -->
+    <a href="">
+        Mon profil
+    </a>
+    <a href="">
+        Règlements
+    </a>
+    <a href="">
+        Nous contacter
+    </a>
+</footer>
+<!-- Script Lottie & bodymovin ae -->
+<script src="lottie.js"></script>
+<script src="navBtn.js"></script>
+<script>
+    var navBarBtn = 0;
+    function clickNavBtn(){
+        animationNavBtn.play();
+        if (navBarBtn === 0) {
+            document.getElementById("navHidden").style.zIndex = '2';
+            document.getElementById("navHidden").style.opacity = '100%';
+        } else {
+            document.getElementById("navHidden").style.opacity = '0%';
+        }
+        setTimeout(swapingAnimation, 350)
+    }
+    function swapingAnimation() {
+        if (navBarBtn === 0) {
+            animationNavBtn.pause();
+            animationNavBtn.setDirection(-1);
+            navBarBtn = 1;
+        } else {
+            animationNavBtn.pause();
+            document.getElementById("navHidden").style.zIndex = '-1';
+            animationNavBtn.setDirection(1);
+            navBarBtn = 0;
+        }
+    }
+    function clickCloseBtnModal(){
+        var modal = document.getElementById("modalId");
+        modal.style.opacity = '0';
+        modal.style.zIndex = '-1';
+    }
+    function clickOpenBtnModal(){
+        var modal = document.getElementById("modalId");
+        modal.style.opacity = '1';
+        modal.style.zIndex = '5';
+    }
+    function recuperationTxtModal(){
+        var modalTxt = document.getElementById("modalTxt").textContent;
+    //    todo faire des trucs avec ça (texte de la balise complète récupéré ^^ )
+    }
+</script>
+
+</body>
+</html>
