@@ -158,3 +158,13 @@ $(document).ready(function() {
         $('#idDeleteLevel').val($(this).val());
     });
 });
+
+function btnClickDelete(message, id){
+    if(confirm('Êtes-vous sûr de vouloir supprimer : '+ message +' ?')){
+        $('#'+id).submit();
+        alert('Vous avez bien supprimé : '+ message +'.')
+    } else {
+        alert('Vous avez annulé l\'action');
+    }
+
+}

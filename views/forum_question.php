@@ -91,7 +91,7 @@ $question = hget("http://localhost:4567/api/getQuestion/" . $id_question)[0];
             <div class="commentContainer">
                 <?php if ($c->sub > 0) { ?>
                     <button type="button" onclick="loadMore('<?php echo $c->id_comment; ?>' )">
-                        Voire Plus&nbsp;
+                        Voir Plus&nbsp;
                         <i class="far fa-comment"></i>
                         (<?php echo $c->sub; ?>)
                     </button> <?php
