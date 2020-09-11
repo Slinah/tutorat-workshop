@@ -1,0 +1,13 @@
+.contact {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+}
+.contact article{
+    width: 100%;
+}
+.contact article div{
+    font-size: 1.5em;
+}

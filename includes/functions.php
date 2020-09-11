@@ -1,7 +1,7 @@
 <?php
 
 
-function http_post(string $url, array $param = [])
+function hpost(string $url, array $param = [])
 {
 
 //    exemple pour le param $url : 'http://server.com/path'
@@ -23,7 +23,7 @@ function http_post(string $url, array $param = [])
 }
 
 
-function http_get(string $url)
+function hget(string $url)
 {
     return json_decode(file_get_contents($url));
 }
