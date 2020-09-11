@@ -12,7 +12,7 @@ function http_post(url = "", param = {}) {
         }
         xhttp.onreadystatechange = function () {
             if (xhttp.readyState === 4) {
-                resolve(JSON.parse(xhttp.response));
+                resolve(xhttp.response);
             }
         }
         await xhttp.send(data);
