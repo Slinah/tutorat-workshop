@@ -3,12 +3,6 @@
 
 function hpost(string $url, array $param = [])
 {
-
-//    exemple pour le param $url : 'http://server.com/path'
-//    exemple pour le param $param : array('key1' => 'value1', 'key2' => 'value2');
-//    use key 'http' even if you send the request to https://...
-
-
     $options = array(
         'http' => array(
             'header' => "Content-type: application/x-www-form-urlencoded\r\n",

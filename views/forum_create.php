@@ -13,7 +13,7 @@ include_once "includes/composants/nav-bar.php";
             <label>matiere :
                 <select name="id_matiere" id="matiere-select">
                     <?php
-                    foreach (http_get("http://localhost:4567/api/getMatiere") as $m) {
+                    foreach (hget("http://localhost:4567/api/getMatiere") as $m) {
                         echo "<option value=" . $m->id_matiere . ">" . $m->intitule . "</option>";
                     }
                     ?>
@@ -37,7 +37,7 @@ include_once "includes/composants/nav-bar.php";
 if (!empty($_POST)) {
 
 
-    http_post("http://localhost:4567/api/createForumQuestion", array("titre" => $_POST["title"], "description" => $_POST["description"], "id_personne" => $_POST["id_personne"], "id_matiere" => $_POST["id_matiere"]));
+    hpost("http://localhost:4567/api/createForumQuestion", array("titre" => $_POST["title"], "description" => $_POST["description"], "id_personne" => $_POST["id_personne"], "id_matiere" => $_POST["id_matiere"]));
     header("Location: http://tutorat-workshop/forum");
     die();
 

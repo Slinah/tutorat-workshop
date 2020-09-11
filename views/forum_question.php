@@ -7,7 +7,7 @@ $request = explode('/', $_SERVER['REQUEST_URI']);
 $id_question = end($request);
 
 
-$question = http_get("http://localhost:4567/api/getQuestion/" . $id_question)[0];
+$question = hget("http://localhost:4567/api/getQuestion/" . $id_question)[0];
 //var_dump($question);
 
 
@@ -63,7 +63,7 @@ $question = http_get("http://localhost:4567/api/getQuestion/" . $id_question)[0]
 
 
     <?php
-    $t = http_get("http://localhost:4567/api/getCommentaire/" . $id_question);
+    $t = hget("http://localhost:4567/api/getCommentaire/" . $id_question);
     if (!is_null($t)) {
         foreach ($t as $c) {
 //    var_dump($c);

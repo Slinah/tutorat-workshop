@@ -3,7 +3,7 @@ include_once "includes/composants/nav-bar.php";
 
 if (!empty($_POST)) {
 //    var_dump($_POST);
-    http_post("http://localhost:4567/api/upvoteQuestion", array("id_personne" => "6593c62a-f0e3-11ea-adc1-0242ac120002", "id_question" => $_POST["question_id"]));
+    hpost("http://localhost:4567/api/upvoteQuestion", array("id_personne" => "6593c62a-f0e3-11ea-adc1-0242ac120002", "id_question" => $_POST["question_id"]));
 }
 ?>
 
@@ -22,7 +22,7 @@ if (!empty($_POST)) {
 
 
     <?php
-    foreach (http_get("http://localhost:4567/api/getForumQuestions") as $p) {
+    foreach (hget("http://localhost:4567/api/getForumQuestions") as $p) {
         ?>
         <section class="card">
             <!--        todo liens vers la page du sujet -->
