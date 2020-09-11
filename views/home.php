@@ -41,7 +41,7 @@ include_once "includes/composants/nav-bar.php";
         <button type="button">En savoir plus</button>
     </section>
     <section class="card">
-        <header><i class="fas fa-hands-helping"></i>&nbsp;Donner un cour</header>
+        <header><i class="fas fa-hands-helping"></i>&nbsp;Donner un cours</header>
         <p>Lorem ipsum dolor sit amet,
             consectetur adipiscing elit.
             Duis vel est vestibulum ligula
@@ -54,7 +54,7 @@ include_once "includes/composants/nav-bar.php";
         <button type="button">En savoir plus</button>
     </section>
     <section class="card">
-        <header><i class="fas fa-question"></i>&nbsp;Suggérer un cour</header>
+        <header><i class="fas fa-question"></i>&nbsp;Suggérer un cours</header>
         <p>Lorem ipsum dolor sit amet,
             consectetur adipiscing elit.
             Duis vel est vestibulum ligula
@@ -68,7 +68,7 @@ include_once "includes/composants/nav-bar.php";
     </section>
 </section>
 <section class="headerTitle">
-    <h2>Pourquoi donner un cour ?</h2>
+    <h2>Pourquoi donner un cours ?</h2>
 </section>
 <section>
     <p>"Enseigner, c'est apprendre deux fois.''
