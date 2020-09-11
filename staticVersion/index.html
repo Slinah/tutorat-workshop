@@ -10,10 +10,11 @@
     <!-- todo description site tutorat -->
     <meta name="description" content="description site tutorat">
     <link rel="icon" type="image/png" href="images/favIcon.png"/>
-    <link rel="stylesheet" href="../ressources/css/style.css">
-    <link rel="stylesheet" href="../ressources/css/nav.css">
-    <link rel="stylesheet" href="../ressources/css/button.css">
-    <link rel="stylesheet" href="../ressources/css/card.css">
+    <link rel="stylesheet" href="!styleWhite.css">
+    <link rel="stylesheet" href="!navWhite.css">
+    <link rel="stylesheet" href="!buttonWhite.css">
+    <link rel="stylesheet" href="!cardWhite.css">
+    <link rel="stylesheet" href="../ressources/css/cursor.css">
     <script src="https://kit.fontawesome.com/58f998f035.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -22,14 +23,15 @@
 <!-- Nav Bar -->
 <header class="navHeader">
     <div id="navTop">
-<!--        todo ajout du logo -->
-        <a href="#"><img src="images" alt="logo"></a>
-        <a class="disabled" onclick="clickNavBtn();" id="navBtnPhone"><div id="navBtn"></div></a>
+        <!--        todo ajout du logo -->
+        <li><a href="#"><img src="images/favicon.png" alt="logo"></a></li>
+        <a class="disabled" onclick="clickNavBtn();" id="navBtnPhone">
+            <div id="navBtn"></div>
+        </a>
     </div>
     <div id="navHidden">
         <nav>
             <ul>
-<!--                todo liens menu-->
                 <li><a href="#" onclick="clickNavBtn();">Les cours</a></li>
                 <li><a href="#" onclick="clickNavBtn();">Donner un cours</a></li>
                 <li><a href="#" onclick="clickNavBtn();">Suggérer un cours</a></li>
@@ -40,19 +42,23 @@
     </div>
     <div id="navDesktop">
         <ul>
-            <li><a href="#"><img src="images" alt="logo"></a></li>
-            <li><a href="#">Scratch Overflow</a></li>
-            <li><a href="#">Les cours</a></li>
-            <li><a href="#">Donner un cours</a></li>
-            <li><a href="#">Suggérer un cours</a></li>
-            <li><a href="#">Forum</a></li>
-<!--            todo si connecter afficher 'Mon profil', si ce n'est pas le cas, afficher 'Connexion / Inscription' -->
-            <li><a href="#">Mon profil</a></li>
+            <div>
+                <li><a href="#"><img src="images/favicon.png" alt="logo"></a></li>
+                <li class="bold"><a href="#">Scratch Overflow</a></li>
+            </div>
+            <div>
+                <li><a href="#">Les cours</a></li>
+                <li><a href="#">Donner un cours</a></li>
+                <li><a href="#">Suggérer un cours</a></li>
+                <li><a href="#">Forum</a></li>
+                <!--            todo si connecter afficher 'Mon profil', si ce n'est pas le cas, afficher 'Connexion / Inscription' -->
+                <li><a href="#">Mon profil</a></li>
+            </div>
         </ul>
     </div>
 </header>
 <section id="backgroundTutorat">
-    <img src="../ressources/img/imageBackground.jpg" alt="background Tutorat">
+    <img src="images/backgrounds/whiteBackgroundTutoratEtEntraide.jpg" alt="background Tutorat">
 </section>
 <section class="headerTitle">
     <h2>Le tutorat c'est quoi ?</h2>

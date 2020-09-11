@@ -1,22 +1,23 @@
 button{
-    padding:8px;
-    border-radius:10px;
-    background:#07946A;
-    font:bold 13px Arial;
+    padding:8px 16px;
+    border-radius:20px;
+    background:#FEAA0A;
+    font-weight: bold;
     color:#fff;
-    box-shadow: -1px 1px 4px #111111;
     border: 2px #2D2D2D solid;
     transition: all 0.3s ease-in-out;
+    cursor: pointer;
 }
 .card button{
-    border: 2px #606060 solid;
+    border: 2px #1B1B1B solid;
 }
 .headerTitle button{
-    border: 2px #606060 solid;
+    border: 2px #1B1B1B solid;
 }
+
 button:hover{
-    border: 2px white solid;
+    border: 2px #FEAA0A solid;
     background: #2D2D2D;
     color: #fff ;
-    border-radius: 0;
+    border-radius: 15px;
 }

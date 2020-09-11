@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- todo title site tutorat -->
+    <title>Tutorat web App</title>
+    <!-- todo description site tutorat -->
+    <meta name="description" content="description site tutorat">
+    <link rel="icon" type="image/png" href="images/favIcon.png"/>
+    <link rel="stylesheet" href="!styleWhite.css">
+    <link rel="stylesheet" href="!formAdminWhite.css">
+    <script src="https://kit.fontawesome.com/58f998f035.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!--        todo liens (onclick) js sur tous les buttons / envoie des données dans un formulaire etc -->
+<!-- Nav Bar -->
+<div class="login-box">
+    <h2>Gestion des utilisateurs</h2>
+    <form>
+        <div class="user-box">
+            <select name="personneSelect" id="personne-select">
+                <option value="">personne - classe - promo - niveau - admin</option>
+                <option value="personne1">personne 1 - classe - promo - niveau - admin</option>
+                <option value="personne2">personne 1 - classe - promo - niveau - admin</option>
+            </select>
+        </div>
+        <a href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Promote
+        </a>
+        <a href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Demote
+        </a>
+        <a href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Supprimer le compte
+        </a>
+    </form>
+</div>
+
+<div class="login-box">
+    <h2>Gestion des matières</h2>
+    <form>
+        <div class="user-box">
+            <select name="matiereSelect" id="matiere-select">
+                <option value="">Liste matiere</option>
+                <option value="matiere1">matiere 1</option>
+                <option value="matiere2">matiere 2</option>
+            </select>
+        </div>
+        <a href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Supprimer matière
+        </a>
+        <div class="user-box">
+            <input type="text" name="" required="">
+            <label>Nom de la matière à ajouter</label>
+        </div>
+        <a href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Ajout matière
+        </a>
+    </form>
+</div>
+
+<div class="login-box">
+    <h2>Gestion des Ecoles</h2>
+    <form>
+        <div class="user-box">
+            <select name="ecoleSelect" id="ecole-select">
+                <option value="">Liste ecole</option>
+                <option value="ecole1">ecole 1</option>
+                <option value="ecole2">ecole 2</option>
+            </select>
+        </div>
+        <a href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Supprimer Ecole
+        </a>
+        <div class="user-box">
+            <input type="text" name="" required="">
+            <label>Nom de l'école à ajouter</label>
+        </div>
+        <a href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Ajout Ecole
+        </a>
+    </form>
+</div>
+
+<div class="login-box">
+    <h2>Gestion des Promos</h2>
+    <form>
+        <div class="user-box">
+            <select name="ecoleSelect" id="ecole-select2">
+                <option value="">Liste ecole</option>
+                <option value="ecole1">ecole 1</option>
+                <option value="ecole2">ecole 2</option>
+            </select>
+        </div>
+        <div class="user-box">
+            <select name="promoSelect" id="promo-select">
+                <option value="">Liste Promo</option>
+                <option value="promo1">Promo 1</option>
+                <option value="promo2">Promo 2</option>
+            </select>
+        </div>
+        <a href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Supprimer promo
+        </a>
+        <div class="user-box">
+            <input type="text" name="" required="">
+            <label>Nom de la promo à ajouter</label>
+        </div>
+        <a href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Ajout promo
+        </a>
+    </form>
+</div>
+
+<div class="login-box">
+    <h2>Gestion des classes</h2>
+    <form>
+        <div class="user-box">
+            <select name="ecoleSelect" id="ecole-select3">
+                <option value="">Liste ecole</option>
+                <option value="ecole1">ecole 1</option>
+                <option value="ecole2">ecole 2</option>
+            </select>
+        </div>
+        <div class="user-box">
+            <select name="promoSelect" id="promo-select2">
+                <option value="">Liste Promo</option>
+                <option value="promo1">Promo 1</option>
+                <option value="promo2">Promo 2</option>
+            </select>
+        </div>
+        <div class="user-box">
+            <select name="promoSelect" id="classe-select">
+                <option value="">Liste classe</option>
+                <option value="classe1">classe 1</option>
+                <option value="classe2">classe 2</option>
+            </select>
+        </div>
+        <a href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Supprimer classe
+        </a>
+        <div class="user-box">
+            <input type="text" name="" required="">
+            <label>Nom de la classe à ajouter</label>
+        </div>
+        <a href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Ajout classe
+        </a>
+    </form>
+</div>
+
+<div class="login-box">
+    <h2>Gestion des niveaux</h2>
+    <form>
+        <div class="user-box">
+            <select name="niveauSelect" id="niveau-select">
+                <option value="">Liste niveau</option>
+                <option value="niveau1">niveau 1</option>
+                <option value="niveau2">niveau 2</option>
+            </select>
+        </div>
+        <a href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Supprimer niveau
+        </a>
+        <div class="user-box">
+            <input type="text" name="" required="">
+            <label>Niveau à ajouter</label>
+        </div>
+        <a href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Ajout niveau
+        </a>
+    </form>
+</div>
+</body>
+</html>

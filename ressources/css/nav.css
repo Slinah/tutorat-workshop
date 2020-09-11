@@ -6,9 +6,78 @@ nav {
     padding: 1em
 }
 
+
 .logo {
     height: 3vh;
 }
+
+
+.navHeader:hover #navDesktop .logo {
+    animation-name: squirrel;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    position: relative;
+}
+
+
+@keyframes squirrel {
+
+    0% {
+        left: 0px;
+        transform: rotate(0deg);
+    }
+    12% {
+        left: 100px;
+        top: 0px;
+        transform: rotate(30deg);
+    }
+    25% {
+        left: 200px;
+        top: -17px;
+        transform: rotate(0deg);
+    }
+    33% {
+        top: -17px;
+        left: 250px;
+        transform: rotate(30deg);
+    }
+    50% {
+        left: 250px;
+        transform: rotate(0deg);
+    }
+
+    55% {
+
+        left: 280px;
+        transform: rotate(0deg) scaleX(-1);
+    }
+
+    62% {
+        top: -17px;
+        left: 250px;
+        transform: rotate(30deg) scaleX(-1);
+    }
+
+    75% {
+        left: 200px;
+        top: -17px;
+        transform: rotate(0deg) scaleX(-1);
+    }
+
+    83% {
+        left: 100px;
+        top: 0px;
+        transform: rotate(30deg) scaleX(-1);
+    }
+
+    100% {
+
+        left: 0px;
+        transform: rotate(0deg);
+    }
+
+}
+
 
 ul {
     margin: 1em 0 0 0;
@@ -34,18 +103,18 @@ ul {
     position: fixed;
     height: 6vh;
     width: 100%;
-    background:#111111 ;
+    background: #111111;
     margin: 0;
     padding: 0
 }
 
 #navTop img {
-    padding-left: 1em;
     max-width: 100%;
     max-height: 100%;
-    height: 100%;
+    height: 80%;
     position: absolute;
-    left: 0
+    left: 5%;
+    top: 5%;
 }
 
 #navHidden {
@@ -59,7 +128,8 @@ ul {
     opacity: 0;
     transition: opacity .3s ease-out
 }
-#navHidden ul{
+
+#navHidden ul {
     display: flex;
     width: 80%;
     justify-content: space-evenly;
@@ -67,7 +137,8 @@ ul {
     margin: 0;
     padding: 0;
 }
-#navHidden li{
+
+#navHidden li {
     margin: 3%;
     width: 100%;
 }
@@ -91,32 +162,95 @@ ul {
     flex-direction: row
 }
 
-#navDesktop{
+#navDesktop {
     display: none;
 }
 
+.underNav {
+    height: 6vh;
+}
+
 /* Version Mobile, changement d'affichage pour la nav bar */
-@media (min-width: 1200px){
-    #navHidden,#navTop,#navBtn{
+@media (min-width: 1200px) {
+    nav {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 1em
+    }
+
+    ul {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    ul div {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 100%;
+    }
+
+    ul div:nth-child(1) {
+        width: 30%;
+    }
+
+    ul div:nth-child(2) {
+        width: 70%;
+    }
+
+    ul li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    ul li a {
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        align-items: center;
+    }
+
+    ul li a img {
+        height: 75%;
+    }
+
+    ul.li:nth-child(1) {
+        justify-self: flex-start !important;
+    }
+
+    ul.li:nth-child(2) {
+        justify-self: flex-start !important;
+    }
+
+    #navHidden, #navTop, #navBtn {
         display: none;
     }
-    #navDesktop{
+
+    #navDesktop {
         display: block;
         z-index: 3;
         position: fixed;
         height: 6vh;
         width: 100%;
-        background:#111111 ;
+        background: #111111;
         margin: 0;
         padding: 0;
     }
-    #navDesktop ul{
+
+    #navDesktop ul {
         display: flex;
         flex-flow: row nowrap;
         justify-content: space-evenly;
         align-items: center;
     }
-    #navDesktop li:nth-child(2) a{
+
+    .bold a {
         font-weight: bold;
+        font-size: 1.2em;
     }
 }

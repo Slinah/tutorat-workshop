@@ -10,7 +10,6 @@
         Nous contacter
     </a>
 </footer>
-<!-- Script Lottie & bodymovin ae -->
 
 
 </body>

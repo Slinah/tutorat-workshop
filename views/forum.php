@@ -1,7 +1,10 @@
 <?php
-
 include_once "includes/composants/nav-bar.php";
 
+if (!empty($_POST)) {
+//    var_dump($_POST);
+    hpost("http://localhost:4567/api/upvoteQuestion", array("id_personne" => "6593c62a-f0e3-11ea-adc1-0242ac120002", "id_question" => $_POST["question_id"]));
+}
 ?>
 
 
@@ -19,7 +22,7 @@ include_once "includes/composants/nav-bar.php";
 
 
     <?php
-    foreach (http_get("http://localhost:4567/api/getForumQuestions") as $p) {
+    foreach (hget("http://localhost:4567/api/getForumQuestions") as $p) {
         ?>
         <section class="card">
             <!--        todo liens vers la page du sujet -->
@@ -36,13 +39,7 @@ include_once "includes/composants/nav-bar.php";
             </p>
             <p>
                 <?php
-                echo $p->description;
-                ?>
-            </p>
-            <p>
-                Nombre de commentaire :
-                <?php
-                echo $p->comments;
+                echo substr($p->description, 0, 45) . ".....";
                 ?>
             </p>
             <div class="classeDownRight">Classe</div>
@@ -56,9 +53,16 @@ include_once "includes/composants/nav-bar.php";
                 echo $p->prenom;
                 ?>
             </div>
-            <button type="button" class="buttonDownLeft"><i class="far fa-thumbs-up"></i> <?php
-                echo $p->votes;
-                ?></button>
+            <form method="post">
+                <input type="hidden" name="question_id" value="<?php echo $p->id_question; ?>">
+                <button type="submit" class="buttonDownLeft"><i class="far fa-thumbs-up"></i> <?php
+                    echo $p->votes;
+                    ?>
+                </button>
+                <?php
+                echo $p->comments;
+                ?> <i class="far fa-comment"></i>
+            </form>
         </section>
         <?php
     }
