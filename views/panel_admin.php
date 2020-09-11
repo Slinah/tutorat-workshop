@@ -8,6 +8,8 @@ $_SESSION["role"] = 1;
 if (!isset($_SESSION["role"]) || ($_SESSION["role"] != 1)) {
 //    Redirigé sur une autre page
 }
+
+
 //TODO requête API à sécurisé avec Token
 //TODO URI à changer quand mise en production
 $dataUsers = hget("http://localhost:4567/api/getAllUsers");
@@ -188,7 +190,7 @@ $dataLevels = hget('http://localhost:4567/api/getLevel');
     <div class="user-box">
         <input type="hidden" id="idSchoolForPromo2" name="idSchool">
         <input type="hidden" id="idPromoForClasse" name="idPromo">
-        <input type="text" name="addClasse" required>
+        <input type="text" id="addClasse" name="addClasse" required>
         <label>Nom de la classe à ajouter</label>
     </div>
     <button type="submit" id="btnAddClasse">
@@ -216,7 +218,7 @@ $dataLevels = hget('http://localhost:4567/api/getLevel');
     </form>
     <form action="/actions/actionsAddLevel.php" method="post">
         <div class="user-box">
-            <input type="text" name="" required>
+            <input type="text" name="addLevel" required>
             <label>Niveau à ajouter</label>
         </div>
         <button type="submit" id="btnAddLevel">

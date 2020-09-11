@@ -1,8 +1,8 @@
 <?php
+require_once "../includes/functions.php";
+
 $intituleSubject = filter_input(INPUT_POST, 'addSubject');
 
+hpost('http://localhost:4567/api/addSubject', array('intitule' => $intituleSubject));
 
-
-//TODO hpost('http://4567/api/addSubject', );
-
-//TODO faire une redirection vers la page panel_admin
+header('location: /admin');

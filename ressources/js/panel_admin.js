@@ -18,6 +18,7 @@ $(document).ready(function() {
     //#5
     $('#promo-select2').attr('disabled', 'disabled');
     $('#classe-select').attr('disabled', 'disabled');
+    $('#addClasse').attr('disabled', 'disabled');
     $('#btnAddClasse').attr('disabled', 'disabled');
     $('#btnDeleteClasse').attr('disabled', 'disabled');
 
@@ -114,6 +115,7 @@ $(document).ready(function() {
        }
        $('#idDeleteClasse').val('');
        $('#idPromoForClasse').val('');
+       $('#addClasse').attr('disabled', 'disabled');
        $('#btnAddClasse').attr('disabled', 'disabled');
     });
 
@@ -125,11 +127,13 @@ $(document).ready(function() {
            $("#classe-select option:not(.pro_" + $(this).val() + ")").hide();
            $('#show3').show();
            $('#idPromoForClasse').val($(this).val());
+           $('#addClasse').removeAttr('disabled', 'disabled');
            $('#btnAddClasse').removeAttr('disabled', 'disabled');
        } else {
            $('#classe-select').val('');
            $('#idPromoForClasse').val($(this).val());
            $("#classe-select").attr('disabled', 'disabled');
+           $('#addClasse').attr('disabled', 'disabled');
            $('#btnAddClasse').attr('disabled', 'disabled');
            $('#btnDeleteClasse').attr('disabled', 'disabled');
        }
