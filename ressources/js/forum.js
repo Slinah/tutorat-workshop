@@ -12,7 +12,7 @@ function http_post(url = "", param = {}) {
         }
         xhttp.onreadystatechange = function () {
             if (xhttp.readyState === 4) {
-                resolve(xhttp.response.parse());
+                resolve(JSON.parse(xhttp.response));
             }
         }
         await xhttp.send(data);
@@ -37,7 +37,7 @@ function http_get(url = "", param = {}) {
         xhttp.open("GET", url, true);
         xhttp.onreadystatechange = function () {
             if (xhttp.readyState === 4) {
-                resolve(xhttp.response);
+                resolve(JSON.parse(xhttp.response));
             }
         }
         await xhttp.send();
@@ -93,6 +93,6 @@ async function recuperationTxtModal() {
 function loadMore(id) {
     console.log("heu");
     http_get("http://localhost:4567/api/getCommentaireReply/" + id).then(value => {
-        console.log("Result " + value);
+        console.log(value);
     });
 }
