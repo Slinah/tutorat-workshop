@@ -51,7 +51,7 @@ switch ($request) {
     case '/register' :
         header_options(["style", "nav", "button", "form"]);
         require 'views/register.php';
-        footer_options(["lottie", "navBtn", "fonction"]);
+        footer_options(["jquery", "register", "fonction"]);
         break;
     default:
         header_options(["style", "404", "nav", "button"]);
