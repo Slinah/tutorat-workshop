@@ -3,29 +3,35 @@
 include_once "includes/composants/nav-bar.php";
 
 $unclosedCourses = hget("http://localhost:4567/api/unclosedCourses");
-?>
-
-<section id="backgroundTutorat">
-    <img src="../ressources/img/backgrounds/darkBackgroundLesCours.jpg" alt="background Tutorat">
-</section>
-<section>
-    <p>Tu ne trouves pas le cours que tu voulais ?</p>
-    <button>Suggérer un cour</button>
-</section>
-<?php
 $timeZone = new DateTimeZone("Europe/Paris");
 $dateTime = new DateTime("now", $timeZone);
 $semaineActuelle = (int)date("W", $dateTime->getTimestamp());
 $courCetteSemaine = 1;
 $courSemaineProchaine = 1;
 $coursPlusTard = 1;
+// todo voir avec le guard et le système de connexion plus tard ^^
+$idPersonneConnecter="6593c62a-f0e3-11ea-adc1-0242ac120002";
+$getCoursById=hget("http://localhost:4567/api/peopleCourseById?idPeople=".$idPersonneConnecter);
+foreach ($getCoursById as $ligne){
+    $tabGetCoursById[] = $ligne->id_cours;
+}
+?>
+<section id="backgroundTutorat">
+    <img src="/ressources/img/backgrounds/darkBackgroundLesCours.jpg" alt="background Tutorat">
+</section>
+<section>
+    <p>Tu ne trouves pas le cours que tu voulais ?</p>
+    <button>Suggérer un cour</button>
+</section>
+
+<?php
 foreach ($unclosedCourses as $ligne) {
     $semaineCour = (int)date("W", strtotime($ligne->date));
     if ($semaineCour === $semaineActuelle) {
         if ($courCetteSemaine === 1) {
             // ouverture section + title + card
             echo "
-        <section class='headerTitle'>
+        <section id='inSemaine' class='headerTitle'>
             <h2>Cette semaine</h2>
         </section>
         <section class='cardContainer'>
@@ -36,7 +42,18 @@ foreach ($unclosedCourses as $ligne) {
             <br>
             <br>" . $ligne->commentaires . "
             </p>
-            <button type='button'>S'inscrire</button>
+            <form method='post' action='/actions/actionsRegistrationCourse.php'>
+            <input type='hidden' name='id_cours' value='".$ligne->idCours."'> 
+            <input type='hidden' name='id_personne' value='".$idPersonneConnecter."'>
+            ";
+            // Condition visuelle pour savoir si on est inscrit à un cours ou non.
+            if (in_array($ligne->idCours,$tabGetCoursById)){
+                echo "<button disabled>Inscrit(e)</button>";
+            } else{
+            echo "<button type='submit'>S'inscrire</button>";
+            }
+            echo "
+            </form>
             <div class='classeUpLeft'>" . $ligne->promo . "</div>
             <div class='dateUpRight'>" . date("d m", strtotime($ligne->date)) . "</div>
             ";
@@ -56,7 +73,18 @@ foreach ($unclosedCourses as $ligne) {
             <br>
             <br>" . $ligne->commentaires . "
             </p>
-            <button type='button'>S'inscrire</button>
+            <form method='post' action='/actions/actionsRegistrationCourse.php'>
+            <input type='hidden' name='id_cours' value='".$ligne->idCours."'> 
+            <input type='hidden' name='id_personne' value='".$idPersonneConnecter."'>
+            ";
+            // Condition visuelle pour savoir si on est inscrit à un cours ou non.
+            if (in_array($ligne->idCours,$tabGetCoursById)){
+                echo "<button disabled>Inscrit(e)</button>";
+            } else{
+                echo "<button type='submit'>S'inscrire</button>";
+            }
+            echo "
+            </form>
             <div class='classeUpLeft'>" . $ligne->promo . "</div>
             <div class='dateUpRight'>" . date("d m", strtotime($ligne->date)) . "</div>
             ";
@@ -87,7 +115,18 @@ foreach ($unclosedCourses as $ligne) {
             <br>
             <br>" . $ligne->commentaires . "
             </p>
-            <button type='button'>S'inscrire</button>
+            <form method='post' action='/actions/actionsRegistrationCourse.php'>
+            <input type='hidden' name='id_cours' value='".$ligne->idCours."'> 
+            <input type='hidden' name='id_personne' value='".$idPersonneConnecter."'>
+            ";
+            // Condition visuelle pour savoir si on est inscrit à un cours ou non.
+            if (in_array($ligne->idCours,$tabGetCoursById)){
+                echo "<button disabled>Inscrit(e)</button>";
+            } else{
+                echo "<button type='submit'>S'inscrire</button>";
+            }
+            echo "
+            </form>
             <div class='classeUpLeft'>" . $ligne->promo . "</div>
             <div class='dateUpRight'>" . date("d m", strtotime($ligne->date)) . "</div>
             ";
@@ -107,7 +146,18 @@ foreach ($unclosedCourses as $ligne) {
             <br>
             <br>" . $ligne->commentaires . "
             </p>
-            <button type='button'>S'inscrire</button>
+            <form method='post' action='/actions/actionsRegistrationCourse.php'>
+            <input type='hidden' name='id_cours' value='".$ligne->idCours."'> 
+            <input type='hidden' name='id_personne' value='".$idPersonneConnecter."'>
+            ";
+            // Condition visuelle pour savoir si on est inscrit à un cours ou non.
+            if (in_array($ligne->idCours,$tabGetCoursById)){
+                echo "<button disabled>Inscrit(e)</button>";
+            } else{
+                echo "<button type='submit'>S'inscrire</button>";
+            }
+            echo "
+            </form>
             <div class='classeUpLeft'>" . $ligne->promo . "</div>
             <div class='dateUpRight'>" . date("d m", strtotime($ligne->date)) . "</div>
             ";
@@ -139,7 +189,18 @@ foreach ($unclosedCourses as $ligne) {
             <br>
             <br>" . $ligne->commentaires . "
             </p>
-            <button type='button'>S'inscrire</button>
+            <form method='post' action='/actions/actionsRegistrationCourse.php'>
+            <input type='hidden' name='id_cours' value='".$ligne->idCours."'> 
+            <input type='hidden' name='id_personne' value='".$idPersonneConnecter."'>
+            ";
+            // Condition visuelle pour savoir si on est inscrit à un cours ou non.
+            if (in_array($ligne->idCours,$tabGetCoursById)){
+                echo "<button disabled>Inscrit(e)</button>";
+            } else{
+                echo "<button type='submit'>S'inscrire</button>";
+            }
+            echo "
+            </form>
             <div class='classeUpLeft'>" . $ligne->promo . "</div>
             <div class='dateUpRight'>" . date("d m", strtotime($ligne->date)) . "</div>
             ";
@@ -150,7 +211,7 @@ foreach ($unclosedCourses as $ligne) {
             echo "</section>";
             $coursPlusTard = 0;
         } else {
-            // ajout card
+            // ajout de card
             echo "
             <section class='card'>
             <header>" . $ligne->intitule . "</header>
@@ -159,7 +220,18 @@ foreach ($unclosedCourses as $ligne) {
             <br>
             <br>" . $ligne->commentaires . "
             </p>
-            <button type='button'>S'inscrire</button>
+            <form method='post' action='/actions/actionsRegistrationCourse.php'>
+            <input type='hidden' name='id_cours' value='".$ligne->idCours."'> 
+            <input type='hidden' name='id_personne' value='".$idPersonneConnecter."'>
+            ";
+            // Condition visuelle pour savoir si on est inscrit à un cours ou non.
+            if (in_array($ligne->idCours,$tabGetCoursById)){
+                echo "<button disabled>Inscrit(e)</button>";
+            } else{
+                echo "<button type='submit'>S'inscrire</button>";
+            }
+            echo "
+            </form>
             <div class='classeUpLeft'>" . $ligne->promo . "</div>
             <div class='dateUpRight'>" . date("d m", strtotime($ligne->date)) . "</div>
             ";
@@ -175,4 +247,3 @@ foreach ($unclosedCourses as $ligne) {
 if ($coursPlusTard === 0 || $courSemaineProchaine === 0 || $courCetteSemaine===0) {
     echo "</section>";
 }
-?>
