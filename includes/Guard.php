@@ -1,6 +1,7 @@
 <?php
 
 if (!array_key_exists("me", $_SESSION)) {
+    $_SESSION["me"] = new stdClass();
     $_SESSION["me"]->token = "";
 }
 
@@ -9,11 +10,10 @@ function HaveToBeConnected()
 {
 // var_dump(hpost("http://localhost:4567/api/isConnected", array("token" => $_SESSION["token"])));
     if (!hpost("http://localhost:4567/api/isConnected", array("token" => $_SESSION["me"]->token))->check) {
-
-        echo "Guard Activer ! Redirect";
-//        header("Location: /register");
+//        echo "Guard Activer ! Redirect";
+        header("Location: /register");
     }
-    var_dump($_SESSION["me"]->token);
+//    var_dump($_SESSION["me"]->token);
 }
 
 
@@ -21,9 +21,8 @@ function HaveToBeAdmin()
 {
 // var_dump(hpost("http://localhost:4567/api/isAdmin", array("token" => $_SESSION["token"])));
     if (!hpost("http://localhost:4567/api/isAdmin", array("token" => $_SESSION["me"]->token))->admin) {
-
-        echo "Guard Activer ! Redirect";
-//        header("Location: /connect");
+//        echo "Guard Activer ! Redirect";
+        header("Location: /");
     }
 }
 
@@ -32,10 +31,10 @@ function HaveToBeNOTConnected()
 {
 // var_dump(hpost("http://localhost:4567/api/isConnected", array("token" => $_SESSION["token"])));
     if (hpost("http://localhost:4567/api/isConnected", array("token" => $_SESSION["me"]->token))->check) {
-        echo "Guard Activer ! Redirect";
-//        header("Location: /register");
+//        echo "Guard Activer ! Redirect";
+        header("Location: /");
     }
-    var_dump($_SESSION["me"]->token);
+//    var_dump($_SESSION["me"]->token);
 }
 
 

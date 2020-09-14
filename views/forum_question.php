@@ -14,7 +14,7 @@ $question = hget("http://localhost:4567/api/getQuestion/" . $id_question)[0];
 ?>
 
 <section id="backgroundTutorat">
-    <img src="../ressources/img/imageBackground.jpg" alt="background Tutorat">
+    <img src="/ressources/img/imageBackground.jpg" alt="background Tutorat">
 </section>
 <section class="headerTitle">
     <h2>Titre du sujet</h2>
@@ -114,7 +114,7 @@ $question = hget("http://localhost:4567/api/getQuestion/" . $id_question)[0];
 
 </section>
 <section id="modalId" class="modal">
-    <input type="hidden" id="personne_id" value="<?php echo "6593c62a-f0e3-11ea-adc1-0242ac120002"; ?>">
+    <input type="hidden" id="personne_id" value="<?php echo $_SESSION["me"]->id_personne; ?>">
     <div class="container">
         <div class="comment">
             <form action="POST">

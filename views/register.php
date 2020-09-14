@@ -81,8 +81,7 @@ if (!empty($_POST)) {
     if (array_key_exists("class", $_POST)) {
 
         if (!is_null($_POST["class"])) {
-            var_dump($_POST);
-            $hashed_password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+//            var_dump($_POST);
             $DB_PASS = hpost("http://localhost:4567/api/createAccount",
 
                 array(
@@ -95,21 +94,16 @@ if (!empty($_POST)) {
                     "password" => password_hash($_POST["password"], PASSWORD_DEFAULT),
                 ));
 
-            var_dump($hashed_password);
-            var_dump($DB_PASS);
-            var_dump(password_verify($_POST["password"], $DB_PASS->password));
             if (password_verify($_POST["password"], $DB_PASS->password)) {
-                $_SESSION["token"] = $DB_PASS->token;
-                $_SESSION["id_personne"] = $DB_PASS->id_personne;
                 $_SESSION["me"] = $DB_PASS;
+                header("Location: http://tutorat-workshop/");
+                die();
 
 
             }
         }
     }
-//    hpost("http://localhost:4567/api/createForumQuestion", array("titre" => $_POST["title"], "description" => $_POST["description"], "id_personne" => $_POST["id_personne"], "id_matiere" => $_POST["id_matiere"]));
-//    header("Location: http://tutorat-workshop/forum");
-//    die();
+
 
 }
 

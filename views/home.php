@@ -8,7 +8,7 @@ include_once "includes/composants/nav-bar.php";
 
 
 <section id="backgroundTutorat">
-    <img src="../ressources/img/imageBackground.jpg" alt="background Tutorat">
+    <img src="/ressources/img/imageBackground.jpg" alt="background Tutorat">
 </section>
 <section class="headerTitle">
     <h2>Le tutorat c'est quoi ?</h2>

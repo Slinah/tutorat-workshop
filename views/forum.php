@@ -3,7 +3,7 @@ include_once "includes/composants/nav-bar.php";
 
 if (!empty($_POST)) {
 //    var_dump($_POST);
-    hpost("http://localhost:4567/api/upvoteQuestion", array("id_personne" => "6593c62a-f0e3-11ea-adc1-0242ac120002", "id_question" => $_POST["question_id"]));
+    hpost("http://localhost:4567/api/upvoteQuestion", array("id_personne" => $_SESSION["me"]->id_personne, "id_question" => $_POST["question_id"]));
 }
 ?>
 
