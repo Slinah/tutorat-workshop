@@ -9,7 +9,7 @@ $request = $_SERVER['REQUEST_URI'];
 switch ($request) {
     case '':
     case '/' :
-        is_connected();
+        HaveToBeConnected();
         header_options(["style", "nav", "button", "card"]);
         require 'views/home.php';
         footer_options(["lottie", "navBtn"]);
@@ -20,6 +20,7 @@ switch ($request) {
         footer_options(["lottie", "navBtn", "fonction"]);
         break;
     case '/about' :
+        Destroy();
         header_options(["style", "nav", "button"]);
         require 'views/about.php';
         break;
@@ -44,11 +45,13 @@ switch ($request) {
         footer_options(["lottie", "navBtn", "fonction", "forum"]);
         break;
     case '/connexion' :
+        HaveToBeNOTConnected();
         header_options(["style", "nav", "button", "form"]);
         require 'views/connexion.php';
         footer_options(["lottie", "navBtn", "fonction"]);
         break;
     case '/register' :
+        HaveToBeNOTConnected();
         header_options(["style", "nav", "button", "form"]);
         require 'views/register.php';
         footer_options(["jquery", "register", "fonction"]);

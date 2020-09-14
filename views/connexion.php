@@ -55,11 +55,11 @@ if (!empty($_POST)) {
         $_SESSION["id_personne"] = $DB_PASS->id_personne;
         $_SESSION["me"] = $DB_PASS;
 
+        header("Location: http://tutorat-workshop/");
     }
 
 
 //    hpost("http://localhost:4567/api/createForumQuestion", array("titre" => $_POST["title"], "description" => $_POST["description"], "id_personne" => $_POST["id_personne"], "id_matiere" => $_POST["id_matiere"]));
-//    header("Location: http://tutorat-workshop/forum");
 //    die();
 
 }
