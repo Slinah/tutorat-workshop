@@ -15,9 +15,24 @@ switch ($request) {
         footer_options(["lottie", "navBtn"]);
         break;
     case '/cours' :
-        header_options(["style", "nav", "button", "card"]);
-        require 'views/cours.php';
+        header_options(["style", "nav", "button", "card","cardCours"]);
+        require 'views/courses.php';
         footer_options(["lottie", "navBtn", "fonction"]);
+        break;
+    case '/donner-cours' :
+        header_options(["style", "nav", "button", "formCours"]);
+        require 'views/createCourses.php';
+        footer_options(["lottie", "navBtn", "fonction"]);
+        break;
+    case '/suggestion-cours' :
+        header_options(["style", "nav", "button", "formCours"]);
+        require 'views/askForCourses.php';
+        footer_options(["lottie", "navBtn", "fonction"]);
+        break;
+    case '/suggestion-liste':
+        header_options(["style", "nav", "button", "card","cardCours"]);
+        require 'views/listSuggestions.php';
+        footer_options(["lottie","navBtn","fonction"]);
         break;
     case '/about' :
         Destroy();
