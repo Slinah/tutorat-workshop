@@ -243,7 +243,8 @@ foreach ($unclosedCourses as $ligne) {
         }
     }
 }
-// fermeture dernière section
+// fermeture dernière section , si une des variables est égale a 0, alors c'est que son container n'as pas encore été fermé
+// on ferme une seule section, car il n'est possible d'avoir qu'une seule de ces 3 variables égales à 0 en même temps
 if ($coursPlusTard === 0 || $courSemaineProchaine === 0 || $courCetteSemaine===0) {
     echo "</section>";
 }

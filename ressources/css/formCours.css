@@ -2,18 +2,27 @@ html {
     height: 100%;
 }
 body {
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    min-height: 100vh;
+    justify-content: space-between;
 }
-
+header{
+    align-self: flex-start;
+}
 .login-box {
-    display: none;
+    justify-self: center;
+    align-self: center;
+    display: flex;
     width: 90vw;
     max-width: 500px;
     padding: 40px;
     background: rgba(0,0,0,.25);
     box-sizing: border-box;
     border-radius: 20px;
+    flex-flow: column wrap;
+    margin: 10vh 0;
 }
 
 .login-box h2 {
@@ -26,6 +35,7 @@ body {
 
 .login-box .user-box {
     position: relative;
+    margin: 2em 0;
 }
 
 .login-box .user-box input,.login-box .user-box select {
@@ -168,6 +178,3 @@ body {
         bottom: 100%;
     }
 }
-
-
-
