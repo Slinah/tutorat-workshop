@@ -6,9 +6,8 @@
 $_SESSION["role"] = 1;
 
 if (!isset($_SESSION["role"]) || ($_SESSION["role"] != 1)) {
-//    Redirigé sur une autre page
+//    Rediriger sur une autre page
 }
-
 
 //TODO requête API à sécurisé avec Token
 //TODO URI à changer quand mise en production
@@ -20,11 +19,8 @@ $dataClassesFromPromos = hget('http://localhost:4567/api/getClassFromPromo');
 $dataLevels = hget('http://localhost:4567/api/getLevel');
 ?>
 
-<!--        todo liens (onclick) js sur tous les buttons / envoie des données dans un formulaire etc -->
-<!-- Nav Bar -->
 <div class="login-box">
     <h2>Gestion des utilisateurs</h2>
-
     <div class="user-box">
         <select name="personneSelect" id="personne-select">
             <option value="" selected>NOM - Prenom - Ecole - Promo - Classe - Role</option>
@@ -34,8 +30,6 @@ $dataLevels = hget('http://localhost:4567/api/getLevel');
             <?php } ?>
         </select>
     </div>
-    <!--        TODO Action à faire pour les boutons + Requêtes API nécessaire-->
-
     <form action="/actions/actionsPromoteUser.php" method="post">
         <input type="hidden" id="idUserPromote" name="idUser" value="">
         <button type="submit" id="btnPromoteUser">
@@ -48,18 +42,17 @@ $dataLevels = hget('http://localhost:4567/api/getLevel');
             Demote
         </button>
     </form>
-    <form action="/actions/actionsDeleteUser.php" method="post">
+    <form id="actionDelAccount" action="/actions/actionsDeleteUser.php" method="post">
         <input type="hidden" id="idUserDelete" name="idUser" value="">
-        <button type="submit" id="btnDeleteUser">
+        <button type="button" id="btnDeleteUser" onclick="btnClickDelete('compte', 'actionDelAccount')">
             Supprimer le compte
         </button>
     </form>
-
 </div>
 
 <div class="login-box">
     <h2>Gestion des matières</h2>
-    <form action="/actions/actionsDeleteSubject.php" method="post">
+
         <div class="user-box">
             <select name="matiereSelect" id="matiere-select">
                 <option value="" selected>Liste matière</option>
@@ -68,8 +61,15 @@ $dataLevels = hget('http://localhost:4567/api/getLevel');
                 <?php } ?>
             </select>
         </div>
+    <form action="/actions/actionsValidateSubject.php" method="post">
+        <input type="hidden" id="idValidateSubject" name="idValidateSubject">
+        <button type="submit" id="btnValidateSubject">
+            Valider matière
+        </button>
+    </form>
+    <form id="actionDelSubject" action="/actions/actionsDeleteSubject.php" method="post">
         <input type="hidden" id="idDeleteSubject" name="idDeleteSubject" value="">
-        <button type="submit" id="btnDeleteSubject">
+        <button type="button" id="btnDeleteSubject" onclick="btnClickDelete('matière', 'actionDelSubject')">
             Supprimer matière
         </button>
     </form>
@@ -95,9 +95,9 @@ $dataLevels = hget('http://localhost:4567/api/getLevel');
             <?php } ?>
         </select>
     </div>
-    <form action="/actions/actionsDeleteSchool.php" method="post">
+    <form id="actionDelSchool" action="/actions/actionsDeleteSchool.php" method="post">
         <input type="hidden" id="idDeleteSchool" name="idDeleteSchool">
-        <button type="submit" id="btnDeleteSchool">
+        <button type="button" id="btnDeleteSchool" onclick="btnClickDelete('école', 'actionDelSchool')">
             Supprimer Ecole
         </button>
     </form>
@@ -132,9 +132,9 @@ $dataLevels = hget('http://localhost:4567/api/getLevel');
             <?php } ?>
         </select>
     </div>
-    <form action="/actions/actionsDeletePromo.php" method="post">
+    <form id="actionDelPromo" action="/actions/actionsDeletePromo.php" method="post">
         <input type="hidden" id="idDeletePromo" name="idDeletePromo">
-        <button type="submit" id="btnDeletePromo">
+        <button type="button" id="btnDeletePromo" onclick="btnClickDelete('promotion', 'actionDelPromo')">
             Supprimer promo
         </button>
     </form>
@@ -180,9 +180,9 @@ $dataLevels = hget('http://localhost:4567/api/getLevel');
             <?php } ?>
         </select>
     </div>
-    <form action="/actions/actionsDeleteClasse.php" method="post">
+    <form id="actionDelClasse" action="/actions/actionsDeleteClasse.php" method="post">
         <input type="hidden" id="idDeleteClasse" name="idDeleteClasse">
-        <button type="submit" id="btnDeleteClasse">
+        <button type="button" id="btnDeleteClasse" onclick="btnClickDelete('classe', 'actionDelClasse')">
             Supprimer classe
         </button>
     </form>
@@ -210,9 +210,9 @@ $dataLevels = hget('http://localhost:4567/api/getLevel');
                 <?php } ?>
             </select>
         </div>
-    <form action="/actions/actionsDeleteLevel.php" method="post">
+    <form id="actionDelLevel" action="/actions/actionsDeleteLevel.php" method="post">
         <input type="hidden" id="idDeleteLevel" name="idDeleteLevel">
-        <button type="submit" id="btnDeleteLevel">
+        <button type="button" id="btnDeleteLevel" onclick="btnClickDelete('niveau', 'actionDelLevel')">
             Supprimer niveau
         </button>
     </form>
@@ -226,6 +226,3 @@ $dataLevels = hget('http://localhost:4567/api/getLevel');
         </button>
     </form>
 </div>
-<!--TODO Jquery pour les selecteurs (lié ecole/promo/classe)-->
-
-

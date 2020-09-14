@@ -23,7 +23,7 @@ include_once "includes/composants/nav-bar.php";
                 <textarea name="description"></textarea>
             </label>
             <input type="hidden" name="id_personne" value="<?php
-            echo "6593c62a-f0e3-11ea-adc1-0242ac120002";
+            echo $_SESSION["me"]->id_personne;
             ?>">
             <div class="btn">
                 <input type="submit" value="Créer" class="submit">

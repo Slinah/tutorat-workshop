@@ -12,7 +12,6 @@ function hpost(string $url, array $param = [])
     );
     $context = stream_context_create($options);
     $result = file_get_contents($url, false, $context);
-
     return json_decode($result);
 }
 
@@ -21,8 +20,3 @@ function hget(string $url)
 {
     return json_decode(file_get_contents($url));
 }
-
-
-
-
-
