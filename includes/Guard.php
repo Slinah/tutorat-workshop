@@ -30,7 +30,7 @@ function HaveToBeAdmin()
 function HaveToBeNOTConnected()
 {
 // var_dump(hpost("http://localhost:4567/api/isConnected", array("token" => $_SESSION["token"])));
-    if (hpost("http://localhost:4567/api/isConnected", array("token" => $_SESSION["me"]->token))->check) {
+    if (!hpost("http://localhost:4567/api/isConnected", array("token" => $_SESSION["me"]->token))->check) {
 //        echo "Guard Activer ! Redirect";
         header("Location: /");
     }
