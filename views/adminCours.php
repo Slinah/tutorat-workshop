@@ -1,9 +1,7 @@
 <?php
 
 include_once "includes/composants/nav-bar.php";
-
 // todo si admin alors bouton en plus pour suppr le cours
-
 
 $unclosedCourses = hget("http://localhost:4567/api/unclosedCourses");
 $timeZone = new DateTimeZone("Europe/Paris");
@@ -16,6 +14,7 @@ $coursPlusTard = 1;
 $idPersonneConnecter = "6593c62a-f0e3-11ea-adc1-0242ac120002";
 // on recupere la liste des cours ou la personne est tutoraté :3
 $getCoursById = hget("http://localhost:4567/api/peopleTutorCourseById?idPeople=" . $idPersonneConnecter);
+
 ?>
 
 <section id='inSemaine' class='headerTitle'>
@@ -29,8 +28,8 @@ $getCoursById = hget("http://localhost:4567/api/peopleTutorCourseById?idPeople="
             echo "
             <section class='card'>
             <header>Administration du cours</header>
-            <form method='post' action='/actions/actionsModificationCourse' class='login-box'>
-            <div class='user-box'>
+            <form method='post' action='/actions/actionsModificationCourse' class='login-box' id='formulaireModifyCourse'>
+            <div class='user-box'> 
                 <input type='text' name='coursIntitule' value='" . $ligne->coursIntitule . "'>
                 <label>Titre du cours</label>
             </div>
@@ -74,6 +73,23 @@ $getCoursById = hget("http://localhost:4567/api/peopleTutorCourseById?idPeople="
             </div>";
             echo "<button type='submit'>Envoyer</button>
             </form>
+            <form action='/actions/actionsCloseCourse' id='formulaireCloseCourse'>
+            <input type='hidden' name='coursIntitule' value='" . $ligne->coursIntitule . "'>
+            <input type='hidden' name='matiereIntitule' value='" . $ligne->matiereIntitule . "'>
+            <input type='hidden' name='commentaires' value='" . $ligne->commentaires . "'>
+            <input type='hidden' name='promoIntitule' value='" . $ligne->promoIntitule . "'>
+            <input type='hidden' name='nbParticipants' value='" . $ligne->nbParticipants . "'>
+            <input type='hidden' name='duree' value='" . $ligne->duree . "'>
+            <input type='hidden' name='salle' value='" . $ligne->salle . "'>
+            <input type='hidden' name='id_cours' value='" . $ligne->id_cours . "'>
+            <input type='hidden' name='id_personne' value='" . $ligne->id_personne . "'>
+            <input type='hidden' name='id_matiere' value='" . $ligne->id_matiere . "'>
+            <input type='hidden' name='id_promo' value='" . $ligne->id_promo . "'>
+            <input type='hidden' name='status' value='" . $ligne->status . "'>
+            <input type='hidden' name='date' value='" . date("Y-m-d", strtotime($ligne->date)) . "'>
+            <input type='hidden' name='dateHeure' value='" . date("H:i:s", strtotime($ligne->date))  . "'>
+            <button type='button' id='clore'>Cloturer le cours</button>
+            </form>
             </section>";
             $courCetteSemaine = 0;
         }
@@ -85,3 +101,6 @@ $getCoursById = hget("http://localhost:4567/api/peopleTutorCourseById?idPeople="
     }
     ?>
 </section>
+<script type="text/javascript">
+
+</script>

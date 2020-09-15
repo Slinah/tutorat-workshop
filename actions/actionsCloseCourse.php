@@ -17,16 +17,16 @@ $status = filter_input(INPUT_POST,"status");
 $date = filter_input(INPUT_POST,"date");
 $dateHeure = filter_input(INPUT_POST,"dateHeure");
 
-    $timeZone = new DateTimeZone("Europe/Paris");
-    $d = DateTime::createFromFormat('Y-m-d H:i:s', $date.' '.$dateHeure, $timeZone);
-    if ($d != false){
+$timeZone = new DateTimeZone("Europe/Paris");
+$d = DateTime::createFromFormat('Y-m-d H:i:s', $date.' '.$dateHeure, $timeZone);
+if ($d != false){
     $dateTimeStamp = $d->getTimestamp();
 
-$all=[$coursIntitule,$matiereIntitule,$commentaires,$promoIntitule,$nbParticipants,
-    $duree,$salle,$id_cours,$id_personne,$id_matiere,$id_promo,$status,$date,
-    $dateHeure, $dateTimeStamp, $timeZone, $d];
-var_dump($all);
-    } else{
-        header('location: /tuteur-cours');
-    }
-//    todo faire la requete hpost
+    $all=[$coursIntitule,$matiereIntitule,$commentaires,$promoIntitule,$nbParticipants,
+        $duree,$salle,$id_cours,$id_personne,$id_matiere,$id_promo,$status,$date,
+        $dateHeure, $dateTimeStamp, $timeZone, $d];
+    var_dump($all);
+} else{
+    header('location: /tuteur-cours');
+}
+// todo faire le fonctionnement de cloture de cours

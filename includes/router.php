@@ -35,7 +35,7 @@ switch ($request) {
     case '/tuteur-cours':
         header_options(["style", "nav", "button", "card", "formAdminCours"]);
         require 'views/adminCours.php';
-        footer_options(["lottie","navBtn","fonction"]);
+        footer_options(["lottie","navBtn", "jquery" ,"fonction", "adminCours"]);
         break;
     case '/about' :
         header_options(["style", "nav", "button"]);
