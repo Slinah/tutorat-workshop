@@ -31,6 +31,11 @@ switch ($request) {
         require 'views/panel_admin.php';
         footer_options(["jquery", "panel_admin", "lottie","navBtn","fonction"]);
         break;
+    case '/profile' :
+        header_options(["style", "nav", "button", "card", "cardCour", "profil"]);
+        require 'views/profile.php';
+        footer_options(["navBtn"]);
+        break;
     case '/forum/create' :
         header_options(["style", "forum", "nav", "button"]);
         require 'views/forum_create.php';
