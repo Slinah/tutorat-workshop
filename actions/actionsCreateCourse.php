@@ -13,6 +13,6 @@ $commentaires = filter_input(INPUT_POST, "commentaires");
 //   postCourse(params[:id_personne], params[:id_matiere], params[:id_promo], params[:intitule], params[:date], params[:commentaires] )
 // todo verif si ça marche (je sais pas mdr)
 // todo dodo a ce moment :3
-    $idProposition=hpost("http://localhost:4567/api/postCourse", array("id_personne"=>$idPersonne,"id_matiere"=>$idMatiere, "commentaire"=>$idPromo, "date"=>$date, "commentaires"=>$commentaires));
+    $idProposition=hpost("http://localhost:4567/api/postCourse", array("id_personne"=>$idPersonne,"id_matiere"=>$idMatiere, "id_promo"=>$idPromo,"intitule"=>$intitule, "date"=>$date, "commentaires"=>$commentaires));
 
 header("Location: http://workshop/cours#inSemaine");

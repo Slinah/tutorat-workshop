@@ -1,11 +1,8 @@
 <?php
 
-
 include_once "includes/composants/nav-bar.php";
 
-
 ?>
-
 
 <section id="backgroundTutorat">
     <img src="../ressources/img/backgrounds/darkBackgroundTutoratEtEntraide.jpg" alt="background Tutorat">
@@ -21,7 +18,7 @@ include_once "includes/composants/nav-bar.php";
         <br>Duis vel est vestibulum ligula
         <br>porta dapibus.
     </p>
-    <button type="button">Les cours</button>
+    <button type="button"><a href="/cours">En savoir plus</a></button>
 </section>
 <section class="headerTitle">
     <h2>Participer</h2>
@@ -38,7 +35,7 @@ include_once "includes/composants/nav-bar.php";
             Duis vel est vestibulum ligula
             porta dapibus.
         </p>
-        <button type="button">En savoir plus</button>
+        <button type="button"><a href="/cours">En savoir plus</a></button>
     </section>
     <section class="card">
         <header><i class="fas fa-hands-helping"></i>&nbsp;Donner un cour</header>
@@ -51,7 +48,7 @@ include_once "includes/composants/nav-bar.php";
             Duis vel est vestibulum ligula
             porta dapibus.
         </p>
-        <button type="button">En savoir plus</button>
+        <button type="button"><a href="/donner-cours">En savoir plus</a></button>
     </section>
     <section class="card">
         <header><i class="fas fa-question"></i>&nbsp;Suggérer un cour</header>
@@ -64,21 +61,23 @@ include_once "includes/composants/nav-bar.php";
             Duis vel est vestibulum ligula
             porta dapibus.
         </p>
-        <button type="button">En savoir plus</button>
+        <button type="button"><a href="/suggestion-cours">En savoir plus</a></button>
     </section>
 </section>
 <section class="headerTitle">
-    <h2>Pourquoi donner un cour ?</h2>
+    <h2>Pourquoi donner un cours ?</h2>
 </section>
 <section>
-    <p>"Enseigner, c'est apprendre deux fois.''
+    <p>"Enseigner, c'est apprendre deux fois."
+<!--        todo description pour expliquer le fonctionnement des cours ? et leurs déroulement ? -->
         <br>
         <br>Lorem ipsum dolor sit amet,
         <br>consectetur adipiscing elit.
         <br>Duis vel est vestibulum ligula
         <br>porta dapibus.
     </p>
-    <button type="button">En savoir plus</button>
+<!--    todo voir ce lien ? a du sens ? ou doit être changer ? Envoie sur une page spécial dédié au déroulement d'un cours & toutes les questions générales ? -->
+    <button type="button"><a href="/donner-cours">En savoir plus</a></button>
 </section>
 
 
