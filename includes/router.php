@@ -59,6 +59,7 @@ switch ($request) {
         footer_options(["jquery", "panel_admin", "lottie", "navBtn", "fonction"]);
         break;
     case '/profile' :
+        HaveToBeConnected();
         header_options(["style", "nav", "button", "card", "cardCour", "profil"]);
         require 'views/profile.php';
         footer_options(["navBtn"]);
