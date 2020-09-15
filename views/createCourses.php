@@ -72,10 +72,13 @@ $getInfosPersonne = hget("http://localhost:4567/api/personneById?idPeople=" . $i
             <input type="text" name="commentaires">
             <label>Indiquez ce que vous allez voir dans le cours !</label>
         </div>
-        <div class="user-box">
-            <input type="datetime-local" name="date" required>
-            <label>Date & heure</label>
+        <div class='user-box'>
+            <input type='date' name='date' required value='" . date("Y-m-d", strtotime($ligne->date)) . "'>
+            <label>date</label>
         </div>
+        <div class='user-box'>
+            <input type='time' name='dateHeure' required value='" . date("H:i:s", strtotime($ligne->date)) . "'>
+            <label>heure</label>
         <button type="submit">Envoyer la demande</button>
         <a class="btn" href="/suggestion-liste">
             <span></span>

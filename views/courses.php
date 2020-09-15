@@ -12,7 +12,7 @@ $coursPlusTard = 1;
 // todo voir avec le guard et le système de connexion plus tard ^^
 $idPersonneConnecter = "6593c62a-f0e3-11ea-adc1-0242ac120002";
 $getCoursById = hget("http://localhost:4567/api/peopleCourseById?idPeople=" . $idPersonneConnecter);
-if ($getCoursById = !null) {
+if ($getCoursById != null) {
     foreach ($getCoursById as $ligne) {
         $tabGetCoursById[] = $ligne->id_cours;
     }
@@ -54,10 +54,12 @@ if ($unclosedCourses != null) {
             <input type='hidden' name='id_personne' value='" . $idPersonneConnecter . "'>
             ";
                 // Condition visuelle pour savoir si on est inscrit à un cours ou non.
-                if (in_array($ligne->idCours, $tabGetCoursById)) {
-                    echo "<button disabled>Inscrit(e)</button>";
-                } else {
-                    echo "<button type='submit'>S'inscrire</button>";
+                if ($tabGetCoursById != null) {
+                    if (in_array($ligne->idCours, $tabGetCoursById)) {
+                        echo "<button disabled>Inscrit(e)</button>";
+                    } else {
+                        echo "<button type='submit'>S'inscrire</button>";
+                    }
                 }
                 echo "
             </form>

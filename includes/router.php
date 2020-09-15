@@ -32,6 +32,11 @@ switch ($request) {
         require 'views/listSuggestions.php';
         footer_options(["lottie","navBtn","fonction"]);
         break;
+    case '/tuteur-cours':
+        header_options(["style", "nav", "button", "card", "formAdminCours"]);
+        require 'views/adminCours.php';
+        footer_options(["lottie","navBtn","fonction"]);
+        break;
     case '/about' :
         header_options(["style", "nav", "button"]);
         require 'views/about.php';
