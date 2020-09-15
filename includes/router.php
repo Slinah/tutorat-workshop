@@ -37,6 +37,11 @@ switch ($request) {
         require 'views/listSuggestions.php';
         footer_options(["lottie", "navBtn", "fonction"]);
         break;
+    case '/tuteur-cours':
+        header_options(["style", "nav", "button", "card", "formAdminCours"]);
+        require 'views/adminCours.php';
+        footer_options(["lottie","navBtn", "jquery" ,"fonction", "adminCours"]);
+        break;
     case '/about' :
         Destroy();
         header_options(["style", "nav", "button"]);
@@ -52,6 +57,12 @@ switch ($request) {
         header_options(["style", "nav", "button", "card", "formAdmin"]);
         require 'views/panel_admin.php';
         footer_options(["jquery", "panel_admin", "lottie", "navBtn", "fonction"]);
+        break;
+    case '/profile' :
+        HaveToBeConnected();
+        header_options(["style", "nav", "button", "card", "cardCour", "profil"]);
+        require 'views/profile.php';
+        footer_options(["navBtn"]);
         break;
     case '/forum/create' :
         HaveToBeConnected();
