@@ -12,7 +12,7 @@
                 <li><a href="/donner-cours" onclick="clickNavBtn();">Donner un cours</a></li>
                 <li><a href="/suggestion-cours" onclick="clickNavBtn();">Suggérer un cours</a></li>
                 <li><a href="/forum" onclick="clickNavBtn();">Forum</a></li>
-                <li><a href="/profil" onclick="clickNavBtn();">Mon profil</a></li>
+                <li><a href="/profile" onclick="clickNavBtn();">Mon profil</a></li>
             </ul>
         </nav>
     </div>
@@ -27,7 +27,7 @@
             <li><a href="/suggestion-cours">Suggérer un cours</a></li>
             <li><a href="/forum">Forum</a></li>
             <!--            todo si connecter afficher 'Mon profil', si ce n'est pas le cas, afficher 'Connexion / Inscription' -->
-            <li><a href="/profil">Mon profil</a></li>
+            <li><a href="/profile">Mon profil</a></li>
         </ul>
     </div>
 </header>
