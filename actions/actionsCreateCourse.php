@@ -6,7 +6,6 @@ $idMatiere = filter_input(INPUT_POST, 'id_matiere');
 $idPromo = filter_input(INPUT_POST, "id_promo");
 $intitule = filter_input(INPUT_POST,"intitule");
 $commentaires = filter_input(INPUT_POST, "commentaires");
-
 $date = filter_input(INPUT_POST,"date");
 $heure = filter_input(INPUT_POST,"heure");
 $timeZone = new DateTimeZone("Europe/Paris");
@@ -18,6 +17,7 @@ $d = DateTime::createFromFormat(
 $dateTimeStamp = $d->getTimestamp();
 
 // fixme verif ici - changement avec la date
-$idProposition=hpost("http://localhost:4567/api/postCourse", array("id_personne"=>$idPersonne,"id_matiere"=>$idMatiere, "id_promo"=>$idPromo,"intitule"=>$intitule, "date"=>$dateTimeStamp, "commentaires"=>$commentaires));
+hpost("http://localhost:4567/api/postCourse", array("id_personne"=>$idPersonne,"id_matiere"=>$idMatiere, "id_promo"=>$idPromo,"intitule"=>$intitule,
+    "date"=>$dateTimeStamp, "commentaires"=>$commentaires));
 
 header("Location: http://workshop/cours#inSemaine");

@@ -10,8 +10,8 @@ $semaineActuelle = (int)date("W", $dateTime->getTimestamp());
 $courCetteSemaine = 1;
 $courSemaineProchaine = 1;
 $coursPlusTard = 1;
-// todo voir avec le guard et le système de connexion plus tard ^^
-$idPersonneConnecter = "6593c62a-f0e3-11ea-adc1-0242ac120002";
+
+$idPersonneConnecter=(string)($_SESSION["me"]->id_personne);
 // on recupere la liste des cours ou la personne est tutoraté :3
 $getCoursById = hget("http://localhost:4567/api/peopleTutorCourseById?idPeople=" . $idPersonneConnecter);
 
@@ -28,7 +28,7 @@ $getCoursById = hget("http://localhost:4567/api/peopleTutorCourseById?idPeople="
             echo "
             <section class='card'>
             <header>Administration du cours</header>
-            <form method='post' action='/actions/actionsModificationCourse' class='login-box' id='formulaireModifyCourse'>
+            <form method='post' action='/actions/actionsModifyCourse' class='login-box' id='formulaireModifyCourse'>
             <div class='user-box'> 
                 <input type='text' name='coursIntitule' value='" . $ligne->coursIntitule . "'>
                 <label>Titre du cours</label>
@@ -62,7 +62,6 @@ $getCoursById = hget("http://localhost:4567/api/peopleTutorCourseById?idPeople="
             <input type='hidden' name='id_personne' value='" . $ligne->id_personne . "'>
             <input type='hidden' name='id_matiere' value='" . $ligne->id_matiere . "'>
             <input type='hidden' name='id_promo' value='" . $ligne->id_promo . "'>
-            <input type='hidden' name='status' value='" . $ligne->status . "'>
             <div class='user-box'>
             <input type='date' name='date' required value='" . date("Y-m-d", strtotime($ligne->date)) . "'>
             <label>date</label>
@@ -85,7 +84,6 @@ $getCoursById = hget("http://localhost:4567/api/peopleTutorCourseById?idPeople="
             <input type='hidden' name='id_personne' value='" . $ligne->id_personne . "'>
             <input type='hidden' name='id_matiere' value='" . $ligne->id_matiere . "'>
             <input type='hidden' name='id_promo' value='" . $ligne->id_promo . "'>
-            <input type='hidden' name='status' value='" . $ligne->status . "'>
             <input type='hidden' name='date' value='" . date("Y-m-d", strtotime($ligne->date)) . "'>
             <input type='hidden' name='dateHeure' value='" . date("H:i:s", strtotime($ligne->date))  . "'>
             <button type='button' id='clore'>Cloturer le cours</button>

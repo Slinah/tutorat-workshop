@@ -13,20 +13,17 @@ $id_cours = filter_input(INPUT_POST,"id_cours");
 $id_personne = filter_input(INPUT_POST,"id_personne");
 $id_matiere = filter_input(INPUT_POST,"id_matiere");
 $id_promo = filter_input(INPUT_POST,"id_promo");
-$status = filter_input(INPUT_POST,"status");
 $date = filter_input(INPUT_POST,"date");
 $dateHeure = filter_input(INPUT_POST,"dateHeure");
 
 $timeZone = new DateTimeZone("Europe/Paris");
 $d = DateTime::createFromFormat('Y-m-d H:i:s', $date.' '.$dateHeure, $timeZone);
-if ($d != false){
+if ($d != false) {
     $dateTimeStamp = $d->getTimestamp();
-
-    $all=[$coursIntitule,$matiereIntitule,$commentaires,$promoIntitule,$nbParticipants,
-        $duree,$salle,$id_cours,$id_personne,$id_matiere,$id_promo,$status,$date,
-        $dateHeure, $dateTimeStamp, $timeZone, $d];
-    var_dump($all);
+    hpost("http://localhost:4567/api/postCloseCourse", array("id_cours"=>$id_cours,"id_matiere"=>$id_matiere,
+        "id_promo"=>$id_promo,"intitule"=>$coursIntitule, "date"=>$dateTimeStamp, "commentaires"=>$commentaires, "nbParticipants"=>$nbParticipants,
+        "duree"=>$duree,"salle"=>$salle));
+    header('location: /tuteur-cours');
 } else{
     header('location: /tuteur-cours');
 }
-// todo faire le fonctionnement de cloture de cours

@@ -2,10 +2,9 @@
 
 include_once "includes/composants/nav-bar.php";
 
-// todo voir avec le guard et le système de connexion plus tard ^^
-$idPersonneConnecter = "6593c62a-f0e3-11ea-adc1-0242ac120002";
+$idPersonneConnecter=(string)($_SESSION["me"]->id_personne);
 $getMatiere = hget("http://localhost:4567/api/matieres");
-$getInfosPersonne = hget("http://localhost:4567/api/personneById?idPeople=" . $idPersonneConnecter);
+$getInfosPersonne = hpost("http://localhost:4567/api/personneByIdFull" , array("idPeople" => $idPersonneConnecter));
 ?>
 
 <div class="login-box">

@@ -3,9 +3,9 @@
 include_once "includes/composants/nav-bar.php";
 
 
-$idPersonneConnecter = "6593c62a-f0e3-11ea-adc1-0242ac120002";
+$idPersonneConnecter=(string)($_SESSION["me"]->id_personne);
 $getSuggestion = hget("http://localhost:4567/api/unclosedProposals");
-$getInfosPersonne = hget("http://localhost:4567/api/personneById?idPeople=" . $idPersonneConnecter);
+$getInfosPersonne = hpost("http://localhost:4567/api/personneByIdFull" , array("idPeople" => $idPersonneConnecter));
 ?>
 <section id='inSemaine' class='headerTitle'>
     <h2>Liste des suggestions</h2>

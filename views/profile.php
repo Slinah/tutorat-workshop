@@ -1,6 +1,7 @@
 <?php
-include_once "includes/composants/nav-bar.php";
-
+//include_once "includes/composants/nav-bar.php";
+//unset($_SESSION['me']);
+/*
 //$idPersonne = $_SESSION["me"]->id_personne;
 $idPersonne = '397f0069-3bac-440c-b564-6ed241bc9b2d';
 //Récupérer les informations de la personne pour l'affichage du profil

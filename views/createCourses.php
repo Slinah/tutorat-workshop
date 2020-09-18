@@ -14,13 +14,12 @@ if ($id_proposition == null && $id_createur == null && $id_createur == null && $
 //    si il y a des valeurs qui ont étés récupérés par les filters input alors, on passe le value set à true
     $valueSet = true;
 }
+$idPersonneConnecter = (string)($_SESSION["me"]->id_personne);
 
-// todo voir avec le guard et le système de connexion plus tard ^^
-$idPersonneConnecter = "6593c62a-f0e3-11ea-adc1-0242ac120002";
 // on récupéres toutes les matières // toutes les promos // toutes les infos de la personne par rapport a son id
 $getMatiere = hget("http://localhost:4567/api/matieres");
 $getPromo = hget("http://localhost:4567/api/promos");
-$getInfosPersonne = hget("http://localhost:4567/api/personneById?idPeople=" . $idPersonneConnecter . "");
+$getInfosPersonne = hpost("http://localhost:4567/api/personneById", array("idPeople" => $idPersonneConnecter));
 ?>
 
 <div class="login-box">
@@ -79,12 +78,14 @@ $getInfosPersonne = hget("http://localhost:4567/api/personneById?idPeople=" . $i
         <div class='user-box'>
             <input type='time' name='dateHeure' required value='" . date("H:i:s", strtotime($ligne->date)) . "'>
             <label>heure</label>
-        <button type="submit">Envoyer la demande</button>
-        <a class="btn" href="/suggestion-liste">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>Voir la liste des suggestions
-        </a>
+            <button type="submit">Envoyer la demande</button>
+            <a class="btn" href="/suggestion-liste">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>Voir la liste des suggestions
+            </a>
+        </div>
     </form>
 </div>
+
