@@ -50,7 +50,7 @@ $getCoursById = hget("http://localhost:4567/api/peopleTutorCourseById?idPeople="
                 <label>Nombre de participants</label>
             </div>
             <div class='user-box'>
-                <input type='number' name='duree' value='" . $ligne->duree . "'>
+                <input type='number' step='0.1' name='duree' value='" . $ligne->duree . "'>
                 <label>Duree (en heure, ex: 1h30 = 1.5)</label>
             </div>
             <div class='user-box'>
@@ -78,7 +78,7 @@ $getCoursById = hget("http://localhost:4567/api/peopleTutorCourseById?idPeople="
             <input type='hidden' name='commentaires' value='" . $ligne->commentaires . "'>
             <input type='hidden' name='promoIntitule' value='" . $ligne->promoIntitule . "'>
             <input type='hidden' name='nbParticipants' value='" . $ligne->nbParticipants . "'>
-            <input type='hidden' name='duree' value='" . $ligne->duree . "'>
+            <input type='hidden' step='0.1' name='duree' value='" . $ligne->duree . "'>
             <input type='hidden' name='salle' value='" . $ligne->salle . "'>
             <input type='hidden' name='id_cours' value='" . $ligne->id_cours . "'>
             <input type='hidden' name='id_personne' value='" . $ligne->id_personne . "'>
