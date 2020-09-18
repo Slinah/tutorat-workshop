@@ -13,4 +13,4 @@ $commentaire = filter_input(INPUT_POST,"commentaire");
         hpost("http://localhost:4567/api/sendProposalsCoursesPromo", array("id_proposition"=>$idProposition,"id_promo"=>$idPromo));
     }
 
-header("Location: http://workshop/cours#inSemaine");
+header("Location: /cours#inSemaine");

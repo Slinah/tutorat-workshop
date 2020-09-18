@@ -5,4 +5,4 @@ $idPersonne = filter_input(INPUT_POST, 'id_personne');
 $idCours = filter_input(INPUT_POST, 'id_cours');
 
 hpost("http://localhost:4567/api/registrationCourse", array("idPeople" => $idPersonne, "idCourse" => $idCours));
-header("Location: http://workshop/cours#inSemaine");
+header("Location: /cours#inSemaine");

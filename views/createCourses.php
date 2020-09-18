@@ -78,7 +78,7 @@ $getInfosPersonne = hpost("http://localhost:4567/api/personneById", array("idPeo
         <div class='user-box'>
             <input type='time' name='dateHeure' required value='" . date("H:i:s", strtotime($ligne->date)) . "'>
             <label>heure</label>
-            <button type="submit">Envoyer la demande</button>
+            <button type="submit">Proposer le cours</button>
             <a class="btn" href="/suggestion-liste">
                 <span></span>
                 <span></span>
