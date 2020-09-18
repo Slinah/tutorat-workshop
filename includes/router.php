@@ -48,7 +48,7 @@ switch ($request) {
         HaveToBeConnected();
         header_options(["style", "nav", "button", "card", "formAdminCours"]);
         require 'views/createMatiere.php';
-        footer_options(["lottie","navBtn", "jquery" ,"fonction", "adminCours"]);
+        footer_options(["lottie","navBtn" ,"fonction", "adminCours"]);
         break;
     case '/about' :
         Destroy();

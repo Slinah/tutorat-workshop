@@ -11,7 +11,7 @@ $courCetteSemaine = 1;
 $courSemaineProchaine = 1;
 $coursPlusTard = 1;
 
-$idPersonneConnecter=(string)($_SESSION["me"]->id_personne);
+$idPersonneConnecter = (string)($_SESSION["me"]->id_personne);
 // on recupere la liste des cours ou la personne est tutoraté :3
 $getCoursById = hget("http://localhost:4567/api/peopleTutorCourseById?idPeople=" . $idPersonneConnecter);
 
@@ -28,7 +28,7 @@ $getCoursById = hget("http://localhost:4567/api/peopleTutorCourseById?idPeople="
             echo "
             <section class='card'>
             <header>Administration du cours</header>
-            <form method='post' action='/actions/actionsModifyCourse' class='login-box' id='formulaireModifyCourse'>
+            <form method='post' action='/actions/actionsModifyCourse' class='login-box' id='formulaireModifyCourse" . $i . "'>
             <div class='user-box'> 
                 <input type='text' name='coursIntitule' value='" . $ligne->coursIntitule . "'>
                 <label>Titre du cours</label>
@@ -72,7 +72,7 @@ $getCoursById = hget("http://localhost:4567/api/peopleTutorCourseById?idPeople="
             </div>";
             echo "<button type='submit'>Envoyer</button>
             </form>
-            <form action='/actions/actionsCloseCourse' id='formulaireCloseCourse'>
+            <form action='/actions/actionsCloseCourse' id='formulaireCloseCourse" . $i . "'>
             <input type='hidden' name='coursIntitule' value='" . $ligne->coursIntitule . "'>
             <input type='hidden' name='matiereIntitule' value='" . $ligne->matiereIntitule . "'>
             <input type='hidden' name='commentaires' value='" . $ligne->commentaires . "'>
@@ -85,11 +85,12 @@ $getCoursById = hget("http://localhost:4567/api/peopleTutorCourseById?idPeople="
             <input type='hidden' name='id_matiere' value='" . $ligne->id_matiere . "'>
             <input type='hidden' name='id_promo' value='" . $ligne->id_promo . "'>
             <input type='hidden' name='date' value='" . date("Y-m-d", strtotime($ligne->date)) . "'>
-            <input type='hidden' name='dateHeure' value='" . date("H:i:s", strtotime($ligne->date))  . "'>
-            <button type='button' id='clore'>Cloturer le cours</button>
+            <input type='hidden' name='dateHeure' value='" . date("H:i:s", strtotime($ligne->date)) . "'>
+            <button type='button' id='clore" . $i . "'>Cloturer le cours</button>
             </form>
             </section>";
             $courCetteSemaine = 0;
+            $i++;
         }
 //        matiere // commentaire // id_proposition // id_createur // id_matiere // id_promo // salle // date // nbParticipants // duree // status //
     } else {
@@ -99,6 +100,19 @@ $getCoursById = hget("http://localhost:4567/api/peopleTutorCourseById?idPeople="
     }
     ?>
 </section>
-<script type="text/javascript">
-
+<script src="/ressources/js/jquery.js"></script>
+<script>
+    function form2form(formA, formB) {
+        $(':input[name]', formA).each(function () {
+            $('[name=' + $(this).attr('name') + ']', formB).val($(this).val())
+        })
+    }
+    <?php for ($i;$i > 0;$i--){?>
+    $(function () {
+        $('#clore<?php echo $i-1 ?>').click(function () {
+            form2form($("#formulaireModifyCourse<?php echo $i-1 ?>"), $("#formulaireCloseCourse<?php echo $i-1 ?>"));
+            $("#formulaireModifyCourse<?php echo $i-1 ?>").submit();
+        });
+    });
+    <?php } ?>
 </script>

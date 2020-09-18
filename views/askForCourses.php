@@ -34,7 +34,7 @@ $getInfosPersonne = hpost("http://localhost:4567/api/personneByIdFull" , array("
             </select>
         </div>
         une matière que tu voudrais qui n'est pas dans la liste ?
-        <a class="btn" href="/createMatiere">
+        <a class="btn" href="/creer-matiere">
             <span></span>
             <span></span>
             <span></span>
