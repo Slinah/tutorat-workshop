@@ -82,4 +82,6 @@ include_once "includes/composants/nav-bar.php";
     <button type="button"><a href="/donner-cours">En savoir plus</a></button>
 </section>
 
+<?php var_dump(hget("http://localhost:4567/api/unclosedCourses"));
+var_dump(hget("http://localhost:4567/api/unclosedCourses")->error);?>
 

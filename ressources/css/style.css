@@ -48,6 +48,19 @@ section {
     margin: 2em 0;
 }
 
+#retourUtilisateur{
+    position: absolute;
+    width: 100%;
+    right: 0;
+    bottom: 0;
+    margin: 5%;
+    transition: all 3s ease-in-out;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+    background-color: blue;
+}
 #backgroundTutorat {
     margin: 0;
     overflow: hidden;
