@@ -42,7 +42,7 @@ if (!empty($_POST)) {
 
 //    var_dump($_POST);
 
-    $DB_PASS = hpost("http://localhost:4567/api/connect", array("email" => $_POST["email"]));
+    $DB_PASS = hpost("http://localhost:4567/api/connect", array("email" => sanitize($_POST["email"])));
 
 //    var_dump(password_verify($_POST["pass"], $DB_PASS->password));
 

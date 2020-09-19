@@ -2,8 +2,8 @@
 require_once "../includes/functions.php";
 
 
-$idPromo = filter_input(INPUT_POST, 'idPromo');
-$intituleClasse = filter_input(INPUT_POST, 'addClasse');
+$idPromo = filter_input(INPUT_POST, 'idPromo', FILTER_SANITIZE_SPECIAL_CHARS);
+$intituleClasse = filter_input(INPUT_POST, 'addClasse', FILTER_SANITIZE_SPECIAL_CHARS);
 
 hpost('http://localhost:4567/api/addClass', array('idPromo' => $idPromo, 'intitule' => $intituleClasse));
 

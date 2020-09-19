@@ -85,13 +85,13 @@ if (!empty($_POST)) {
             $DB_PASS = hpost("http://localhost:4567/api/createAccount",
 
                 array(
-                    "school" => $_POST["school"],
-                    "promo" => $_POST["promo"],
-                    "class" => $_POST["class"],
-                    "firstname" => $_POST["firstname"],
-                    "lastname" => $_POST["lastname"],
-                    "email" => $_POST["email"],
-                    "password" => password_hash($_POST["password"], PASSWORD_DEFAULT),
+                    "school" => sanitize($_POST["school"]),
+                    "promo" => sanitize($_POST["promo"]),
+                    "class" => sanitize($_POST["class"]),
+                    "firstname" => sanitize($_POST["firstname"]),
+                    "lastname" => sanitize($_POST["lastname"]),
+                    "email" => sanitize($_POST["email"]),
+                    "password" => sanitize(password_hash($_POST["password"], PASSWORD_DEFAULT)),
                 ));
 
             if (password_verify($_POST["password"], $DB_PASS->password)) {

@@ -1,7 +1,7 @@
 <?php
 require_once "../includes/functions.php";
 
-$idDeleteSubject = filter_input(INPUT_POST, 'idDeleteSubject');
+$idDeleteSubject = filter_input(INPUT_POST, 'idDeleteSubject', FILTER_SANITIZE_SPECIAL_CHARS);
 
 //TODO hpost('http://4567/api/deleteSubject', );
 

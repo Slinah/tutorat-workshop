@@ -20,3 +20,22 @@ function hget(string $url)
 {
     return json_decode(file_get_contents($url));
 }
+
+
+function sanitize($string)
+{
+
+    return filter_var($string, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+
+}
+
+
+
+
+
+
+
+
+
+

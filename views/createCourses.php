@@ -2,10 +2,10 @@
 
 include_once "includes/composants/nav-bar.php";
 
-$id_proposition = filter_input(INPUT_POST, 'id_proposition');
-$id_createur = filter_input(INPUT_POST, 'id_createur');
-$id_matiere = filter_input(INPUT_POST, "id_matiere");
-$id_promo = filter_input(INPUT_POST, "id_promo");
+$id_proposition = filter_input(INPUT_POST, 'id_proposition',FILTER_SANITIZE_SPECIAL_CHARS);
+$id_createur = filter_input(INPUT_POST, 'id_createur',FILTER_SANITIZE_SPECIAL_CHARS);
+$id_matiere = filter_input(INPUT_POST, "id_matiere",FILTER_SANITIZE_SPECIAL_CHARS);
+$id_promo = filter_input(INPUT_POST, "id_promo",FILTER_SANITIZE_SPECIAL_CHARS);
 
 //Si on ne récupére aucune valeur, alors on met le value set à false, pour pouvoir savoir quand est ce qu'on préremplis le formulaire ou non
 if ($id_proposition == null && $id_createur == null && $id_createur == null && $id_promo == null) {
