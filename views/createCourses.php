@@ -6,7 +6,9 @@ $id_proposition = filter_input(INPUT_POST, 'id_proposition');
 $id_createur = filter_input(INPUT_POST, 'id_createur');
 $id_matiere = filter_input(INPUT_POST, "id_matiere");
 $id_promo = filter_input(INPUT_POST, "id_promo");
-
+$timeZone = new DateTimeZone("Europe/Paris");
+$dateTime = new DateTime("now", $timeZone);
+$dateDuJour = date("Y-m-d", $dateTime->getTimestamp());
 //Si on ne récupére aucune valeur, alors on met le value set à false, pour pouvoir savoir quand est ce qu'on préremplis le formulaire ou non
 if ($id_proposition == null && $id_createur == null && $id_createur == null && $id_promo == null) {
     $valueSet = false;
@@ -24,7 +26,7 @@ $getInfosPersonne = hpost("http://localhost:4567/api/personneById", array("idPeo
 
 <div class="login-box">
     <h2>Donner un cours</h2>
-    <form method="post" action="/actions/actionsCreateCourse.php">
+    <form method="post" action="/actions/actionsCreateCourse.php" id="formEnter">
         <div class="user-box">
             <div class="user-box">
                 <input type="text" name="intitule" required>
@@ -72,11 +74,11 @@ $getInfosPersonne = hpost("http://localhost:4567/api/personneById", array("idPeo
             <label>Indiquez ce que vous allez voir dans le cours !</label>
         </div>
         <div class='user-box'>
-            <input type='date' name='date' required value='" . date("Y-m-d", strtotime($ligne->date)) . "'>
+            <input type='date' name='date' min="<?= $dateDuJour ?>" required value='<?= $dateDuJour ?>'>
             <label>date</label>
         </div>
         <div class='user-box'>
-            <input type='time' name='dateHeure' required value='" . date("H:i:s", strtotime($ligne->date)) . "'>
+            <input type='time' name='dateHeure' required value='17:00'>
             <label>heure</label>
             <button type="submit">Proposer le cours</button>
             <a class="btn" href="/suggestion-liste">

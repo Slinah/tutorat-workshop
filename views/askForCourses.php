@@ -9,7 +9,7 @@ $getInfosPersonne = hpost("http://localhost:4567/api/personneByIdFull" , array("
 
 <div class="login-box">
     <h2>Suggérer un cours</h2>
-    <form method="post" action="/actions/actionsSendingSuggestion.php">
+    <form method="post" action="/actions/actionsSendingSuggestion.php" id="formEnter">
         <input type="hidden" name="id_personne" value="<?= $idPersonneConnecter ?>">
         <?php
         // on gère le cas ou les infos de la personnes ne sont pas bien récupérés

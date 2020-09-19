@@ -16,15 +16,18 @@ $id_promo = filter_input(INPUT_POST,"id_promo");
 $date = filter_input(INPUT_POST,"date");
 $dateHeure = filter_input(INPUT_POST,"dateHeure");
 
-$dateHeure .= ":00";
 $timeZone = new DateTimeZone("Europe/Paris");
-$d = DateTime::createFromFormat('Y-m-d H:i:s', $date . " " . $dateHeure);
-$d = $d->format('Y-m-d H:i:s');
+$format = 'Y-m-d H:i:s';
+$d = DateTime::createFromFormat($format,  $date.' '.$dateHeure,$timeZone);
+
 if ($d != null) {
+    $d = $d->format('Y-m-d H:i:s');
     hpost("http://localhost:4567/api/postCloseCourse", array("id_cours"=>$id_cours,"id_matiere"=>$id_matiere,
-        "id_promo"=>$id_promo,"intitule"=>$coursIntitule, "date"=>$d, "commentaires"=>$commentaires, "nbParticipants"=>$nbParticipants,
+        "id_promo"=>$id_promo,"intitule"=>$coursIntitule, "date"=>$d, "commentaires"=>$commentaires, "nb_participants"=>$nbParticipants,
         "duree"=>$duree,"salle"=>$salle));
     header('location: /tuteur-cours');
 } else{
     header('location: /tuteur-cours');
 }
+
+?>
