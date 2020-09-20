@@ -1,5 +1,9 @@
 <?php
+
+include_once "includes/composants/nav-bar.php";
+
 //todo gestion des retours ?
+
 
 if (isset($_SESSION['retourUser'])) {
     retourUtilisateur($_SESSION['retourUser']);
@@ -15,9 +19,7 @@ $dataCourses = hpost('http://localhost:4567/api/getRegisteredCourses', array('id
 ?>
 
 <!--TODO corrigé l'espace en CSS car le titre profil passe sous la navbar-->
-<section class="headerTitle">
-    <h2>.</h2>
-</section>
+
 <section class="headerTitle">
     <h2>Profil</h2>
 </section>
@@ -51,7 +53,7 @@ $dataCourses = hpost('http://localhost:4567/api/getRegisteredCourses', array('id
 </section>
 <section class="cardContainer">
     <?php
-    if (empty($dataCoursesTutor)) {
+    if (isset($dataCoursesTutor)) {
         echo "<section class='card'>
 <header>Vous n'avez pas créer de cours.</header>
 </section>";
@@ -75,7 +77,7 @@ $dataCourses = hpost('http://localhost:4567/api/getRegisteredCourses', array('id
 </section>
 <section class="cardContainer">
     <?php
-    if (empty($dataCourses)) {
+    if (isset($dataCourses->error)) {
         echo "<section class='card'>
 <header>Vous êtes inscrit sur aucun cours.</header>
 </section>";

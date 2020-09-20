@@ -6,6 +6,10 @@
     align-items: center
 }
 
+
+.headerTitle{
+    margin-top: 50px;
+}
 .whiteBack {
     width: 300px;
     height: 20px;
