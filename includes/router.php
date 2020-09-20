@@ -5,11 +5,11 @@ require_once "composants/footer_options.php";
 require_once "Guard.php";
 
 
+
 $request = $_SERVER['REQUEST_URI'];
 switch ($request) {
     case '':
     case '/' :
-
         header_options(["style", "nav", "button", "card"]);
         require 'views/home.php';
         footer_options(["lottie", "navBtn"]);
@@ -20,7 +20,6 @@ switch ($request) {
         footer_options(["lottie", "navBtn", "fonction"]);
         break;
     case '/donner-cours' :
-
         HaveToBeConnected();
         header_options(["style", "nav", "button", "formCours"]);
         require 'views/createCourses.php';
@@ -40,7 +39,7 @@ switch ($request) {
     case '/tuteur-cours':
         header_options(["style", "nav", "button", "card", "formAdminCours"]);
         require 'views/adminCours.php';
-        footer_options(["lottie","navBtn", "jquery" ,"fonction", "adminCours"]);
+        footer_options(["lottie", "navBtn", "jquery", "fonction", "adminCours"]);
         break;
     case '/about' :
         Destroy();
@@ -87,7 +86,7 @@ switch ($request) {
         require 'views/register.php';
         footer_options(["jquery", "register", "fonction"]);
         break;
-        
+
     default:
         header_options(["style", "404", "nav", "button"]);
         http_response_code(404);

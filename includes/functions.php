@@ -25,10 +25,23 @@ function hget(string $url)
 function sanitize($string)
 {
 
+
+
     return filter_var($string, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
 
+
+
 }
+
+
+
+
+
+
+
+
+
 
 
 
