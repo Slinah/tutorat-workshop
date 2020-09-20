@@ -48,7 +48,7 @@ if (!empty($_POST)) {
 
     if (password_verify($_POST["pass"], $DB_PASS->password)) {
         $_SESSION["me"] = $DB_PASS;
-        header("Location: http://tutorat-workshop/");
+        header("Location: http://workshop/");
         die();
     }
 }

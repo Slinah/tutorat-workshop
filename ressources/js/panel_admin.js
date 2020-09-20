@@ -159,12 +159,30 @@ $(document).ready(function() {
     });
 });
 
+
+function btnClickPromote(){
+    if(confirm("Êtes-vous sûr de vouloir promouvoir Administrateur cette personne ?")){
+        $('#actionPromoteUser').submit();
+        alert('Vous avez bien promu la personne.')
+    } else {
+        alert('Vous avez annulé l\'action.')
+    }
+}
+
+function btnClickDemote(){
+    if(confirm("Êtes-vous sûr de vouloir destitué cette personne des Administrateurs ?")){
+        $('#actionDemoteUser').submit();
+        alert('Vous avez bien destitué la personne.')
+    } else {
+        alert('Vous avez annulé l\'action.')
+    }
+}
+
 function btnClickDelete(message, id){
     if(confirm('Êtes-vous sûr de vouloir supprimer : '+ message +' ?')){
         $('#'+id).submit();
         alert('Vous avez bien supprimé : '+ message +'.')
     } else {
-        alert('Vous avez annulé l\'action');
+        alert('Vous avez annulé l\'action.');
     }
-
 }

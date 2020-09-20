@@ -2,13 +2,6 @@
 
 //include_once "includes/composants/nav-bar.php";
 
-//TODO à enlever quand la page de connexion sera dispo
-$_SESSION["role"] = 1;
-
-if (!isset($_SESSION["role"]) || ($_SESSION["role"] != 1)) {
-//    Rediriger sur une autre page
-}
-
 //TODO requête API à sécurisé avec Token
 //TODO URI à changer quand mise en production
 $dataUsers = hget("http://localhost:4567/api/getAllUsers");
@@ -30,15 +23,15 @@ $dataLevels = hget('http://localhost:4567/api/getLevel');
             <?php } ?>
         </select>
     </div>
-    <form action="/actions/actionsPromoteUser.php" method="post">
+    <form id="actionPromoteUser" action="/actions/actionsPromoteUser.php" method="post">
         <input type="hidden" id="idUserPromote" name="idUser" value="">
-        <button type="submit" id="btnPromoteUser">
+        <button type="button" id="btnPromoteUser" onclick="btnClickPromote()">
             Promote
         </button>
     </form>
-    <form action="/actions/actionsDemoteUser.php" method="post">
+    <form  id="actionDemoteUser" action="/actions/actionsDemoteUser.php" method="post">
         <input type="hidden" id="idUserDemote" name="idUser" value="">
-        <button type="submit" id="btnDemoteUser">
+        <button type="button" id="btnDemoteUser" onclick="btnClickDemote()">
             Demote
         </button>
     </form>
