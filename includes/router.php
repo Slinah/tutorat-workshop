@@ -62,7 +62,7 @@ switch ($request) {
         HaveToBeConnected();
         header_options(["style", "nav", "button", "card", "cardCour", "profil"]);
         require 'views/profile.php';
-        footer_options(["navBtn"]);
+        footer_options(["jquery" ,"navBtn", "profile"]);
         break;
     case '/forum/create' :
         HaveToBeConnected();
@@ -87,7 +87,7 @@ switch ($request) {
         require 'views/register.php';
         footer_options(["jquery", "register", "fonction"]);
         break;
-        
+
     default:
         header_options(["style", "404", "nav", "button"]);
         http_response_code(404);
