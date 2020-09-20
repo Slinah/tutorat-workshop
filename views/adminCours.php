@@ -1,20 +1,29 @@
 <?php
-
 include_once "includes/composants/nav-bar.php";
-// todo si admin alors bouton en plus pour suppr le cours
+// fixme pb sur la modif / cloture de cours ?
 
 $unclosedCourses = hget("http://localhost:4567/api/unclosedCourses");
+if(property_exists((object)$unclosedCourses, "error")){
+    $unclosedCourses=null;
+}
 $timeZone = new DateTimeZone("Europe/Paris");
 $dateTime = new DateTime("now", $timeZone);
 $semaineActuelle = (int)date("W", $dateTime->getTimestamp());
 $courCetteSemaine = 1;
 $courSemaineProchaine = 1;
 $coursPlusTard = 1;
-// todo voir avec le guard et le système de connexion plus tard ^^
-$idPersonneConnecter = "6593c62a-f0e3-11ea-adc1-0242ac120002";
+$timeZone = new DateTimeZone("Europe/Paris");
+$dateTime = new DateTime("now", $timeZone);
+$dateDuJour = date("Y-m-d", $dateTime->getTimestamp());
+$idPersonneConnecter = (string)($_SESSION["me"]->id_personne);
 // on recupere la liste des cours ou la personne est tutoraté :3
 $getCoursById = hget("http://localhost:4567/api/peopleTutorCourseById?idPeople=" . $idPersonneConnecter);
-
+if(property_exists((object)$getCoursById, "error")){
+    $getCoursById=null;
+}
+if (isset($_SESSION['retourUser'])) {
+    retourUtilisateur($_SESSION['retourUser']);
+}
 ?>
 
 <section id='inSemaine' class='headerTitle'>
@@ -28,7 +37,7 @@ $getCoursById = hget("http://localhost:4567/api/peopleTutorCourseById?idPeople="
             echo "
             <section class='card'>
             <header>Administration du cours</header>
-            <form method='post' action='/actions/actionsModificationCourse' class='login-box' id='formulaireModifyCourse'>
+            <form method='post' action='/actions/actionsModifyCourse' class='login-box' id='formulaireModifyCourse" . $i . "'>
             <div class='user-box'> 
                 <input type='text' name='coursIntitule' value='" . $ligne->coursIntitule . "'>
                 <label>Titre du cours</label>
@@ -50,7 +59,7 @@ $getCoursById = hget("http://localhost:4567/api/peopleTutorCourseById?idPeople="
                 <label>Nombre de participants</label>
             </div>
             <div class='user-box'>
-                <input type='number' name='duree' value='" . $ligne->duree . "'>
+                <input type='number' step='0.1' name='duree' value='" . $ligne->duree . "'>
                 <label>Duree (en heure, ex: 1h30 = 1.5)</label>
             </div>
             <div class='user-box'>
@@ -62,9 +71,8 @@ $getCoursById = hget("http://localhost:4567/api/peopleTutorCourseById?idPeople="
             <input type='hidden' name='id_personne' value='" . $ligne->id_personne . "'>
             <input type='hidden' name='id_matiere' value='" . $ligne->id_matiere . "'>
             <input type='hidden' name='id_promo' value='" . $ligne->id_promo . "'>
-            <input type='hidden' name='status' value='" . $ligne->status . "'>
             <div class='user-box'>
-            <input type='date' name='date' required value='" . date("Y-m-d", strtotime($ligne->date)) . "'>
+            <input type='date' name='date' min='".$dateDuJour."' required value='" . date("Y-m-d", strtotime($ligne->date)) . "'>
             <label>date</label>
             </div>
             <div class='user-box'>
@@ -73,34 +81,47 @@ $getCoursById = hget("http://localhost:4567/api/peopleTutorCourseById?idPeople="
             </div>";
             echo "<button type='submit'>Envoyer</button>
             </form>
-            <form action='/actions/actionsCloseCourse' id='formulaireCloseCourse'>
+            <form method='post' action='/actions/actionsCloseCourse' id='formulaireCloseCourse" . $i . "'>
             <input type='hidden' name='coursIntitule' value='" . $ligne->coursIntitule . "'>
             <input type='hidden' name='matiereIntitule' value='" . $ligne->matiereIntitule . "'>
             <input type='hidden' name='commentaires' value='" . $ligne->commentaires . "'>
             <input type='hidden' name='promoIntitule' value='" . $ligne->promoIntitule . "'>
             <input type='hidden' name='nbParticipants' value='" . $ligne->nbParticipants . "'>
-            <input type='hidden' name='duree' value='" . $ligne->duree . "'>
+            <input type='hidden' step='0.1' name='duree' value='" . $ligne->duree . "'>
             <input type='hidden' name='salle' value='" . $ligne->salle . "'>
             <input type='hidden' name='id_cours' value='" . $ligne->id_cours . "'>
             <input type='hidden' name='id_personne' value='" . $ligne->id_personne . "'>
             <input type='hidden' name='id_matiere' value='" . $ligne->id_matiere . "'>
             <input type='hidden' name='id_promo' value='" . $ligne->id_promo . "'>
-            <input type='hidden' name='status' value='" . $ligne->status . "'>
             <input type='hidden' name='date' value='" . date("Y-m-d", strtotime($ligne->date)) . "'>
-            <input type='hidden' name='dateHeure' value='" . date("H:i:s", strtotime($ligne->date))  . "'>
-            <button type='button' id='clore'>Cloturer le cours</button>
+            <input type='hidden' required name='dateHeure' value='" . date("H:i:s", strtotime($ligne->date)) . "'>
+            <button type='button' id='clore" . $i . "'>Cloturer le cours</button>
             </form>
             </section>";
             $courCetteSemaine = 0;
+            $i++;
         }
 //        matiere // commentaire // id_proposition // id_createur // id_matiere // id_promo // salle // date // nbParticipants // duree // status //
     } else {
         echo "<section class='card'>
-              <header>vous n'avez aucun cours prévu</header>
+              <h2>Vous n'avez prévu aucun cours</h2>
               </section>";
     }
     ?>
 </section>
-<script type="text/javascript">
-
+<script src="/ressources/js/jquery.js"></script>
+<script>
+    function form2form(formA, formB) {
+        $(':input[name]', formA).each(function () {
+            $('[name=' + $(this).attr('name') + ']', formB).val($(this).val())
+        })
+    }
+    <?php for ($i;$i > 0;$i--){?>
+    $(function () {
+        $('#clore<?php echo $i-1 ?>').click(function () {
+            form2form($("#formulaireModifyCourse<?php echo $i-1 ?>"), $("#formulaireCloseCourse<?php echo $i-1 ?>"));
+            $("#formulaireCloseCourse<?php echo $i-1 ?>").submit();
+        });
+    });
+    <?php } ?>
 </script>

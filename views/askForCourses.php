@@ -1,16 +1,23 @@
 <?php
-
 include_once "includes/composants/nav-bar.php";
 
-// todo voir avec le guard et le système de connexion plus tard ^^
-$idPersonneConnecter = "6593c62a-f0e3-11ea-adc1-0242ac120002";
+$idPersonneConnecter=(string)($_SESSION["me"]->id_personne);
 $getMatiere = hget("http://localhost:4567/api/matieres");
-$getInfosPersonne = hget("http://localhost:4567/api/personneById?idPeople=" . $idPersonneConnecter);
+if(property_exists((object)$getMatiere, "error")){
+    $getMatiere=null;
+}
+$getInfosPersonne = hpost("http://localhost:4567/api/personneByIdFull" , array("idPeople" => $idPersonneConnecter));
+if(property_exists((object)$getInfosPersonne, "error")){
+    $getInfosPersonne=null;
+}
+if (isset($_SESSION['retourUser'])) {
+    retourUtilisateur($_SESSION['retourUser']);
+}
 ?>
 
 <div class="login-box">
     <h2>Suggérer un cours</h2>
-    <form method="post" action="/actions/actionsSendingSuggestion.php">
+    <form method="post" action="/actions/actionsSendingSuggestion.php" id="formEnter">
         <input type="hidden" name="id_personne" value="<?= $idPersonneConnecter ?>">
         <?php
         // on gère le cas ou les infos de la personnes ne sont pas bien récupérés
@@ -35,7 +42,7 @@ $getInfosPersonne = hget("http://localhost:4567/api/personneById?idPeople=" . $i
             </select>
         </div>
         une matière que tu voudrais qui n'est pas dans la liste ?
-        <a class="btn" href="/createMatiere">
+        <a class="btn" href="/creer-matiere">
             <span></span>
             <span></span>
             <span></span>

@@ -1,5 +1,9 @@
 <?php
-include_once "includes/composants/nav-bar.php";
+//todo gestion des retours ?
+
+if (isset($_SESSION['retourUser'])) {
+    retourUtilisateur($_SESSION['retourUser']);
+}
 
 $dataUser = $_SESSION["me"];
 //Récupérer les informations de la personne pour l'affichage du profil
@@ -52,18 +56,19 @@ $dataCourses = hpost('http://localhost:4567/api/getRegisteredCourses', array('id
 <header>Vous n'avez pas créer de cours.</header>
 </section>";
     } else {
-    foreach ($dataCoursesTutor as $dataCourseTutor) { ?>
-        <section class="card">
-            <header><?= $dataCourseTutor->intituleCours ?></header>
-            <p><?= $dataCourseTutor->commentaires ?></p>
-            <button type="button">Modifier</button>
-            <div class="classeUpLeft"><?= $dataCourseTutor->intitulePromo ?></div>
-            <div class="dateUpRight"><?= date("d / m / y", strtotime($dataCourseTutor->date)); ?></div>
-            <div class="salleDownLeft"><?= $dataCourseTutor->salle ?></div>
-            <div class="wifiDownRight"><i class="fas fa-wifi"></i></div>
-        </section>
-        <?php
-    }} ?>
+        foreach ($dataCoursesTutor as $dataCourseTutor) { ?>
+            <section class="card">
+                <header><?= $dataCourseTutor->intituleCours ?></header>
+                <p><?= $dataCourseTutor->commentaires ?></p>
+                <button type="button">Modifier</button>
+                <div class="classeUpLeft"><?= $dataCourseTutor->intitulePromo ?></div>
+                <div class="dateUpRight"><?= date("d / m / y", strtotime($dataCourseTutor->date)); ?></div>
+                <div class="salleDownLeft"><?= $dataCourseTutor->salle ?></div>
+                <div class="wifiDownRight"><i class="fas fa-wifi"></i></div>
+            </section>
+            <?php
+        }
+    } ?>
 </section>
 <section class="headerTitle">
     <h2>Les cours où je suis inscrit</h2>
@@ -79,11 +84,13 @@ $dataCourses = hpost('http://localhost:4567/api/getRegisteredCourses', array('id
             <section class="card">
                 <header><?= $dataCourse->intituleCours ?></header>
                 <p><?= $dataCourse->commentaires ?></p>
-                <form id="<?= 'actionDeregister_'.$dataCourse->id_cours ?>" action="/actions/actionsDeregisterCourse.php" method="post">
-                    <input id="idPersonneForDeregister" name="idPersonne" type="hidden" value="<?= $dataUser->id_personne ?>">
+                <form id="<?= 'actionDeregister_' . $dataCourse->id_cours ?>"
+                      action="/actions/actionsDeregisterCourse.php" method="post">
+                    <input id="idPersonneForDeregister" name="idPersonne" type="hidden"
+                           value="<?= $dataUser->id_personne ?>">
                     <input id="idCoursForDeregister" name="idCours" type="hidden" value="<?= $dataCourse->id_cours ?>">
                     <?php
-                    echo "<button type='button' onclick=\"btnClickDeregisterCourse('".$dataCourse->intituleCours."','".$dataCourse->id_cours."')\">Se désinscrire</button>"
+                    echo "<button type='button' onclick=\"btnClickDeregisterCourse('" . $dataCourse->intituleCours . "','" . $dataCourse->id_cours . "')\">Se désinscrire</button>"
                     ?>
                 </form>
                 <div class="classeUpLeft"><?= $dataCourse->intitulePromo ?></div>

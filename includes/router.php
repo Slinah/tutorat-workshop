@@ -5,7 +5,6 @@ require_once "composants/footer_options.php";
 require_once "Guard.php";
 
 
-
 $request = $_SERVER['REQUEST_URI'];
 switch ($request) {
     case '':
@@ -15,6 +14,7 @@ switch ($request) {
         footer_options(["lottie", "navBtn"]);
         break;
     case '/cours' :
+        HaveToBeConnected();
         header_options(["style", "nav", "button", "card", "cardCours"]);
         require 'views/courses.php';
         footer_options(["lottie", "navBtn", "fonction"]);
@@ -23,23 +23,32 @@ switch ($request) {
         HaveToBeConnected();
         header_options(["style", "nav", "button", "formCours"]);
         require 'views/createCourses.php';
-        footer_options(["lottie", "navBtn", "fonction"]);
+        footer_options(["lottie", "navBtn", "fonction", "formEnter"]);
         break;
     case '/suggestion-cours' :
         HaveToBeConnected();
         header_options(["style", "nav", "button", "formCours"]);
         require 'views/askForCourses.php';
-        footer_options(["lottie", "navBtn", "fonction"]);
+        footer_options(["lottie", "navBtn", "fonction", "formEnter"]);
         break;
     case '/suggestion-liste':
+        HaveToBeConnected();
         header_options(["style", "nav", "button", "card", "cardCours"]);
         require 'views/listSuggestions.php';
         footer_options(["lottie", "navBtn", "fonction"]);
         break;
     case '/tuteur-cours':
+        HaveToBeConnected();
         header_options(["style", "nav", "button", "card", "formAdminCours"]);
         require 'views/adminCours.php';
-        footer_options(["lottie", "navBtn", "jquery", "fonction", "adminCours"]);
+
+        footer_options(["lottie", "navBtn", "jquery", "fonction"]);
+        break;
+    case '/creer-matiere':
+        HaveToBeConnected();
+        header_options(["style", "nav", "button", "card", "formAdminCours"]);
+        require 'views/createMatiere.php';
+        footer_options(["lottie", "navBtn", "fonction", "adminCours"]);
         break;
     case '/about' :
         Destroy();
@@ -61,7 +70,7 @@ switch ($request) {
         HaveToBeConnected();
         header_options(["style", "nav", "button", "card", "cardCour", "profil"]);
         require 'views/profile.php';
-        footer_options(["jquery" ,"navBtn", "profile"]);
+        footer_options(["jquery", "navBtn", "profile"]);
         break;
     case '/forum/create' :
         HaveToBeConnected();
@@ -78,15 +87,14 @@ switch ($request) {
         HaveToBeNOTConnected();
         header_options(["style", "nav", "button", "form"]);
         require 'views/connexion.php';
-        footer_options(["lottie", "navBtn", "fonction"]);
+        footer_options(["lottie", "navBtn", "fonction", "connexionSubmitFormEnter"]);
         break;
     case '/register' :
         HaveToBeNOTConnected();
         header_options(["style", "nav", "button", "form"]);
         require 'views/register.php';
-        footer_options(["jquery", "register", "fonction"]);
+        footer_options(["jquery", "register", "fonction", "registerSubmitFormEnter"]);
         break;
-
     default:
         header_options(["style", "404", "nav", "button"]);
         http_response_code(404);
