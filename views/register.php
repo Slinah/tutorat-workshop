@@ -1,9 +1,12 @@
 <?php
 //include_once "includes/composants/nav-bar.php";
-
+//todo gestion des retours ?
 $dataSchools = hget('http://localhost:4567/api/getAllSchools');
 $dataPromosFromSchools = hget('http://localhost:4567/api/getPromoFromSchool');
 $dataClassesFromPromos = hget('http://localhost:4567/api/getClassFromPromo');
+if (isset($_SESSION['retourUser'])) {
+    retourUtilisateur($_SESSION['retourUser']);
+}
 
 ?>
     <div class="login-box">
@@ -75,7 +78,6 @@ $dataClassesFromPromos = hget('http://localhost:4567/api/getClassFromPromo');
 if (!empty($_POST)) {
     if (array_key_exists("class", $_POST)) {
         if (!is_null($_POST["class"])) {
-//            var_dump($_POST);
             $DB_PASS = hpost("http://localhost:4567/api/createAccount",
                 array(
                     "school" => $_POST["school"],

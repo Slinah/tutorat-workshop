@@ -1,4 +1,10 @@
 <?php
+//todo gestion des retours ?
+/*
+if (isset($_SESSION['retourUser'])) {
+    retourUtilisateur($_SESSION['retourUser']);
+}
+
 //include_once "includes/composants/nav-bar.php";
 //unset($_SESSION['me']);
 /*

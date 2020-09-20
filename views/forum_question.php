@@ -1,16 +1,10 @@
 <?php
-
-
 include_once "includes/composants/nav-bar.php";
 
 $request = explode('/', $_SERVER['REQUEST_URI']);
 $id_question = end($request);
 
-
 $question = hget("http://localhost:4567/api/getQuestion/" . $id_question)[0];
-//var_dump($question);
-
-
 ?>
 
 <section id="backgroundTutorat">
@@ -19,7 +13,6 @@ $question = hget("http://localhost:4567/api/getQuestion/" . $id_question)[0];
 <section class="headerTitle">
     <h2>Titre du sujet</h2>
 </section>
-
 
 <section class="cardContainer">
     <?php
@@ -31,7 +24,6 @@ $question = hget("http://localhost:4567/api/getQuestion/" . $id_question)[0];
         </div>
         <?php
         die();
-
     }
     ?>
     <section class="card">
@@ -58,15 +50,12 @@ $question = hget("http://localhost:4567/api/getQuestion/" . $id_question)[0];
     </div>
 </section>
 
-
 <section class="cardContainer">
-
 
     <?php
     $t = hget("http://localhost:4567/api/getCommentaire/" . $id_question);
     if (!is_null($t)) {
         foreach ($t as $c) {
-//    var_dump($c);
             ?>
             <section class="card">
                 <p>
@@ -83,11 +72,8 @@ $question = hget("http://localhost:4567/api/getQuestion/" . $id_question)[0];
                     ?> - <?php
                     echo $c->prenom;
                     ?>
-
                 </div>
             </section>
-
-
             <div class="commentContainer">
                 <?php if ($c->sub > 0) { ?>
                     <button type="button" onclick="loadMore('<?php echo $c->id_comment; ?>' )">
@@ -96,8 +82,6 @@ $question = hget("http://localhost:4567/api/getQuestion/" . $id_question)[0];
                         (<?php echo $c->sub; ?>)
                     </button> <?php
                 } ?>
-
-
                 <button type="button" onclick="clickOpenBtnModal('<?php echo $c->id_comment; ?>' )">Répondre &nbsp;<i
                             class="far fa-comment"></i>
                 </button>
@@ -110,8 +94,6 @@ $question = hget("http://localhost:4567/api/getQuestion/" . $id_question)[0];
         <?php
     }
     ?>
-
-
 </section>
 <section id="modalId" class="modal">
     <input type="hidden" id="personne_id" value="<?php echo $_SESSION["me"]->id_personne; ?>">

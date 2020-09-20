@@ -1,10 +1,18 @@
 <?php
-
 include_once "includes/composants/nav-bar.php";
 
 $idPersonneConnecter=(string)($_SESSION["me"]->id_personne);
 $getMatiere = hget("http://localhost:4567/api/matieres");
+if(property_exists((object)$getMatiere, "error")){
+    $getMatiere=null;
+}
 $getInfosPersonne = hpost("http://localhost:4567/api/personneByIdFull" , array("idPeople" => $idPersonneConnecter));
+if(property_exists((object)$getInfosPersonne, "error")){
+    $getInfosPersonne=null;
+}
+if (isset($_SESSION['retourUser'])) {
+    retourUtilisateur($_SESSION['retourUser']);
+}
 ?>
 
 <div class="login-box">

@@ -1,7 +1,10 @@
 <?php
 include_once "includes/composants/nav-bar.php";
-
 $unclosedCourses = hget("http://localhost:4567/api/unclosedCourses");
+if(property_exists((object)$unclosedCourses, "error")){
+    $unclosedCourses=null;
+}
+$tabGetCoursById=[];
 $timeZone = new DateTimeZone("Europe/Paris");
 $dateTime = new DateTime("now", $timeZone);
 $semaineActuelle = (int)date("W", $dateTime->getTimestamp());
@@ -10,7 +13,10 @@ $courSemaineProchaine = 1;
 $coursPlusTard = 1;
 $idPersonneConnecter = (string)($_SESSION["me"]->id_personne);
 $getCoursById = hget("http://localhost:4567/api/peopleCourseById?idPeople=" . $idPersonneConnecter);
-if ($getCoursById != null) {
+if(property_exists((object)$getCoursById, "error")){
+    $getCoursById=null;
+}
+if ($getCoursById !== null) {
     foreach ($getCoursById as $ligne) {
         $tabGetCoursById[] = $ligne->id_cours;
     }
@@ -39,8 +45,8 @@ function codeRefacto($ligne, $idPersonneConnecter, $tabGetCoursById)
             <input type='hidden' name='id_personne' value='" . $idPersonneConnecter . "'>
         ";
     // Condition visuelle pour savoir si on est inscrit à un cours ou non.
-    if ($tabGetCoursById != null) {
-        if (in_array($ligne->idCours, $tabGetCoursById)) {
+    if ($tabGetCoursById !== null) {
+        if (in_array($ligne->idCours, $tabGetCoursById, false)) {
             echo "<button disabled>Inscrit(e)</button>";
         } else {
             echo "<button type='submit'>S'inscrire</button>";
@@ -54,14 +60,16 @@ function codeRefacto($ligne, $idPersonneConnecter, $tabGetCoursById)
             <div class='dateUpRight'>" . date("d m", strtotime($ligne->date)) . "</div>
     ";
     // Ajouté ici une condition pour savoir si le cour est en distanciel
-    if (false) {
-        echo "
-            <div class='wifiDownRight'><i class='fas fa-wifi'></i></div>
-            ";
-    }
+//    if (false) {
+//        echo "
+//            <div class='wifiDownRight'><i class='fas fa-wifi'></i></div>
+//            ";
+//    }
     echo "</section>";
 }
-
+if (isset($_SESSION['retourUser'])) {
+    retourUtilisateur($_SESSION['retourUser']);
+}
 ?>
     <section id="backgroundTutorat">
         <img src="/ressources/img/backgrounds/darkBackgroundLesCours.jpg" alt="background Tutorat">
@@ -71,7 +79,7 @@ function codeRefacto($ligne, $idPersonneConnecter, $tabGetCoursById)
         <button>Suggérer un cour</button>
     </section>
 <?php
-if ($unclosedCourses != null) {
+if ($unclosedCourses !== null) {
     foreach ($unclosedCourses as $ligne) {
         $semaineCour = (int)date("W", strtotime($ligne->date));
         if ($semaineCour === $semaineActuelle) {

@@ -1,6 +1,4 @@
 <?php
-
-
 function hpost(string $url, array $param = [])
 {
     $options = array(
@@ -15,20 +13,33 @@ function hpost(string $url, array $param = [])
     return json_decode($result);
 }
 
-
 function hget(string $url)
 {
     return json_decode(file_get_contents($url));
 }
 
-function retourUtilisateur($retourApi)
+function retourUtilisateur($retourUtilisateur)
 {
-    if ($retourApi[0]->msg != null) {
+    if (property_exists((object)$retourUtilisateur, "error")) {
         ?>
-        <div id="retourUtilisateur" onload="this.style.zIndex='-1'"> La demande à bien été traité !</div>
+        <div id="retourUtilisateurContainer">
+            <div id="retourUtilisateur" onload="this.style.zIndex='-1'">Erreur ! <?= $retourUtilisateur->error ?></div>
+        </div>
         <?php
+        unset($_SESSION['retourUser']);
+    } elseif (property_exists((object)$retourUtilisateur, "success")) {
+        ?>
+        <div id="retourUtilisateurContainer">
+            <div id="retourUtilisateur">Success ! <?= $retourUtilisateur->success ?> </div>
+        </div>
+        <?php
+        unset($_SESSION['retourUser']);
     } else {
         ?>
-        <div id="retourUtilisateur"> Une erreur est survenue !</div>
-    <?php }
-} ?>
+        <div id="retourUtilisateurContainer">
+            <div id="retourUtilisateur">Tout c'est bien passé !</div>
+        </div>
+        <?php
+        unset($_SESSION['retourUser']);
+    }
+}

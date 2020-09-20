@@ -1,8 +1,9 @@
 <?php
 require_once "../includes/functions.php";
+session_start();
 
 $matiere = filter_input(INPUT_POST, 'matiere');
 
-hpost("http://localhost:4567/api/sendCreateMatiere", array("matiere"=>$matiere));
+$_SESSION['retourUser']=hpost("http://localhost:4567/api/sendCreateMatiere", array("matiere"=>$matiere));
 
-header("Location: /suggestion-cours");
+header("Location: /creer-matiere");

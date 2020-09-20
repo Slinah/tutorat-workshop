@@ -1,9 +1,10 @@
 <?php
-
 include_once "includes/composants/nav-bar.php";
-// todo si admin alors bouton en plus pour suppr le cours
 
 $unclosedCourses = hget("http://localhost:4567/api/unclosedCourses");
+if(property_exists((object)$unclosedCourses, "error")){
+    $unclosedCourses=null;
+}
 $timeZone = new DateTimeZone("Europe/Paris");
 $dateTime = new DateTime("now", $timeZone);
 $semaineActuelle = (int)date("W", $dateTime->getTimestamp());
@@ -16,7 +17,12 @@ $dateDuJour = date("Y-m-d", $dateTime->getTimestamp());
 $idPersonneConnecter = (string)($_SESSION["me"]->id_personne);
 // on recupere la liste des cours ou la personne est tutoraté :3
 $getCoursById = hget("http://localhost:4567/api/peopleTutorCourseById?idPeople=" . $idPersonneConnecter);
-
+if(property_exists((object)$getCoursById, "error")){
+    $getCoursById=null;
+}
+if (isset($_SESSION['retourUser'])) {
+    retourUtilisateur($_SESSION['retourUser']);
+}
 ?>
 
 <section id='inSemaine' class='headerTitle'>

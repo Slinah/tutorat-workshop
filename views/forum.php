@@ -1,8 +1,6 @@
 <?php
 include_once "includes/composants/nav-bar.php";
-
 if (!empty($_POST)) {
-//    var_dump($_POST);
     hpost("http://localhost:4567/api/upvoteQuestion", array("id_personne" => $_SESSION["me"]->id_personne, "id_question" => $_POST["question_id"]));
 }
 ?>

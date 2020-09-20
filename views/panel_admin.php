@@ -1,5 +1,5 @@
 <?php
-
+//todo gestion des retours ?
 //include_once "includes/composants/nav-bar.php";
 
 //TODO à enlever quand la page de connexion sera dispo
@@ -11,12 +11,34 @@ if (!isset($_SESSION["role"]) || ($_SESSION["role"] != 1)) {
 
 //TODO requête API à sécurisé avec Token
 //TODO URI à changer quand mise en production
+// Todo gestion de l'affichage des erreurs ?
 $dataUsers = hget("http://localhost:4567/api/getAllUsers");
+if(property_exists((object)$dataUsers, "error")){
+    $dataUsers=null;
+}
 $dataSubjects = hget('http://localhost:4567/api/getAllSubjects');
+if(property_exists((object)$dataSubjects, "error")){
+    $dataSubjects=null;
+}
 $dataSchools = hget('http://localhost:4567/api/getAllSchools');
+if(property_exists((object)$dataSchools, "error")){
+    $dataSchools=null;
+}
 $dataPromosFromSchools = hget('http://localhost:4567/api/getPromoFromSchool');
+if(property_exists((object)$dataPromosFromSchools, "error")){
+    $dataPromosFromSchools=null;
+}
 $dataClassesFromPromos = hget('http://localhost:4567/api/getClassFromPromo');
+if(property_exists((object)$dataClassesFromPromos, "error")){
+    $dataClassesFromPromos=null;
+}
 $dataLevels = hget('http://localhost:4567/api/getLevel');
+if(property_exists((object)$dataLevels, "error")){
+    $dataLevels=null;
+}
+if (isset($_SESSION['retourUser'])) {
+    retourUtilisateur($_SESSION['retourUser']);
+}
 ?>
 
 <div class="login-box">

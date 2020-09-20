@@ -1,5 +1,5 @@
 <?php
-
+//todo gestion des retours ?
 include_once "includes/composants/nav-bar.php";
 ?>
 
@@ -35,10 +35,7 @@ include_once "includes/composants/nav-bar.php";
 <?php
 
 if (!empty($_POST)) {
-
-
     hpost("http://localhost:4567/api/createForumQuestion", array("titre" => $_POST["title"], "description" => $_POST["description"], "id_personne" => $_POST["id_personne"], "id_matiere" => $_POST["id_matiere"]));
     header("Location: http://tutorat-workshop/forum");
     die();
-
 }

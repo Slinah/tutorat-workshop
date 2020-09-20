@@ -1,5 +1,4 @@
 <?php
-
 include_once "includes/composants/nav-bar.php";
 
 $id_proposition = filter_input(INPUT_POST, 'id_proposition');
@@ -10,7 +9,7 @@ $timeZone = new DateTimeZone("Europe/Paris");
 $dateTime = new DateTime("now", $timeZone);
 $dateDuJour = date("Y-m-d", $dateTime->getTimestamp());
 //Si on ne récupére aucune valeur, alors on met le value set à false, pour pouvoir savoir quand est ce qu'on préremplis le formulaire ou non
-if ($id_proposition == null && $id_createur == null && $id_createur == null && $id_promo == null) {
+if ($id_proposition === null && $id_createur === null && $id_createur === null && $id_promo === null) {
     $valueSet = false;
 } else {
 //    si il y a des valeurs qui ont étés récupérés par les filters input alors, on passe le value set à true
@@ -20,13 +19,31 @@ $idPersonneConnecter = (string)($_SESSION["me"]->id_personne);
 
 // on récupéres toutes les matières // toutes les promos // toutes les infos de la personne par rapport a son id
 $getMatiere = hget("http://localhost:4567/api/matieres");
+if(property_exists((object)$getMatiere, "error")){
+    $getMatiere=null;
+}
 $getPromo = hget("http://localhost:4567/api/promos");
+if(property_exists((object)$getPromo, "error")){
+    $getPromo=null;
+}
 $getInfosPersonne = hpost("http://localhost:4567/api/personneById", array("idPeople" => $idPersonneConnecter));
+if(property_exists((object)$getInfosPersonne, "error")){
+    $getInfosPersonne=null;
+}
+if (isset($_SESSION['retourUser'])) {
+    retourUtilisateur($_SESSION['retourUser']);
+}
 ?>
 
 <div class="login-box">
     <h2>Donner un cours</h2>
     <form method="post" action="/actions/actionsCreateCourse.php" id="formEnter">
+        <a class="btn" href="/suggestion-liste">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>Voir la liste des suggestions
+        </a>
         <div class="user-box">
             <div class="user-box">
                 <input type="text" name="intitule" required>
@@ -81,12 +98,6 @@ $getInfosPersonne = hpost("http://localhost:4567/api/personneById", array("idPeo
             <input type='time' name='dateHeure' required value='17:00'>
             <label>heure</label>
             <button type="submit">Proposer le cours</button>
-            <a class="btn" href="/suggestion-liste">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>Voir la liste des suggestions
-            </a>
         </div>
     </form>
 </div>
