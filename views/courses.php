@@ -28,7 +28,7 @@ function codeRefacto($ligne, $idPersonneConnecter, $tabGetCoursById)
 {
     echo "
             <section class='card'>
-            <header>" . $ligne->intitule . "</header>
+            <header>".$ligne->matiere." // " . $ligne->intitule . "</header>
             <p>Salle : ";
     if ($ligne->salle !== null) {
         echo $ligne->salle;

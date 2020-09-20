@@ -1,5 +1,6 @@
 <?php
 include_once "includes/composants/nav-bar.php";
+// fixme pb sur la modif / cloture de cours ?
 
 $unclosedCourses = hget("http://localhost:4567/api/unclosedCourses");
 if(property_exists((object)$unclosedCourses, "error")){

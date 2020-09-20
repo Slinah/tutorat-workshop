@@ -7,8 +7,18 @@ $matiereIntitule = filter_input(INPUT_POST, 'matiereIntitule');
 $commentaires = filter_input(INPUT_POST, "commentaires");
 $promoIntitule = filter_input(INPUT_POST,"promoIntitule");
 $nbParticipants = filter_input(INPUT_POST, 'nbParticipants');
+if($nbParticipants===""){
+    $nbParticipants=0;
+}
 $duree = filter_input(INPUT_POST, 'duree');
+if($duree===""){
+    $duree=0;
+}
 $salle = filter_input(INPUT_POST, "salle");
+
+if($salle===""){
+    $salle=0;
+}
 $id_cours = filter_input(INPUT_POST,"id_cours");
 $id_personne = filter_input(INPUT_POST,"id_personne");
 $id_matiere = filter_input(INPUT_POST,"id_matiere");
