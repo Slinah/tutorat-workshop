@@ -30,10 +30,7 @@ include_once "includes/composants/nav-bar.php";
             </div>
         </form>
     </div>
-
-
 <?php
-
 if (!empty($_POST)) {
     hpost("http://localhost:4567/api/createForumQuestion", array("titre" => sanitize($_POST["title"]), "description" => sanitize($_POST["description"]), "id_personne" => sanitize($_POST["id_personne"]), "id_matiere" => sanitize($_POST["id_matiere"])));
     header("Location: http://tutorat-workshop/forum");

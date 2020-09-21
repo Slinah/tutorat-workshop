@@ -23,13 +23,13 @@ switch ($request) {
         HaveToBeConnected();
         header_options(["style", "nav", "button", "formCours"]);
         require 'views/createCourses.php';
-        footer_options(["lottie", "navBtn", "fonction", "formEnter"]);
+        footer_options(["lottie", "navBtn", "fonction"]);
         break;
     case '/suggestion-cours' :
         HaveToBeConnected();
         header_options(["style", "nav", "button", "formCours"]);
         require 'views/askForCourses.php';
-        footer_options(["lottie", "navBtn", "fonction", "formEnter"]);
+        footer_options(["lottie", "navBtn", "fonction"]);
         break;
     case '/suggestion-liste':
         HaveToBeConnected();
@@ -39,9 +39,9 @@ switch ($request) {
         break;
     case '/tuteur-cours':
         HaveToBeConnected();
-        header_options(["style", "nav", "button", "card", "formAdminCours"]);
+        header_options(["style", "nav", "button", "card", "formAdminCours", "modal"]);
         require 'views/adminCours.php';
-        footer_options(["lottie", "navBtn", "jquery", "fonction"]);
+        footer_options(["lottie", "navBtn", "jquery", "fonction", "tuteurCours"]);
         break;
     case '/creer-matiere':
         HaveToBeConnected();
