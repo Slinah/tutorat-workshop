@@ -1,6 +1,5 @@
 <?php
 include_once "includes/composants/nav-bar.php";
-// fixme pb sur la modif / cloture de cours ?
 
 $unclosedCourses = hget("http://localhost:4567/api/unclosedCourses");
 if(property_exists((object)$unclosedCourses, "error")){
@@ -25,7 +24,6 @@ if (isset($_SESSION['retourUser'])) {
     retourUtilisateur($_SESSION['retourUser']);
 }
 ?>
-
 <section id='inSemaine' class='headerTitle'>
     <h2>Liste des cours que vous donnez</h2>
 </section>
@@ -55,7 +53,7 @@ if (isset($_SESSION['retourUser'])) {
                 <label>Intitule de la promo</label>
             </div>
             <div class='user-box'>
-                <input type='number' name='nbParticipants' value='" . $ligne->nbParticipants . "'>
+                <input type='number' name='nbParticipants' id='nbParticipants".$i."' value='" . $ligne->nbParticipants . "'>
                 <label>Nombre de participants</label>
             </div>
             <div class='user-box'>
@@ -89,7 +87,7 @@ if (isset($_SESSION['retourUser'])) {
             <input type='hidden' name='nbParticipants' value='" . $ligne->nbParticipants . "'>
             <input type='hidden' step='0.1' name='duree' value='" . $ligne->duree . "'>
             <input type='hidden' name='salle' value='" . $ligne->salle . "'>
-            <input type='hidden' name='id_cours' value='" . $ligne->id_cours . "'>
+            <input type='hidden' name='id_cours' id='id_cours" . $i . "' value='" . $ligne->id_cours . "'>
             <input type='hidden' name='id_personne' value='" . $ligne->id_personne . "'>
             <input type='hidden' name='id_matiere' value='" . $ligne->id_matiere . "'>
             <input type='hidden' name='id_promo' value='" . $ligne->id_promo . "'>
@@ -109,19 +107,82 @@ if (isset($_SESSION['retourUser'])) {
     }
     ?>
 </section>
+<!-- id cours -->
+<section id="modalId" class="modal">
+    <input type="hidden" id="personne_id" value="<?php echo $_SESSION["me"]->id_personne; ?>">
+    <div class="container">
+        <div class="comment">
+            <h2>Présence : </h2>
+            <form action="POST" id="formModal">
+
+            </form>
+        </div>
+        <div class="closeButton" onclick="clickCloseBtnModal()">
+            <i class="far fa-times-circle"></i>
+        </div>
+    </div>
+</section>
 <script src="/ressources/js/jquery.js"></script>
 <script>
+    var i=0;
     function form2form(formA, formB) {
         $(':input[name]', formA).each(function () {
             $('[name=' + $(this).attr('name') + ']', formB).val($(this).val())
         })
     }
+    function clickCoursModal(numberForm){
+        var infoPeople=[];
+        console.log("i : " + i);
+        for (var x=0;x<i;x++) {
+            var test = $("input[name='radio"+x+"']:checked").val();
+            if(test!=0){
+                infoPeople.push(test);
+            }
+        }
+        $("#nbParticipants"+numberForm).val(infoPeople.length);
+
+        // todo, on récupére dans info people toutes les id des gens marqués comme présent
+        // todo on recupere dans numberForm, le numéro du formulaire qu'on est en train de traiter
+        // todo on recupere dans infoPeople.lenght, le nombre de participant total
+        // todo faire une boucle avec ces éléments pour ajoutés l'expérience
+        // todo et faire en sorte que si le cours est 'off' , alors on ne donne pas d'xp
+
+        if(false) {
+            form2form($("#formulaireModifyCourse<?php echo $i - 1 ?>"), $("#formulaireCloseCourse<?php echo $i - 1 ?>"));
+            $("#formulaireCloseCourse<?php echo $i - 1 ?>").submit();
+        }
+    }
     <?php for ($i;$i > 0;$i--){?>
     $(function () {
         $('#clore<?php echo $i-1 ?>').click(function () {
-            form2form($("#formulaireModifyCourse<?php echo $i-1 ?>"), $("#formulaireCloseCourse<?php echo $i-1 ?>"));
-            $("#formulaireCloseCourse<?php echo $i-1 ?>").submit();
+            var numberForm=<?= $i-1 ?>;
+            var idCours = $('input[name=id_cours]').val();
+
+            http_post("http://localhost:4567/api/listPeopleCourseById", {
+                "idCourse": idCours
+            }).then(value => {
+                value=JSON.parse(value);
+                for (i=0; i<value.length;i++){
+                    $('#formModal').append("<input type='hidden' name='idCoursModal"+ i + "' id='id_coursModal"+ i + "' value='"+ value[i]["id_cours"] + "'>" +
+                        "<fieldset name='fieldModal"+i+"'>" +
+                        "                    <legend>"+ value[i]["nom"] + " - "+ value[i]["nom"]  +"</legend>\n" +
+                        "                    <input type=\"radio\" name=\"radio"+ i + "\" id=\"radio"+ i + "\" value='"+ value[i]["id_personne"] + "'> <label for=\"radio"+ i + "\">Oui</label>\n" +
+                        "                    <input type=\"radio\" name=\"radio"+ i + "\" value='0'> <label for=\"radio"+ i + "\">Non</label>\n" +
+                        "                </fieldset>");
+                }
+                $('#formModal').append("<input type='hidden' name='nombreParticipant' id='nombreParticipant' value='"+ i + "'>" +
+                    "<button type='button' id='cloreCoursModal' onclick='clickCoursModal("+numberForm+")'> Cloturer le cours</button>");
+            });
+            clickOpenBtnModal();
         });
+
+
+
     });
     <?php } ?>
 </script>
+<!--for (var x;x<i;i++){-->
+<!--http_post("http://localhost:4567/api/listPeopleCourseById", {-->
+<!--"idCourse": idCours-->
+<!--}-->
+<!--}-->
