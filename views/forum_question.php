@@ -57,7 +57,7 @@ $question = hget("http://localhost:4567/api/getQuestion/" . $id_question)[0];
     if (!is_null($t)) {
         foreach ($t as $c) {
             ?>
-            <section class="card" id="<?php echo $c->id_comment; ?>">
+            <section class="card">
                 <p>
                     <?php
                     echo $c->contenu;
