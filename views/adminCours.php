@@ -148,24 +148,24 @@ if (isset($_SESSION['retourUser'])) {
         console.log(infoPeople);
         console.log(experience);
         console.log(idCourse);
-        for (var y = 0; y < infoPeople.length; y++) {
+        for (var y = 0; y < infoPeople.length-1; y++) {
             http_post("http://localhost:4567/api/experiencePeople", {
                 "idPeople": infoPeople[y].toString(),
                 "experience": experience,
                 "idCourse": idCourse
             }).then(value => {
-                if(y===infoPeople.length-1){
+                if(y===(infoPeople.length-1)){
                     form2form($("#formulaireModifyCourse<?php echo $i - 1 ?>"), $("#formulaireCloseCourse<?php echo $i - 1 ?>"));
                     $("#formulaireCloseCourse<?php echo $i - 1 ?>").submit();
                     location.reload();
                 }
             });
         }
-        // todo, on récupére dans info people toutes les id des gens marqués comme présent
-        // todo on recupere dans numberForm, le numéro du formulaire qu'on est en train de traiter
-        // todo on recupere dans infoPeople.lenght, le nombre de participant total
-        // todo faire une boucle avec ces éléments pour ajoutés l'expérience
-        // todo et faire en sorte que si le cours est 'off' , alors on ne donne pas d'xp
+        // on récupére dans info people toutes les id des gens marqués comme présent
+        // on recupere dans numberForm, le numéro du formulaire qu'on est en train de traiter
+        // on recupere dans infoPeople.lenght, le nombre de participant total
+        // faire une boucle avec ces éléments pour ajoutés l'expérience
+        // et faire en sorte que si le cours est 'off' , alors on ne donne pas d'xp
     }
     <?php for ($i;$i > 0;$i--){?>
     $(function () {
