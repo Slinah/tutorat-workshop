@@ -23,7 +23,6 @@ $dataCourses = hpost('http://localhost:4567/api/getRegisteredCourses', array('id
 <section class="headerTitle">
     <h2>Profil</h2>
 </section>
-<?php var_dump($data); ?>
 <section id="profilSection">
     <div>
         <?php if ($data->image != null) { ?>
