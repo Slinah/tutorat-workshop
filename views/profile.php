@@ -38,11 +38,8 @@ $dataCourses = hpost('http://localhost:4567/api/getRegisteredCourses', array('id
         <h2><?= $data->mail ?></h2>
         <h2><?= $data->intitulePromo ?></h2>
         <h2><?= $data->intituleClasse ?></h2>
-        <h2>(Vous gagnez 1 d'expérience pour 1h de présence en tutorat,
-            <br>Tous les 10 points d'expéreinces vous gagnez un niveau !)</h2>
         <h2>Expérience : <?= $data->experience ?></h2>
             <div id="niveau">Niveau : </div>
-
         <input type="hidden" id="experience" value="<?= $data->experience ?>">
     </div>
     <div class="exp">
@@ -52,6 +49,8 @@ $dataCourses = hpost('http://localhost:4567/api/getRegisteredCourses', array('id
             </div>
         </div>
     </div>
+    <div>(Vous gagnez 1 d'expérience pour 1h de présence en tutorat,
+        <br>Tous les 10 points d'expéreinces vous gagnez un niveau !)</div>
 </section>
 <section class="headerTitle">
     <h2>Mes cours</h2>
