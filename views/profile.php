@@ -23,6 +23,7 @@ $dataCourses = hpost('http://localhost:4567/api/getRegisteredCourses', array('id
 <section class="headerTitle">
     <h2>Profil</h2>
 </section>
+<?php var_dump($data); ?>
 <section id="profilSection">
     <div>
         <?php if ($data->image != null) { ?>
@@ -37,12 +38,16 @@ $dataCourses = hpost('http://localhost:4567/api/getRegisteredCourses', array('id
         <h2><?= $data->mail ?></h2>
         <h2><?= $data->intitulePromo ?></h2>
         <h2><?= $data->intituleClasse ?></h2>
-        <h2>Expérience :</h2>
+        <h2>(Vous gagnez 1 d'expérience pour 1h de présence en tutorat,
+            <br>Tous les 10 points d'expéreinces vous gagnez un niveau !)</h2>
+        <h2>Expérience : <?= $data->experience ?></h2>
+            <div id="niveau">Niveau : </div>
+
+        <input type="hidden" id="experience" value="<?= $data->experience ?>">
     </div>
     <div class="exp">
         <div class="experienceContainer">
             <div class="whiteBack">
-                <!--TODO changer dynamiquement cette barre en fonction de la progression dans le niveau ?-->
                 <div id="experienceColor"></div>
             </div>
         </div>
@@ -103,3 +108,18 @@ $dataCourses = hpost('http://localhost:4567/api/getRegisteredCourses', array('id
         <?php }
     } ?>
 </section>
+<script>
+    var exp = document.getElementById("experience");
+    exp=exp.value;
+    var level=0;
+    for(var x=0;x<exp;x++){
+        if(x%10===0){
+            level++;
+        }
+    }
+    var barreXp = document.getElementById("experienceColor");
+    barreXp.style.width=((exp%10)*10).toString()+"%";
+    var niveau = document.getElementById("niveau");
+    niveau.innerHTML+=level.toString();
+    niveau.innerHTML+=" ("+((exp%10)*10).toString()+"%)";
+</script>

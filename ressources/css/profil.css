@@ -22,7 +22,7 @@
     border-radius: .3em 0 0 .3em
 }
 #experienceColor {
-    width: 200px
+    width: 0;
 }
 .specialiteContainer{
     display: flex;
@@ -47,18 +47,6 @@
         justify-content: center;
         align-items: center;
         flex-flow: row wrap;
-    }
-    .whiteBack div {
-        height: 20px;
-        background: #FEAA0A;
-        border-radius: .3em 0 0 .3em;
-        width: 0 !important;
-        transition: width 1s ease-in-out
-    }
-
-    #profilSection:hover #experienceColor {
-        width: 200px !important;
-        transition: width 1s ease-in-out
     }
     .specialite{
         width: 25%;

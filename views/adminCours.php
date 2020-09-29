@@ -125,8 +125,6 @@ if (isset($_SESSION['retourUser'])) {
 <script src="/ressources/js/jquery.js"></script>
 <script>
     var i = 0;
-
-
     function form2form(formA, formB) {
         $(':input[name]', formA).each(function () {
             $('[name=' + $(this).attr('name') + ']', formB).val($(this).val())
@@ -180,7 +178,7 @@ if (isset($_SESSION['retourUser'])) {
                 for (i = 0; i < value.length; i++) {
                     $('#formModal').append("<input type='hidden' name='idCoursModal" + i + "' id='id_coursModal" + i + "' value='" + value[i]["id_cours"] + "'>" +
                         "<fieldset name='fieldModal" + i + "'>" +
-                        "                    <legend>" + value[i]["nom"] + " - " + value[i]["nom"] + "</legend>\n" +
+                        "                    <legend>" + value[i]["nom"] + " - " + value[i]["prenom"] + "</legend>\n" +
                         "                    <input type=\"radio\" name=\"radio" + i + "\" id=\"radio" + i + "\" value='" + value[i]["id_personne"] + "'> <label for=\"radio" + i + "\">Oui</label>\n" +
                         "                    <input type=\"radio\" name=\"radio" + i + "\" value='0'> <label for=\"radio" + i + "\">Non</label>\n" +
                         "                </fieldset>");
