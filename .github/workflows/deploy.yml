@@ -20,4 +20,4 @@ jobs:
         host: ${{ secrets.REMOTEHOST }}
         username: ${{ secrets.REMOTEUSER }}
         key: ${{ secrets.PRIVATEKEY  }}
-        script: echo "test" >> test.txt
+        script: bash ./pull.sh
