@@ -21,7 +21,7 @@ if (isset($_SESSION['retourUser'])) {
 <section class='cardContainer'>
     <?php
     $i = 0;
-    if (property_exists((object)$getSuggestion, "error")!==true) {
+    if (property_exists((object)$getSuggestion, "error")) {
         foreach ($getSuggestion as $ligne) {
             echo "
             <section class='card'>

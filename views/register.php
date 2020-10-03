@@ -8,6 +8,30 @@ if (isset($_SESSION['retourUser'])) {
     retourUtilisateur($_SESSION['retourUser']);
 }
 
+if (!empty($_POST)) {
+    if (array_key_exists("class", $_POST)) {
+        if (!is_null($_POST["class"])) {
+            $DB_PASS = hpost("http://localhost:4567/api/createAccount",
+                array(
+                    "school" => sanitize($_POST["school"]),
+                    "promo" => sanitize($_POST["promo"]),
+                    "class" => sanitize($_POST["class"]),
+                    "firstname" => sanitize($_POST["firstname"]),
+                    "lastname" => sanitize($_POST["lastname"]),
+                    "email" => sanitize($_POST["email"]),
+                    "password" => sanitize(password_hash($_POST["password"], PASSWORD_DEFAULT)),
+                ));
+            if (password_verify($_POST["password"], $DB_PASS->password)) {
+                $_SESSION["me"] = $DB_PASS;
+                header("Location: /");
+                die();
+            }
+        }
+    }
+}
+
+
+
 ?>
     <div class="login-box">
         <h2>Créer un compte</h2>
@@ -70,32 +94,6 @@ if (isset($_SESSION['retourUser'])) {
             </a>
         </form>
     </div>
-
-
-<?php
-
-
-if (!empty($_POST)) {
-    if (array_key_exists("class", $_POST)) {
-        if (!is_null($_POST["class"])) {
-            $DB_PASS = hpost("http://localhost:4567/api/createAccount",
-                array(
-                    "school" => sanitize($_POST["school"]),
-                    "promo" => sanitize($_POST["promo"]),
-                    "class" => sanitize($_POST["class"]),
-                    "firstname" => sanitize($_POST["firstname"]),
-                    "lastname" => sanitize($_POST["lastname"]),
-                    "email" => sanitize($_POST["email"]),
-                    "password" => sanitize(password_hash($_POST["password"], PASSWORD_DEFAULT)),
-                ));
-            if (password_verify($_POST["password"], $DB_PASS->password)) {
-                $_SESSION["me"] = $DB_PASS;
-                header("Location: /");
-                die();
-            }
-        }
-    }
-}
 
 
 
