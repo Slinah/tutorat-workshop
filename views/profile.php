@@ -13,7 +13,7 @@ $dataUser = $_SESSION["me"];
 //Récupérer les informations de la personne pour l'affichage du profil
 $data = hpost('http://localhost:4567/api/personneById', array('idPersonne' => $dataUser->id_personne));
 //Récupérer les cours où je suis tuteur
-$dataCoursesTutor = hpost('http://localhost:4567/api/getOwnCourses', array('idPersonne' => $dataUser->id_personne));
+$dataCoursesTutor = hpost('http://localhost:4567/api/peopleTutorCourseById', array('idPersonne' => $dataUser->id_personne));
 //Récupérer les cours où je suis inscrit
 $dataCourses = hpost('http://localhost:4567/api/getRegisteredCourses', array('idPersonne' => $dataUser->id_personne));
 ?>
