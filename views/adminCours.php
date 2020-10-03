@@ -1,22 +1,29 @@
 <?php
-
 include_once "includes/composants/nav-bar.php";
-// todo si admin alors bouton en plus pour suppr le cours
 
 $unclosedCourses = hget("http://localhost:4567/api/unclosedCourses");
+if (property_exists((object)$unclosedCourses, "error")) {
+    $unclosedCourses = null;
+}
 $timeZone = new DateTimeZone("Europe/Paris");
 $dateTime = new DateTime("now", $timeZone);
 $semaineActuelle = (int)date("W", $dateTime->getTimestamp());
 $courCetteSemaine = 1;
 $courSemaineProchaine = 1;
 $coursPlusTard = 1;
-// todo voir avec le guard et le système de connexion plus tard ^^
-$idPersonneConnecter = "6593c62a-f0e3-11ea-adc1-0242ac120002";
+$timeZone = new DateTimeZone("Europe/Paris");
+$dateTime = new DateTime("now", $timeZone);
+$dateDuJour = date("Y-m-d", $dateTime->getTimestamp());
+$idPersonneConnecter = (string)($_SESSION["me"]->id_personne);
 // on recupere la liste des cours ou la personne est tutoraté :3
 $getCoursById = hget("http://localhost:4567/api/peopleTutorCourseById?idPeople=" . $idPersonneConnecter);
-
+if (property_exists((object)$getCoursById, "error")) {
+    $getCoursById = null;
+}
+if (isset($_SESSION['retourUser'])) {
+    retourUtilisateur($_SESSION['retourUser']);
+}
 ?>
-
 <section id='inSemaine' class='headerTitle'>
     <h2>Liste des cours que vous donnez</h2>
 </section>
@@ -28,7 +35,7 @@ $getCoursById = hget("http://localhost:4567/api/peopleTutorCourseById?idPeople="
             echo "
             <section class='card'>
             <header>Administration du cours</header>
-            <form method='post' action='/actions/actionsModificationCourse' class='login-box' id='formulaireModifyCourse'>
+            <form method='post' action='/actions/actionsModifyCourse' class='login-box' id='formulaireModifyCourse" . $i . "'>
             <div class='user-box'> 
                 <input type='text' name='coursIntitule' value='" . $ligne->coursIntitule . "'>
                 <label>Titre du cours</label>
@@ -46,11 +53,11 @@ $getCoursById = hget("http://localhost:4567/api/peopleTutorCourseById?idPeople="
                 <label>Intitule de la promo</label>
             </div>
             <div class='user-box'>
-                <input type='number' name='nbParticipants' value='" . $ligne->nbParticipants . "'>
+                <input type='number' name='nbParticipants' id='nbParticipants" . $i . "' value='" . $ligne->nbParticipants . "'>
                 <label>Nombre de participants</label>
             </div>
             <div class='user-box'>
-                <input type='number' name='duree' value='" . $ligne->duree . "'>
+                <input type='number' step='0.1' name='duree' id='duree" . $i . "' value='" . $ligne->duree . "'>
                 <label>Duree (en heure, ex: 1h30 = 1.5)</label>
             </div>
             <div class='user-box'>
@@ -58,11 +65,10 @@ $getCoursById = hget("http://localhost:4567/api/peopleTutorCourseById?idPeople="
                 <label>Salle</label>
             </div>
             </select>
-            <input type='hidden' name='id_cours' value='" . $ligne->id_cours . "'>
+            <input type='hidden' name='id_cours' id='id_cours" . $i . "' value='" . $ligne->id_cours . "'>
             <input type='hidden' name='id_personne' value='" . $ligne->id_personne . "'>
             <input type='hidden' name='id_matiere' value='" . $ligne->id_matiere . "'>
             <input type='hidden' name='id_promo' value='" . $ligne->id_promo . "'>
-            <input type='hidden' name='status' value='" . $ligne->status . "'>
             <div class='user-box'>
             <input type='date' name='date' required value='" . date("Y-m-d", strtotime($ligne->date)) . "'>
             <label>date</label>
@@ -73,34 +79,115 @@ $getCoursById = hget("http://localhost:4567/api/peopleTutorCourseById?idPeople="
             </div>";
             echo "<button type='submit'>Envoyer</button>
             </form>
-            <form action='/actions/actionsCloseCourse' id='formulaireCloseCourse'>
+            <form method='post' action='/actions/actionsCloseCourse' id='formulaireCloseCourse" . $i . "'>
             <input type='hidden' name='coursIntitule' value='" . $ligne->coursIntitule . "'>
             <input type='hidden' name='matiereIntitule' value='" . $ligne->matiereIntitule . "'>
             <input type='hidden' name='commentaires' value='" . $ligne->commentaires . "'>
             <input type='hidden' name='promoIntitule' value='" . $ligne->promoIntitule . "'>
             <input type='hidden' name='nbParticipants' value='" . $ligne->nbParticipants . "'>
-            <input type='hidden' name='duree' value='" . $ligne->duree . "'>
+            <input type='hidden' step='0.1' name='duree' value='" . $ligne->duree . "'>
             <input type='hidden' name='salle' value='" . $ligne->salle . "'>
-            <input type='hidden' name='id_cours' value='" . $ligne->id_cours . "'>
+            <input type='hidden' name='id_cours' id='id_cours" . $i . "' value='" . $ligne->id_cours . "'>
             <input type='hidden' name='id_personne' value='" . $ligne->id_personne . "'>
             <input type='hidden' name='id_matiere' value='" . $ligne->id_matiere . "'>
             <input type='hidden' name='id_promo' value='" . $ligne->id_promo . "'>
-            <input type='hidden' name='status' value='" . $ligne->status . "'>
             <input type='hidden' name='date' value='" . date("Y-m-d", strtotime($ligne->date)) . "'>
-            <input type='hidden' name='dateHeure' value='" . date("H:i:s", strtotime($ligne->date))  . "'>
-            <button type='button' id='clore'>Cloturer le cours</button>
+            <input type='hidden' required name='dateHeure' value='" . date("H:i:s", strtotime($ligne->date)) . "'>
+            <button type='button' id='clore" . $i . "'>Cloturer le cours</button>
             </form>
             </section>";
             $courCetteSemaine = 0;
+            $i++;
         }
 //        matiere // commentaire // id_proposition // id_createur // id_matiere // id_promo // salle // date // nbParticipants // duree // status //
     } else {
         echo "<section class='card'>
-              <header>vous n'avez aucun cours prévu</header>
+              <h2>Vous n'avez prévu aucun cours</h2>
               </section>";
     }
     ?>
 </section>
-<script type="text/javascript">
+<!-- id cours -->
+<section id="modalId" class="modal">
+    <input type="hidden" id="personne_id" value="<?php echo $_SESSION["me"]->id_personne; ?>">
+    <div class="container">
+        <div class="comment">
+            <h2>Présence : </h2>
+            <form action="POST" id="formModal">
 
+            </form>
+        </div>
+        <div class="closeButton" onclick="clickCloseBtnModal()">
+            <i class="far fa-times-circle"></i>
+        </div>
+    </div>
+</section>
+<script src="/ressources/js/jquery.js"></script>
+<script>
+    var i = 0;
+    function form2form(formA, formB) {
+        $(':input[name]', formA).each(function () {
+            $('[name=' + $(this).attr('name') + ']', formB).val($(this).val())
+        })
+    }
+
+    function clickCoursModal(numberForm) {
+        var infoPeople = [];
+        console.log("i : " + i);
+        for (var x = 0; x < i; x++) {
+            var test = $("input[name='radio" + x + "']:checked").val();
+            if (test != 0) {
+                infoPeople.push(test);
+            }
+        }
+        $("#nbParticipants" + numberForm).val(infoPeople.length);
+        experience=Math.round($("#duree" + numberForm).val());
+        idCourse=$("#id_cours" + numberForm).val();
+        console.log(infoPeople);
+        console.log(experience);
+        console.log(idCourse);
+        for (var y = 0; y < infoPeople.length-1; y++) {
+            http_post("http://localhost:4567/api/experiencePeople", {
+                "idPeople": infoPeople[y].toString(),
+                "experience": experience,
+                "idCourse": idCourse
+            }).then(value => {
+                if(y===(infoPeople.length-1)){
+                    form2form($("#formulaireModifyCourse<?php echo $i - 1 ?>"), $("#formulaireCloseCourse<?php echo $i - 1 ?>"));
+                    $("#formulaireCloseCourse<?php echo $i - 1 ?>").submit();
+                    location.reload();
+                }
+            });
+        }
+        // on récupére dans info people toutes les id des gens marqués comme présent
+        // on recupere dans numberForm, le numéro du formulaire qu'on est en train de traiter
+        // on recupere dans infoPeople.lenght, le nombre de participant total
+        // faire une boucle avec ces éléments pour ajoutés l'expérience
+        // et faire en sorte que si le cours est 'off' , alors on ne donne pas d'xp
+    }
+    <?php for ($i;$i > 0;$i--){?>
+    $(function () {
+        $('#clore<?php echo $i - 1 ?>').click(function () {
+            var numberForm = <?= $i - 1 ?>;
+            var idCours = $('input[name=id_cours]').val();
+
+            http_post("http://localhost:4567/api/listPeopleCourseById", {
+                "idCourse": idCours
+            }).then(value => {
+                value = JSON.parse(value);
+                for (i = 0; i < value.length; i++) {
+                    $('#formModal').append("<input type='hidden' name='idCoursModal" + i + "' id='id_coursModal" + i + "' value='" + value[i]["id_cours"] + "'>" +
+                        "<fieldset name='fieldModal" + i + "'>" +
+                        "                    <legend>" + value[i]["nom"] + " - " + value[i]["prenom"] + "</legend>\n" +
+                        "                    <input type=\"radio\" name=\"radio" + i + "\" id=\"radio" + i + "\" value='" + value[i]["id_personne"] + "'> <label for=\"radio" + i + "\">Oui</label>\n" +
+                        "                    <input type=\"radio\" name=\"radio" + i + "\" value='0'> <label for=\"radio" + i + "\">Non</label>\n" +
+                        "                </fieldset>");
+                }
+                $('#formModal').append("<input type='hidden' name='nombreParticipant' id='nombreParticipant' value='" + i + "'>" +
+                    "<button type='button' id='cloreCoursModal' onclick='clickCoursModal(" + numberForm + ")'> Cloturer le cours</button>");
+            });
+            clickOpenBtnModal();
+        });
+    });
+    <?php } ?>
 </script>

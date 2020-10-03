@@ -6,12 +6,9 @@ nav {
     padding: 1em
 }
 
-
-
 .logo {
     height: 3vh;
 }
-
 
 .navHeader:hover #navDesktop .logo {
 
