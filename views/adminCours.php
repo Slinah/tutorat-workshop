@@ -16,7 +16,7 @@ $dateTime = new DateTime("now", $timeZone);
 $dateDuJour = date("Y-m-d", $dateTime->getTimestamp());
 $idPersonneConnecter = (string)($_SESSION["me"]->id_personne);
 // on recupere la liste des cours ou la personne est tutoraté :3
-$getCoursById = hget("http://localhost:4567/api/peopleTutorCourseById?idPeople=" . $idPersonneConnecter);
+$getCoursById = hpost("http://localhost:4567/api/peopleTutorCourseById", array('idPeople' => $idPersonneConnecter));
 if (property_exists((object)$getCoursById, "error")) {
     $getCoursById = null;
 }
@@ -69,30 +69,33 @@ if (isset($_SESSION['retourUser'])) {
             <input type='hidden' name='id_personne' value='" . $ligne->id_personne . "'>
             <input type='hidden' name='id_matiere' value='" . $ligne->id_matiere . "'>
             <input type='hidden' name='id_promo' value='" . $ligne->id_promo . "'>
-            <div class='user-box'>
-            <input type='date' name='date' required value='" . date("Y-m-d", strtotime($ligne->date)) . "'>
+            <div class='user-box'>";
+
+                $dateTimeFormatage = new DateTime($ligne->date, $timeZone);
+    echo "
+            <input type='date' name='date' required value='" . $dateTimeFormatage->format("Y-m-d") . "'>
             <label>date</label>
             </div>
             <div class='user-box'>
-            <input type='time' name='dateHeure' required value='" . date("H:i:s", strtotime($ligne->date)) . "'>
+            <input type='time' name='dateHeure' required value='" . $dateTimeFormatage->format("H:i:s"). "'>
             <label>heure</label>
             </div>";
             echo "<button type='submit'>Envoyer</button>
             </form>
-            <form method='post' action='/actions/actionsCloseCourse' id='formulaireCloseCourse" . $i . "'>
-            <input type='hidden' name='coursIntitule' value='" . $ligne->coursIntitule . "'>
-            <input type='hidden' name='matiereIntitule' value='" . $ligne->matiereIntitule . "'>
-            <input type='hidden' name='commentaires' value='" . $ligne->commentaires . "'>
-            <input type='hidden' name='promoIntitule' value='" . $ligne->promoIntitule . "'>
-            <input type='hidden' name='nbParticipants' value='" . $ligne->nbParticipants . "'>
-            <input type='hidden' step='0.1' name='duree' value='" . $ligne->duree . "'>
-            <input type='hidden' name='salle' value='" . $ligne->salle . "'>
-            <input type='hidden' name='id_cours' id='id_cours" . $i . "' value='" . $ligne->id_cours . "'>
-            <input type='hidden' name='id_personne' value='" . $ligne->id_personne . "'>
-            <input type='hidden' name='id_matiere' value='" . $ligne->id_matiere . "'>
-            <input type='hidden' name='id_promo' value='" . $ligne->id_promo . "'>
-            <input type='hidden' name='date' value='" . date("Y-m-d", strtotime($ligne->date)) . "'>
-            <input type='hidden' required name='dateHeure' value='" . date("H:i:s", strtotime($ligne->date)) . "'>
+            <form method='post' class='secondForm' action='/actions/actionsCloseCourse' id='formulaireCloseCourse" . $i . "'>
+            <input type='input' required name='coursIntitule' value='" . $ligne->coursIntitule . "'>
+            <input type='input' required name='matiereIntitule' value='" . $ligne->matiereIntitule . "'>
+            <input type='input' required name='commentaires' value='" . $ligne->commentaires . "'>
+            <input type='input' required name='promoIntitule' value='" . $ligne->promoIntitule . "'>
+            <input type='input' required name='nbParticipants' value='" . $ligne->nbParticipants . "'>
+            <input type='input' required step='0.1' name='duree' value='" . $ligne->duree . "'>
+            <input type='input' required name='salle' value='" . $ligne->salle . "'>
+            <input type='input' required name='id_cours' id='id_cours" . $i . "' value='" . $ligne->id_cours . "'>
+            <input type='input' required name='id_personne' value='" . $ligne->id_personne . "'>
+            <input type='input' required name='id_matiere' value='" . $ligne->id_matiere . "'>
+            <input type='input' required name='id_promo' value='" . $ligne->id_promo . "'>
+            <input type='input' required name='date' value='" . $dateTimeFormatage->format("Y-m-d") . "'>
+            <input type='input' required name='dateHeure' value='" . $dateTimeFormatage->format("H:i:s") . "'>
             <button type='button' id='clore" . $i . "'>Cloturer le cours</button>
             </form>
             </section>";
@@ -125,9 +128,11 @@ if (isset($_SESSION['retourUser'])) {
 <script src="/ressources/js/jquery.js"></script>
 <script>
     var i = 0;
+
     function form2form(formA, formB) {
         $(':input[name]', formA).each(function () {
-            $('[name=' + $(this).attr('name') + ']', formB).val($(this).val())
+            console.log("form copie");
+            $('[name=' + $(this).attr('name') + ']', formB).val($(this).val());
         })
     }
 
@@ -141,21 +146,21 @@ if (isset($_SESSION['retourUser'])) {
             }
         }
         $("#nbParticipants" + numberForm).val(infoPeople.length);
-        experience=Math.round($("#duree" + numberForm).val());
-        idCourse=$("#id_cours" + numberForm).val();
+        experience = Math.round($("#duree" + numberForm).val());
+        idCourse = $("#id_cours" + numberForm).val();
         console.log(infoPeople);
         console.log(experience);
         console.log(idCourse);
-        for (var y = 0; y < infoPeople.length-1; y++) {
+        for (var y = 0; y <= infoPeople.length - 1; y++) {
+            console.log("boucle");
             http_post("http://localhost:4567/api/experiencePeople", {
                 "idPeople": infoPeople[y].toString(),
                 "experience": experience,
                 "idCourse": idCourse
             }).then(value => {
-                if(y===(infoPeople.length-1)){
+                if (y === (infoPeople.length)) {
                     form2form($("#formulaireModifyCourse<?php echo $i - 1 ?>"), $("#formulaireCloseCourse<?php echo $i - 1 ?>"));
                     $("#formulaireCloseCourse<?php echo $i - 1 ?>").submit();
-                    location.reload();
                 }
             });
         }

@@ -2,9 +2,6 @@
 
 include_once "includes/composants/nav-bar.php";
 
-//todo gestion des retours ?
-
-
 if (isset($_SESSION['retourUser'])) {
     retourUtilisateur($_SESSION['retourUser']);
 }
@@ -17,14 +14,14 @@ $dataCoursesTutor = hpost('http://localhost:4567/api/peopleTutorCourseById', arr
 //Récupérer les cours où je suis inscrit
 $dataCourses = hpost('http://localhost:4567/api/getRegisteredCourses', array('idPersonne' => $dataUser->id_personne));
 
-//var_dump($dataCoursesTutor);
-
 ?>
-
-<!--TODO corrigé l'espace en CSS car le titre profil passe sous la navbar-->
-
-<section class="headerTitle">
+<section class="headerTitle" id="profil">
     <h2>Profil</h2>
+    <form action="/actions/actionsDeconnexion.php">
+        <div id="btnDeconnexion">
+            <button type="submit">Deconnexion</button>
+        </div>
+    </form>
 </section>
 <section id="profilSection">
     <div>
@@ -69,7 +66,7 @@ $dataCourses = hpost('http://localhost:4567/api/getRegisteredCourses', array('id
             <section class="card">
                 <header><?= $dataCourseTutor->coursIntitule ?></header>
                 <p><?= $dataCourseTutor->commentaires ?></p>
-                <button type="button">Modifier</button>
+                <button type="button" onclick="document.location.href='/tuteur-cours'">Modifier</button>
                 <div class="classeUpLeft"><?= $dataCourseTutor->promoIntitule ?></div>
                 <div class="dateUpRight"><?= date("d / m / y", strtotime($dataCourseTutor->date)); ?></div>
                 <div class="salleDownLeft"><?= $dataCourseTutor->salle ?></div>

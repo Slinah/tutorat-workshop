@@ -6,7 +6,7 @@ body {
     padding: 0;
     display: flex;
     min-height: 100vh;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
 }
 header{
     margin-top: 10vh;
@@ -135,6 +135,12 @@ input[type="text"]:disabled{
     animation-delay: 0.625s
 }
 
+.secondForm *{
+    display: none;
+}
+.secondForm button{
+    display: block;
+}
 @keyframes btn-anim2 {
     0% {
         top: -100%;

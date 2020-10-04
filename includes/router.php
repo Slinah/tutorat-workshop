@@ -67,13 +67,13 @@ switch ($request) {
         break;
     case '/profile' :
         HaveToBeConnected();
-        header_options(["style", "nav", "button", "card", "cardCour", "profil"]);
+        header_options(["style", "nav", "button", "card", "profil"]);
         require 'views/profile.php';
-        footer_options(["jquery", "navBtn", "profile"]);
+        footer_options(["jquery", "lottie" , "navBtn", "profile"]);
         break;
     case '/forum/create' :
         HaveToBeConnected();
-        header_options(["style", "forum", "nav", "button"]);
+        header_options(["style", "nav", "button", "formForumCreate"]);
         require 'views/forum_create.php';
         footer_options(["lottie", "navBtn", "fonction"]);
         break;

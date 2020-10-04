@@ -8,7 +8,7 @@
 
 
 .headerTitle{
-    margin-top: 50px;
+    margin-top: 6vh;
 }
 .whiteBack {
     width: 300px;
@@ -23,6 +23,20 @@
 }
 #experienceColor {
     width: 0;
+}
+#profil{
+    position: relative;
+}
+
+#btnDeconnexion{
+    position: absolute;
+    right: 5%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    bottom: 0;
+    width: 100%;
 }
 .specialiteContainer{
     display: flex;
