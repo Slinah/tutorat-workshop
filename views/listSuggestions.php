@@ -1,11 +1,19 @@
 <?php
-
+//todo gestion des retours ?
 include_once "includes/composants/nav-bar.php";
 
-
-$idPersonneConnecter = "6593c62a-f0e3-11ea-adc1-0242ac120002";
+$idPersonneConnecter=(string)($_SESSION["me"]->id_personne);
 $getSuggestion = hget("http://localhost:4567/api/unclosedProposals");
-$getInfosPersonne = hget("http://localhost:4567/api/personneById?idPeople=" . $idPersonneConnecter);
+if(property_exists((object)$getSuggestion, "error")){
+    $getSuggestion=null;
+}
+$getInfosPersonne = hpost("http://localhost:4567/api/personneByIdFull" , array("idPeople" => $idPersonneConnecter));
+if(property_exists((object)$getInfosPersonne, "error")){
+    $getInfosPersonne=null;
+}
+if (isset($_SESSION['retourUser'])) {
+    retourUtilisateur($_SESSION['retourUser']);
+}
 ?>
 <section id='inSemaine' class='headerTitle'>
     <h2>Liste des suggestions</h2>
@@ -13,7 +21,7 @@ $getInfosPersonne = hget("http://localhost:4567/api/personneById?idPeople=" . $i
 <section class='cardContainer'>
     <?php
     $i = 0;
-    if ($getSuggestion != null) {
+    if (property_exists((object)$getSuggestion, "error")) {
         foreach ($getSuggestion as $ligne) {
             echo "
             <section class='card'>
