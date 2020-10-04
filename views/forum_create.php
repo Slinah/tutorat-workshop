@@ -5,7 +5,7 @@ include_once "includes/composants/nav-bar.php";
 
 
     <div class="login-box">
-        <h2>Posé une question a propos de ce que vous voulez !</h2>
+        <h2>Créer un nouveau sujet !</h2>
         <form class="in_box" method="post">
             <div class="user-box">
                 <input type="text" class="title" name="title" required>
