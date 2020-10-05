@@ -1,6 +1,6 @@
 <header class="navHeader">
     <div id="navTop">
-        <a href="/"><img src="/ressources/img/favicon.png" alt="logo" class="logo"></a>
+        <a href="/"><img src="/ressources/img/faviconHalloween.png" alt="logo" class="logo"></a>
         <a class="disabled" onclick="clickNavBtn();" id="navBtnPhone">
             <div id="navBtn"></div>
         </a>
@@ -19,7 +19,7 @@
     <div id="navDesktop">
         <ul>
             <div>
-                <li><a href="/"><img src="/ressources/img/favicon.png" alt="logo" class="logo"></a></li>
+                <li><a href="/"><img src="/ressources/img/faviconHalloween.png" alt="logo" class="logo"></a></li>
                 <li class="bold"><a href="/">Scratch Overflow</a></li>
             </div>
             <li><a href="/cours">Les cours</a></li>

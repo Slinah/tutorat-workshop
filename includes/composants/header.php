@@ -7,4 +7,4 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Scratch OverFlow | Tutorat </title>
     <meta name="description" content="description site tutorat">
-    <link rel="icon" type="image/png" href="/ressources/img/favicon.png"/>
+    <link rel="icon" type="image/png" href="/ressources/img/faviconHalloween.png"/>
