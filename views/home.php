@@ -40,7 +40,7 @@ include_once "includes/composants/nav-bar.php";
             Que tu sois à l'aise dans une matière, que tu veuilles t'améliorer à l'oral ou vous motiver à plusieurs,
             <br> n'hésites pas à proposer un cours afin de valider tes compétences.
         </p>
-        <button type="button" onclick="document.location.href='/donner_cours'">Tutorer</button>
+        <button type="button" onclick="document.location.href='/donner-cours'">Tutorer</button>
     </section>
     <section class="card">
         <header><i class="fas fa-question"></i>&nbsp;Suggérer un cours</header>
@@ -59,5 +59,5 @@ include_once "includes/composants/nav-bar.php";
         <br>Cela peut t'aider à prendre confiance en toi ou tout simplement partager et aider.
         <br>
     </p>
-    <button type="button"><a href="/donner-cours">Tutorer</a></button>
+    <button type="button" onclick="document.location.href='/donner-cours'">Tutorer</button>
 </section>
