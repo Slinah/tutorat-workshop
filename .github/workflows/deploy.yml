@@ -20,4 +20,4 @@ jobs:
           host: ${{ secrets.REMOTEHOST }}
           username: ${{ secrets.REMOTEUSER }}
           key: ${{ secrets.PRIVATEKEY  }}
-          script:  bash sudo ./website.sh  
+          script:   sudo ./website.sh  
