@@ -175,11 +175,13 @@ if (isset($_SESSION['retourUser'])) {
         $('#clore<?php echo $i - 1 ?>').click(function () {
             var numberForm = <?= $i - 1 ?>;
             var idCours = $('input[name=id_cours]').val();
+            console.log(idCours);
             http_post("http://localhost:4567/api/listPeopleCourseById", {
                 "idCourse": idCours
             }).then(value => {
                 value = JSON.parse(value);
-                for (i = 0; i < value.length; i++) {
+                console.log(value);
+                for (var i = 0; i < value.length; i++) {
                     $('#formModal').append("<input type='hidden' name='idCoursModal" + i + "' id='id_coursModal" + i + "' value='" + value[i]["id_cours"] + "'>" +
                         "<fieldset name='fieldModal" + i + "'>" +
                         "                    <legend>" + value[i]["nom"] + " - " + value[i]["prenom"] + "</legend>\n" +
