@@ -13,6 +13,7 @@ if(property_exists((object)$getInfosPersonne, "error")){
 if (isset($_SESSION['retourUser'])) {
     retourUtilisateur($_SESSION['retourUser']);
 }
+
 ?>
 
 <div class="login-box">
