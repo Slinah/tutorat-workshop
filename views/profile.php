@@ -23,7 +23,7 @@ $dataPref = $dataPref[0];
     <h2>Profil</h2>
     <form action="/actions/actionsDeconnexion.php">
         <div id="btnDeconnexion">
-            <button type="submit">Deconnexion</button>
+            <button type="submit">Déconnexion</button>
         </div>
     </form>
 </section>
@@ -52,8 +52,8 @@ $dataPref = $dataPref[0];
             </div>
         </div>
     </div>
-    <div>(Vous gagnez 1 d'expérience pour 1h de présence en tutorat,
-        <br>Tous les 10 points d'expériences vous gagnez un niveau !)
+    <div>(Tu gagnes 1 point d'expérience pour 1h de présence en tutorat,
+        <br>Tous les 10 points d'expériences tu  augmentes d'un niveau !)
     </div>
 </section>
 <section class="headerTitle">
@@ -63,7 +63,7 @@ $dataPref = $dataPref[0];
     <?php
     if (property_exists((object)$dataCoursesTutor, "error")) {
         echo "<section class='card'>
-<header>Vous n'avez pas créé de cours.</header>
+<header>Tu n'as pas créé de cours.</header>
 </section>";
     } else {
         foreach ($dataCoursesTutor as $dataCourseTutor) { ?>
@@ -87,7 +87,7 @@ $dataPref = $dataPref[0];
     <?php
     if (property_exists((object)$dataCourses, "error")) {
         echo "<section class='card'>
-<header>Vous êtes inscrit sur aucun cours.</header>
+<header>tu es inscrit sur aucun cours.</header>
 </section>";
     } else {
         foreach ($dataCourses as $dataCourse) { ?>
@@ -112,7 +112,7 @@ $dataPref = $dataPref[0];
     } ?>
 </section>
 <section class="headerTitle">
-    <h2>Vos préférences !</h2>
+    <h2>Tes préférences !</h2>
 </section>
 <?php $level = 0;
     for ($x = 0; $x < $experience; $x++) {

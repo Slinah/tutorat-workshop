@@ -90,7 +90,7 @@ $question = hget("http://localhost:4567/api/getQuestion/" . $id_question)[0];
         }
     } else {
         ?>
-        <p>Auccun commentaire </p>
+        <p>Aucun commentaire </p>
         <?php
     }
     ?>

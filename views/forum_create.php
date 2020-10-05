@@ -13,7 +13,7 @@ include_once "includes/composants/nav-bar.php";
             </div>
             <div class="user-box">
                 <select name="id_matiere" id="matiere-select" required>
-                    <option value="">matiere</option>
+                    <option value="">Matière</option>
                     <?php
                     foreach (hget("http://localhost:4567/api/getMatiere") as $m) {
                         echo "<option value=" . $m->id_matiere . ">" . $m->intitule . "</option>";

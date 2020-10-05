@@ -8,7 +8,7 @@ if (!empty($_POST)) {
     <img src="/ressources/img/backgrounds/darkBackgroundForum.jpg" alt="background Tutorat">
 </section>
 <section>
-    <p>Échange sur les sujets de ton choix et apprends de nouvelles choses !</p>
+    <p>Échange avec les autres sur les sujets de ton choix.</p>
     <button onclick="window.location.href = '/forum/create';">Créer un sujet</button onc>
 </section>
 <section class="headerTitle">
