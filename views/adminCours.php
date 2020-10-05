@@ -35,7 +35,7 @@ if (isset($_SESSION['retourUser'])) {
             echo "
             <section class='card'>
             <header>Administration du cours</header>
-            <form method='post' action='/actions/actionsModifyCourse' class='login-box' id='formulaireModifyCourse" . $i . "'>
+            <form method='post' action='/actions/actionsModifyCourse.php' class='login-box' id='formulaireModifyCourse" . $i . "'>
             <div class='user-box'> 
                 <input type='text' name='coursIntitule' value='" . $ligne->coursIntitule . "'>
                 <label>Titre du cours</label>
@@ -82,7 +82,7 @@ if (isset($_SESSION['retourUser'])) {
             </div>";
             echo "<button type='submit'>Envoyer</button>
             </form>
-            <form method='post' class='secondForm' action='/actions/actionsCloseCourse' id='formulaireCloseCourse" . $i . "'>
+            <form method='post' class='secondForm' action='/actions/actionsCloseCourse.php' id='formulaireCloseCourse" . $i . "'>
             <input type='input' required name='coursIntitule' value='" . $ligne->coursIntitule . "'>
             <input type='input' required name='matiereIntitule' value='" . $ligne->matiereIntitule . "'>
             <input type='input' required name='commentaires' value='" . $ligne->commentaires . "'>
@@ -175,7 +175,6 @@ if (isset($_SESSION['retourUser'])) {
         $('#clore<?php echo $i - 1 ?>').click(function () {
             var numberForm = <?= $i - 1 ?>;
             var idCours = $('input[name=id_cours]').val();
-
             http_post("http://localhost:4567/api/listPeopleCourseById", {
                 "idCourse": idCours
             }).then(value => {

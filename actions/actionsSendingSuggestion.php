@@ -10,10 +10,10 @@ $commentaire = filter_input(INPUT_POST, "commentaire", FILTER_SANITIZE_SPECIAL_C
 
 
 //    ajout dans proposition
-$idProposition = hpost("http://localhost:4567/api/sendProposalsCoursesPeople", array("id_createur" => $idPersonne, "id_matiere" => $idMatiere, "commentaire" => $commentaire));
+$idProposition = hpost("http://localhost:4567/api/sendProposalsCoursesPeople", array("id_createur" => $idPersonne, "id_matiere" => $idMatiere,
+    "commentaire" => $commentaire));
 //    ajout dans proposition promo
 if ($idProposition) {
-
     $_SESSION['retourUser'] = hpost("http://localhost:4567/api/sendProposalsCoursesPromo", array("id_proposition" => $idProposition, "id_promo" => $idPromo));
 }
 
