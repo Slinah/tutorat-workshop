@@ -4,30 +4,30 @@ include_once "includes/composants/nav-bar.php";
 ?>
 
 
-    <div class="section">
-        <h2>Posé une question a propos de ce que vous voulez !</h2>
+    <div class="login-box">
+        <h2>Créer un nouveau sujet !</h2>
         <form class="in_box" method="post">
-            <label>Titre :
-                <input type="text" class="title" name="title">
-            </label>
-            <label>matiere :
-                <select name="id_matiere" id="matiere-select">
+            <div class="user-box">
+                <input type="text" class="title" name="title" required>
+                <label>Titre :</label>
+            </div>
+            <div class="user-box">
+                <select name="id_matiere" id="matiere-select" required>
+                    <option value="">Matière</option>
                     <?php
                     foreach (hget("http://localhost:4567/api/getMatiere") as $m) {
                         echo "<option value=" . $m->id_matiere . ">" . $m->intitule . "</option>";
                     }
                     ?>
                 </select>
-            </label>
-            <label class="description">description :
-                <textarea name="description"></textarea>
-            </label>
+            </div>
+            <div class="user-box">
+                <textarea name="description" required placeholder="description :"></textarea>
+            </div>
             <input type="hidden" name="id_personne" value="<?php
             echo $_SESSION["me"]->id_personne;
             ?>">
-            <div class="btn">
-                <input type="submit" value="Créer" class="submit">
-            </div>
+            <button type="submit">Envoyer la demande</button>
         </form>
     </div>
 <?php

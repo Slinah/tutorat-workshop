@@ -5,6 +5,7 @@ if(property_exists((object)$unclosedCourses, "error")){
     $unclosedCourses=null;
 }
 $tabGetCoursById=[];
+$formatDate="d.m // H\hi";
 $timeZone = new DateTimeZone("Europe/Paris");
 $dateTime = new DateTime("now", $timeZone);
 $semaineActuelle = (int)date("W", $dateTime->getTimestamp());
@@ -24,7 +25,7 @@ if ($getCoursById !== null) {
     $tabGetCoursById = null;
 }
 // fonction d'affichage d'une card complète
-function codeRefacto($ligne, $idPersonneConnecter, $tabGetCoursById)
+function codeRefacto($ligne, $idPersonneConnecter, $tabGetCoursById,$timeZone,$formatDate)
 {
     echo "
             <section class='card'>
@@ -57,7 +58,10 @@ function codeRefacto($ligne, $idPersonneConnecter, $tabGetCoursById)
     echo "
             </form>
             <div class='classeUpLeft'>" . $ligne->promo . "</div>
-            <div class='dateUpRight'>" . date("d m", strtotime($ligne->date)) . "</div>
+            ";
+    $dateTimeFormatage = new DateTime($ligne->date, $timeZone);
+    echo "
+            <div class='dateUpRight'>" . $dateTimeFormatage->format($formatDate) . "</div>
     ";
     // Ajouté ici une condition pour savoir si le cour est en distanciel
 //    if (false) {
@@ -76,7 +80,7 @@ if (isset($_SESSION['retourUser'])) {
     </section>
     <section>
         <p>Tu ne trouves pas le cours que tu voulais ?</p>
-        <button>Suggérer un cour</button>
+        <button onclick="document.location.href='/donner_cours'">Suggérer un cour</button>
     </section>
 <?php
 if ($unclosedCourses !== null) {
@@ -89,10 +93,10 @@ if ($unclosedCourses !== null) {
                     <h2>Cette semaine</h2>
                 </section>
                 <section class='cardContainer'>";
-                codeRefacto($ligne, $idPersonneConnecter, $tabGetCoursById);
+                codeRefacto($ligne, $idPersonneConnecter, $tabGetCoursById, $timeZone,$formatDate);
                 $courCetteSemaine = 0;
             } else {
-                codeRefacto($ligne, $idPersonneConnecter, $tabGetCoursById);
+                codeRefacto($ligne, $idPersonneConnecter, $tabGetCoursById, $timeZone,$formatDate);
             }
         }
         // Fermeture section du container seulement quand on a fini tout l'affichage de la première semaine
@@ -107,10 +111,10 @@ if ($unclosedCourses !== null) {
                 <h2>Semaine prochaine</h2>
                 </section>
                 <section class='cardContainer'>";
-                codeRefacto($ligne, $idPersonneConnecter, $tabGetCoursById);
+                codeRefacto($ligne, $idPersonneConnecter, $tabGetCoursById, $timeZone,$formatDate);
                 $courSemaineProchaine = 0;
             } else {
-                codeRefacto($ligne, $idPersonneConnecter, $tabGetCoursById);
+                codeRefacto($ligne, $idPersonneConnecter, $tabGetCoursById, $timeZone,$formatDate);
             }
         }
         // fermeture seconde section principale
@@ -125,10 +129,10 @@ if ($unclosedCourses !== null) {
                     <h2>Plus tard</h2>
                 </section>
                 <section class='cardContainer'>";
-                codeRefacto($ligne, $idPersonneConnecter, $tabGetCoursById);
+                codeRefacto($ligne, $idPersonneConnecter, $tabGetCoursById, $timeZone,$formatDate);
                 $coursPlusTard = 0;
             } else {
-                codeRefacto($ligne, $idPersonneConnecter, $tabGetCoursById);
+                codeRefacto($ligne, $idPersonneConnecter, $tabGetCoursById, $timeZone,$formatDate);
             }
         }
     }

@@ -72,7 +72,7 @@ if (isset($_SESSION['retourUser'])) {
             <select name="matiereSelect" id="matiere-select">
                 <option value="" selected>Liste matière</option>
                 <?php foreach ($dataSubjects as $dataSubject) { ?>
-                    <option value="<?= $dataSubject->id_matiere ?>"><?= 'Matière : ' . $dataSubject->intitule . ' - Validation : ' . $dataSubject->validationAdmin ?></option>
+                    <option value="<?= $dataSubject->id_matiere ?>"><?= $dataSubject->intitule . ' - Validation : ' . $dataSubject->validationAdmin ?></option>
                 <?php } ?>
             </select>
         </div>

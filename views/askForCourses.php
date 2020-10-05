@@ -28,7 +28,7 @@ if (isset($_SESSION['retourUser'])) {
         } ?>
         <div class="user-box">
             <select name="matiere" id="matiere-select" required>
-                <option value="">matière demandée</option>
+                <option value="">Matière demandée</option>
                 <?php
                 // on gère le cas ou les matières sont pas récupérés
                 if ($getMatiere != null) {
@@ -41,7 +41,7 @@ if (isset($_SESSION['retourUser'])) {
                 ?>
             </select>
         </div>
-        une matière que tu voudrais qui n'est pas dans la liste ?
+        une matière que tu souhaiterais et qui n'est pas dans la liste ?
         <a class="btn" href="/creer-matiere">
             <span></span>
             <span></span>
@@ -52,7 +52,7 @@ if (isset($_SESSION['retourUser'])) {
         <br>
         <div class="user-box">
             <input type="text" name="commentaire">
-            <label>Indiquez ce que vous voudriez voir dans le cours !</label>
+            <label>Indique ce que tu souhaiterais aborder dans le cours !</label>
         </div>
         <button type="submit">Envoyer la demande</button>
     </form>

@@ -1,6 +1,6 @@
 <header class="navHeader">
     <div id="navTop">
-        <a href="#"><img src="/ressources/img/favicon.png" alt="logo" class="logo"></a>
+        <a href="/"><img src="/ressources/img/favicon.png" alt="logo" class="logo"></a>
         <a class="disabled" onclick="clickNavBtn();" id="navBtnPhone">
             <div id="navBtn"></div>
         </a>
@@ -26,7 +26,6 @@
             <li><a href="/donner-cours">Donner un cours</a></li>
             <li><a href="/suggestion-cours">Suggérer un cours</a></li>
             <li><a href="/forum">Forum</a></li>
-            <!--            todo si connecter afficher 'Mon profil', si ce n'est pas le cas, afficher 'Connexion / Inscription' -->
             <li><a href="/profile">Mon profil</a></li>
         </ul>
     </div>

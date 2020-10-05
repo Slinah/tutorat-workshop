@@ -83,14 +83,14 @@ if (!empty($_POST)) {
                 <span></span>
                 <span></span>
                 <span></span>
-                S'enregistrer
+                Je m'inscrit
             </a>
             <a href="/connexion">
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
-                Se connecter
+                J'ai déjà un compte
             </a>
         </form>
     </div>
