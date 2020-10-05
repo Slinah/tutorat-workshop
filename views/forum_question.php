@@ -8,7 +8,7 @@ $question = hget("http://localhost:4567/api/getQuestion/" . $id_question)[0];
 ?>
 
 <section id="backgroundTutorat">
-    <img src="/ressources/img/imageBackground.jpg" alt="background Tutorat">
+    <img src="/ressources/img/backgrounds/darkBackgroundForum.jpg" alt="background Tutorat">
 </section>
 <section class="headerTitle">
     <h2>Titre du sujet</h2>

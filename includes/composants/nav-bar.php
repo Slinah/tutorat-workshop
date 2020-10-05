@@ -1,6 +1,6 @@
 <header class="navHeader">
     <div id="navTop">
-        <a href="#"><img src="/ressources/img/favicon.png" alt="logo" class="logo"></a>
+        <a href="/"><img src="/ressources/img/favicon.png" alt="logo" class="logo"></a>
         <a class="disabled" onclick="clickNavBtn();" id="navBtnPhone">
             <div id="navBtn"></div>
         </a>
