@@ -177,7 +177,7 @@ if (isset($_SESSION['retourUser'])) {
             var idCours = $('input[name=id_cours]').val();
             console.log(idCours);
             http_post("http://localhost:4567/api/listPeopleCourseById", {
-                "idCourse": idCours.toString()
+                "idCourse": idCours
             }).then(value => {
                 value = JSON.parse(value);
                 console.log(value);
