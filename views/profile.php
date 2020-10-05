@@ -53,7 +53,7 @@ $dataPref = $dataPref[0];
         </div>
     </div>
     <div>(Vous gagnez 1 d'expérience pour 1h de présence en tutorat,
-        <br>Tous les 10 points d'expéreinces vous gagnez un niveau !)
+        <br>Tous les 10 points d'expériences vous gagnez un niveau !)
     </div>
 </section>
 <section class="headerTitle">
@@ -63,7 +63,7 @@ $dataPref = $dataPref[0];
     <?php
     if (property_exists((object)$dataCoursesTutor, "error")) {
         echo "<section class='card'>
-<header>Vous n'avez pas créer de cours.</header>
+<header>Vous n'avez pas créé de cours.</header>
 </section>";
     } else {
         foreach ($dataCoursesTutor as $dataCourseTutor) { ?>
