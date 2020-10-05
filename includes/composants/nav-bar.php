@@ -1,4 +1,4 @@
-<header class="navHeader">
+<header class="navHeader" style="display: none">
     <div id="navTop">
         <a href="/"><img src="/ressources/img/favicon.png" alt="logo" class="logo"></a>
         <a class="disabled" onclick="clickNavBtn();" id="navBtnPhone">

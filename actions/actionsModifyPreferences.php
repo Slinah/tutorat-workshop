@@ -16,10 +16,17 @@ for ($x = 0; $x < $experience; $x++) {
 }
 switch ($radioPref) {
     case 1:
+        if ($level >= 1) {
+            $choixValid = true;
+        }
+        break;
     case 2:
+        if ($level >= 1) {
+            $choixValid = true;
+        }
+        break;
     case 3:
         if ($level >= 1) {
-            var_dump('what ?');
             $choixValid = true;
         }
         break;

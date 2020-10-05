@@ -8,9 +8,17 @@ require_once "Guard.php";
 $request = $_SERVER['REQUEST_URI'];
 $cursor = "cursor";
 $dataUser = $_SESSION["me"];
-$dataPref = hpost('http://localhost:4567/api/getPreferenceById', array('idPersonne' => $dataUser->id_personne));
-$dataPref = $dataPref[0];
-switch ($dataPref->curseur_id) {
+if(property_exists((object)$dataUser, "id_personne")){
+    $dataPref = hpost('http://localhost:4567/api/getPreferenceById', array('idPersonne' => $dataUser->id_personne));
+    $curseurId=$dataPref[0]->curseur_id;
+} else{
+    $curseurId=0;
+}
+
+switch ($curseurId) {
+    case 0:
+        $cursor = "cursor";
+        break;
     case 1:
         $cursor = "cursorLogoElephant";
         break;
@@ -78,6 +86,7 @@ switch ($dataPref->curseur_id) {
         $cursor = "cursorAndy";
         break;
 }
+
 switch ($request) {
     case '':
     case '/' :
