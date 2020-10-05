@@ -41,7 +41,7 @@ include_once "includes/composants/nav-bar.php";
     </section>
     <section class="card">
         <header><i class="fas fa-question"></i>&nbsp;Suggérer un cours</header>
-        <p> Besoin d'un cours sur une matière qui n'est pas encore proposé parmi les cours ? Suggère-le dès maintenant et notre équipe
+        <p> Besoin d'un cours qui n'a pas encore été proposé ? Suggère-le dès maintenant et notre équipe
             <br> se charge de te trouver un tuteur calé sur le sujet.
         </p>
         <button type="button"><a href="/suggestion-cours">Suggérer</a></button>

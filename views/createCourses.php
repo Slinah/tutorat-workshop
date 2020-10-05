@@ -53,7 +53,7 @@ if (isset($_SESSION['retourUser'])) {
             </div>
             <input type="hidden" name="id_personne" value="<?= $idPersonneConnecter ?>">
             <select name="id_matiere" id="matiere-select" required>
-                <option value="">matière</option>
+                <option value="">Matière</option>
                 <?php
                 if ($getMatiere != null) {
                     foreach ($getMatiere as $ligneMatiere) {
@@ -65,7 +65,7 @@ if (isset($_SESSION['retourUser'])) {
                         echo "</option>";
                     }
                 } else {
-                    echo "<option value=''>Aucune matière n'a pu être récupérer</option>";
+                    echo "<option value=''>Aucune matière n'a pu être récupéree</option>";
                 } ?>
             </select>
         </div>
@@ -83,14 +83,14 @@ if (isset($_SESSION['retourUser'])) {
                         echo "</option>";
                     }
                 } else {
-                    echo "<option value=''>Aucune promo n'a pu être récupérer</option>";
+                    echo "<option value=''>Aucune promo n'a pu être récupéree</option>";
                 } ?>
             </select>
         </div>
         <br>
         <div class="user-box">
             <input type="text" name="commentaires">
-            <label>Indiquez ce que vous allez voir dans le cours !</label>
+            <label>Indiquez ce que vous allez aborder dans ce cours :</label>
         </div>
         <div class='user-box'>
             <input type='date' name='date' min="<?= $dateDuJour ?>" required value='<?= $dateDuJour ?>'>

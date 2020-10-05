@@ -20,7 +20,7 @@ if (isset($_SESSION['retourUser'])) {
     <form method="post" action="/actions/actionsSendingMatiere.php">
         <div class="user-box">
             <input type="text" name="matiere" required>
-            <label>Indiquez la matière que vous voudriez ajouter !</label>
+            <label>Indiquez la matière que tu souhaiterais ajouter !</label>
         </div>
         <button type="submit">Envoyer la demande</button>
     </form>

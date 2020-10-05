@@ -58,7 +58,7 @@ if (isset($_SESSION['retourUser'])) {
             </div>
             <div class='user-box'>
                 <input type='number' step='0.1' name='duree' id='duree" . $i . "' value='" . $ligne->duree . "'>
-                <label>Duree (en heure, ex: 1h30 = 1.5)</label>
+                <label>Durée (en heure, ex: 1h30 = 1.5)</label>
             </div>
             <div class='user-box'>
                 <input type='number' name='salle' value='" . $ligne->salle . "'>

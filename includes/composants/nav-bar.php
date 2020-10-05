@@ -26,7 +26,6 @@
             <li><a href="/donner-cours">Donner un cours</a></li>
             <li><a href="/suggestion-cours">Suggérer un cours</a></li>
             <li><a href="/forum">Forum</a></li>
-            <!--            todo si connecter afficher 'Mon profil', si ce n'est pas le cas, afficher 'Connexion / Inscription' -->
             <li><a href="/profile">Mon profil</a></li>
         </ul>
     </div>
