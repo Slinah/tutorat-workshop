@@ -14,8 +14,10 @@ include_once "includes/composants/nav-bar.php";
 
         <br>Joseph Joubert.
         <br>
-        <br>Le tutorat est un projet étudiant qui permet de mettre en relation les apprenants de votre campus afin de mettre en place
-        <br>un système d'entraide. Tous les apprenants peuvent tutorer peu importe leur niveau, le principe étant de se motiver mutuellement
+        <br>Le tutorat est un projet étudiant qui permet de mettre en relation les apprenants de votre campus afin de
+        mettre en place
+        <br>un système d'entraide. Tous les apprenants peuvent tutorer peu importe leur niveau, le principe étant de se
+        motiver mutuellement
         et de s'entraider.
     </p>
     <button type="button"><a href="/cours">Les cours</a></button>
@@ -26,10 +28,11 @@ include_once "includes/composants/nav-bar.php";
 <section class="cardContainer">
     <section class="card">
         <header><i class="fas fa-chalkboard-teacher"></i>&nbsp;Les cours</header>
-        <p> Des difficultés dans une matière ? Envie de compléter tes connaissances ou de tout simplement venir en aide à un tuteur&nbsp;?
+        <p> Des difficultés dans une matière ? Envie de compléter tes connaissances ou de tout simplement venir en aide
+            à un tuteur&nbsp;?
             <br> pas de problèmes ! inscris-toi dès maintenant aux cours qui t'intéresse.
         </p>
-        <button type="button"><a href="/cours">Voir les cours</a></button>
+        <button type="button" onclick="document.location.href='/cours'">Voir les cours</button>
     </section>
     <section class="card">
         <header><i class="fas fa-hands-helping"></i>&nbsp;Donner un cours</header>
@@ -37,14 +40,14 @@ include_once "includes/composants/nav-bar.php";
             Que tu sois à l'aise dans une matière, que tu veuilles t'améliorer à l'oral ou vous motiver à plusieurs,
             <br> n'hésites pas à proposer un cours afin de valider tes compétences.
         </p>
-        <button type="button"><a href="/donner-cours">Tutorer</a></button>
+        <button type="button" onclick="document.location.href='/donner-cours'">Tutorer</button>
     </section>
     <section class="card">
         <header><i class="fas fa-question"></i>&nbsp;Suggérer un cours</header>
         <p> Besoin d'un cours qui n'a pas encore été proposé ? Suggère-le dès maintenant et notre équipe
             <br> se charge de te trouver un tuteur calé sur le sujet.
         </p>
-        <button type="button"><a href="/suggestion-cours">Suggérer</a></button>
+        <button type="button" onclick="document.location.href='/suggestion-cours'">Suggérer</button>
     </section>
 </section>
 <section class="headerTitle">
@@ -56,5 +59,5 @@ include_once "includes/composants/nav-bar.php";
         <br>Cela peut t'aider à prendre confiance en toi ou tout simplement partager et aider.
         <br>
     </p>
-    <button type="button"><a href="/donner-cours">Tutorer</a></button>
+    <button type="button" onclick="document.location.href='/donner-cours'">Tutorer</button>
 </section>
