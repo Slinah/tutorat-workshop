@@ -74,7 +74,6 @@ $dataPref = $dataPref[0];
                 <div class="classeUpLeft"><?= $dataCourseTutor->promoIntitule ?></div>
                 <div class="dateUpRight"><?= date("d / m / y", strtotime($dataCourseTutor->date)); ?></div>
                 <div class="salleDownLeft"><?= $dataCourseTutor->salle ?></div>
-                <div class="wifiDownRight"><i class="fas fa-wifi"></i></div>
             </section>
             <?php
         }
@@ -106,7 +105,6 @@ $dataPref = $dataPref[0];
                 <div class="classeUpLeft"><?= $dataCourse->intitulePromo ?></div>
                 <div class="dateUpRight"><?= date("d / m / y", strtotime($dataCourse->date)); ?></div>
                 <div class="salleDownLeft"><?= $dataCourse->salle ?></div>
-                <div class="wifiDownRight"><i class="fas fa-wifi"></i></div>
             </section>
         <?php }
     } ?>

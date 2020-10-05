@@ -8,4 +8,3 @@
     <title>Scratch OverFlow | Tutorat </title>
     <meta name="description" content="description site tutorat">
     <link rel="icon" type="image/png" href="/ressources/img/favicon.png"/>
-    <script src="https://kit.fontawesome.com/58f998f035.js" crossorigin="anonymous"></script>
