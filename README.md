@@ -61,10 +61,12 @@ Bde : <img src="https://scratchoverflow.fr/ressources/img/cursors/cursorBde.png"
 B2 : <img src="https://scratchoverflow.fr/ressources/img/cursors/cursorPumbaa.png"> (202)   
 
 ## Curseurs Événements (400+)
-Développement V2 Tutorat : <img src="https://scratchoverflow.fr/ressources/img/cursors/cursorScratchRainbow.png"> (400)  
+Développement V2 Tutorat :  
+<img src="https://scratchoverflow.fr/ressources/img/cursors/cursorScratchRainbow.png"> (400)  
 Halloween :   
 <img src="https://scratchoverflow.fr/ressources/img/cursors/cursorSpider.png"> (401)
 <img src="https://scratchoverflow.fr/ressources/img/cursors/cursorHalloween.png"> (402)  
+
 ## Admins curseurs (600+)
 Priscillia Dezettre : <img src="https://scratchoverflow.fr/ressources/img/cursors/cursorPriscillia.png"> (600)  
 Cédric Menanteau : <img src="https://scratchoverflow.fr/ressources/img/cursors/cursorCedric.png"> (601)   
@@ -75,4 +77,6 @@ Bréval LeFloch : <img src="https://scratchoverflow.fr/ressources/img/cursors/cu
 Cinquin Andy : <img src="https://scratchoverflow.fr/ressources/img/cursors/cursorAndy.png"> (606)   
 
 
-
+## Infos 
+D'autres curseurs arriverons au fur & à mesure de l'année ! :D  
+Pourquoi pas des récompenses uniques où limiter ? ♥

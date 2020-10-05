@@ -1,6 +1,10 @@
 <?php
 include_once "includes/composants/nav-bar.php";
 
+if (isset($_SESSION['retourUser'])) {
+    retourUtilisateur($_SESSION['retourUser']);
+}
+
 ?>
 
 <section id="backgroundTutorat">
