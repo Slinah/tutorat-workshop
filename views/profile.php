@@ -18,6 +18,10 @@ $dataCourses = hpost('http://localhost:4567/api/getRegisteredCourses', array('id
 $dataPref = hpost('http://localhost:4567/api/getPreferenceById', array('idPersonne' => $dataUser->id_personne));
 $dataPref = $dataPref[0];
 
+$timeZone = new DateTimeZone("Europe/Paris");
+$dateTime = new DateTime("now", $timeZone);
+$moisActuel = (int)date("m", $dateTime->getTimestamp());
+
 ?>
 <section class="headerTitle" id="profil">
     <h2>Profil</h2>
@@ -251,6 +255,21 @@ $dataPref = $dataPref[0];
                 <img src="../ressources/img/cursors/cursorScratchRainbow.png" alt="curseur">
             </div>
             <?php
+        } ?>
+        <?php
+        if($moisActuel===10){
+        //            Cursor Set 401 - Spider - Halloween
+        ?>
+            <div class="user-box">
+                <input type="radio" name="radioPref" value="401" <?php if($dataPref->curseur_id ===401){echo"checked";}?>>
+                <img src="../ressources/img/cursors/cursorSpider.png" alt="curseur">
+            </div>
+
+            <div class="user-box">
+                <input type="radio" name="radioPref" value="402" <?php if($dataPref->curseur_id ===402){echo"checked";}?>>
+                <img src="../ressources/img/cursors/cursorHalloween.png" alt="curseur">
+            </div>
+        <?php
         } ?>
         <?php
         // ------------------------------------ Zone Spéciale 600+ -----------------------------------------

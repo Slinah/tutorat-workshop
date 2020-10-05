@@ -64,6 +64,12 @@ switch ($curseurId) {
     case 400:
         $cursor = "cursorScratchRainbow";
         break;
+    case 401:
+        $cursor = "cursorSpider";
+        break;
+    case 402:
+        $cursor = "cursorHalloween";
+        break;
     case 600:
         $cursor = "cursorCedric";
         break;
