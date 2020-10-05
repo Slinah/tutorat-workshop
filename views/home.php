@@ -4,7 +4,7 @@ include_once "includes/composants/nav-bar.php";
 ?>
 
 <section id="backgroundTutorat">
-    <img src="/ressources/img/backgrounds/darkBackgroundTutoratEtEntraide.jpg" alt="background Tutorat">
+    <img src="/ressources/img/backgrounds/darkBackgroundTutoratEtEntraideHalloween.jpg" alt="background Tutorat">
 </section>
 <section class="headerTitle">
     <h2>Le tutorat c'est quoi ?</h2>
@@ -27,7 +27,7 @@ include_once "includes/composants/nav-bar.php";
 </section>
 <section class="cardContainer">
     <section class="card">
-        <header><i class="fas fa-chalkboard-teacher"></i>&nbsp;Les cours</header>
+        <header>Les cours</header>
         <p> Des difficultés dans une matière ? Envie de compléter tes connaissances ou de tout simplement venir en aide
             à un tuteur&nbsp;?
             <br> pas de problèmes ! inscris-toi dès maintenant aux cours qui t'intéresse.
@@ -35,7 +35,7 @@ include_once "includes/composants/nav-bar.php";
         <button type="button" onclick="document.location.href='/cours'">Voir les cours</button>
     </section>
     <section class="card">
-        <header><i class="fas fa-hands-helping"></i>&nbsp;Donner un cours</header>
+        <header>Donner un cours</header>
         <p>
             Que tu sois à l'aise dans une matière, que tu veuilles t'améliorer à l'oral ou vous motiver à plusieurs,
             <br> n'hésites pas à proposer un cours afin de valider tes compétences.
@@ -43,7 +43,7 @@ include_once "includes/composants/nav-bar.php";
         <button type="button" onclick="document.location.href='/donner-cours'">Tutorer</button>
     </section>
     <section class="card">
-        <header><i class="fas fa-question"></i>&nbsp;Suggérer un cours</header>
+        <header>Suggérer un cours</header>
         <p> Besoin d'un cours qui n'a pas encore été proposé ? Suggère-le dès maintenant et notre équipe
             <br> se charge de te trouver un tuteur calé sur le sujet.
         </p>

@@ -5,7 +5,7 @@ if (!empty($_POST)) {
 }
 ?>
 <section id="backgroundTutorat">
-    <img src="/ressources/img/backgrounds/darkBackgroundForum.jpg" alt="background Tutorat">
+    <img src="/ressources/img/backgrounds/darkBackgroundForumHalloween.jpg" alt="background Tutorat">
 </section>
 <section>
     <p>Échange avec les autres sur les sujets de ton choix.</p>

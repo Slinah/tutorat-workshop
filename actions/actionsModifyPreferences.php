@@ -14,6 +14,9 @@ for ($x = 0; $x < $experience; $x++) {
         $level++;
     }
 }
+$timeZone = new DateTimeZone("Europe/Paris");
+$dateTime = new DateTime("now", $timeZone);
+$moisActuel = (int)date("m", $dateTime->getTimestamp());
 switch ($radioPref) {
     case 1:
     case 2:
@@ -77,6 +80,12 @@ switch ($radioPref) {
         break;
     case 400:
         if ($nom === 'CATIFAIT' || $nom === 'BARITEAU' || $nom === 'GAUTHIER' || $nom === 'LE FLOCH' || $nom === 'CINQUIN' || $nom === 'MENANTEAU' || $nom === 'DEZETTRE') {
+            $choixValid = true;
+        }
+        break;
+    case 401:
+    case 402:
+        if($moisActuel===10){
             $choixValid = true;
         }
         break;
