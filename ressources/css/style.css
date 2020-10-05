@@ -58,6 +58,7 @@ section {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    z-index: 100;
 }
 #retourUtilisateur{
     text-align: center;
@@ -69,7 +70,7 @@ section {
     animation-duration: 3s;
     animation-direction: normal;
     opacity: 0;
-    z-index: -1;
+    z-index: 100;
 }
 @keyframes transitionSlide {
     from{
