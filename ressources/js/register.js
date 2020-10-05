@@ -1,14 +1,10 @@
 $(document).ready(function () {
-
-
-
     //#5
     $('#promo-select').attr('disabled', 'disabled');
     $('#classe-select').attr('disabled', 'disabled');
     $('#addClasse').attr('disabled', 'disabled');
     $('#btnAddClasse').attr('disabled', 'disabled');
     $('#btnDeleteClasse').attr('disabled', 'disabled');
-
 
     //#5
     $('#school-select').change(function () {
@@ -19,7 +15,6 @@ $(document).ready(function () {
             $("#promo-select option:not(.ec_" + $(this).val() + ")").hide();
             $('#show2').show();
             $('#idSchoolForPromo2').val($(this).val());
-
         } else {
             $('#classe-select').val('');
             $("#promo-select").val('');
@@ -33,7 +28,6 @@ $(document).ready(function () {
         $('#addClasse').attr('disabled', 'disabled');
         $('#btnAddClasse').attr('disabled', 'disabled');
     });
-
     $('#promo-select').change(function () {
         if ($(this).val() != '') {
             $('#classe-select').removeAttr('disabled', 'disabled');
@@ -54,7 +48,6 @@ $(document).ready(function () {
         }
         $('#idDeleteClasse').val('');
     });
-
     $('#classe-select').change(function () {
         if ($(this).val() != '') {
             $('#idDeleteClasse').val($(this).val());
@@ -64,8 +57,6 @@ $(document).ready(function () {
             $('#btnDeleteClasse').attr('disabled', 'disabled');
         }
     });
-
-
 });
 
 

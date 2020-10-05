@@ -245,7 +245,7 @@ $dataPref = $dataPref[0];
         <?php
         // ------------------------------------ Zone Evenements 400 - 600 -----------------------------------------
         $nom=strtoupper($data->nom);
-        if($nom === 'CATIFAIT' || $nom === 'BARITEAU' || $nom === 'GAUTHIER' || $nom === 'LEFLOCH' || $nom === 'CINQUIN' || $nom === 'MENANTEAU' || $nom === 'DEZETTRE'){
+        if($nom === 'CATIFAIT' || $nom === 'BARITEAU' || $nom === 'GAUTHIER' || $nom === 'LE FLOCH' || $nom === 'CINQUIN' || $nom === 'MENANTEAU' || $nom === 'DEZETTRE'){
 //            Cursor Set 400 dans cette zone - Développement V2 Tutorat
             ?>
             <div class="user-box">
@@ -308,7 +308,7 @@ $dataPref = $dataPref[0];
             <?php
         } ?>
         <?php
-        if($nom === 'LEFLOCH'){
+        if($nom === 'LE FLOCH'){
 //            Cursor Set 605 - Breval
             ?>
             <div class="user-box">

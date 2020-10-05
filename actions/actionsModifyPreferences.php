@@ -76,7 +76,7 @@ switch ($radioPref) {
         $choixValid = true;
         break;
     case 400:
-        if ($nom === 'CATIFAIT' || $nom === 'BARITEAU' || $nom === 'GAUTHIER' || $nom === 'LEFLOCH' || $nom === 'CINQUIN' || $nom === 'MENANTEAU' || $nom === 'DEZETTRE') {
+        if ($nom === 'CATIFAIT' || $nom === 'BARITEAU' || $nom === 'GAUTHIER' || $nom === 'LE FLOCH' || $nom === 'CINQUIN' || $nom === 'MENANTEAU' || $nom === 'DEZETTRE') {
             $choixValid = true;
         }
         break;
@@ -106,7 +106,7 @@ switch ($radioPref) {
         }
         break;
     case 605:
-        if ($nom === 'LEFLOCH') {
+        if ($nom === 'LE FLOCH') {
             $choixValid = true;
         }
         break;
