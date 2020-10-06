@@ -176,6 +176,10 @@ switch ($request) {
         require 'views/register.php';
         footer_options(["jquery", "register", "fonction", "registerSubmitFormEnter"]);
         break;
+    case '/dc':
+        Destroy();
+        header('location: /connexion');
+        break;
     default:
         header_options(["style", "404", "nav", "button",$cursor]);
         http_response_code(404);

@@ -18,6 +18,9 @@ $timeZone = new DateTimeZone("Europe/Paris");
 $dateTime = new DateTime("now", $timeZone);
 $moisActuel = (int)date("m", $dateTime->getTimestamp());
 switch ($radioPref) {
+    case 0:
+        $choixValid = true;
+        break;
     case 1:
     case 2:
     case 3:

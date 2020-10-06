@@ -124,6 +124,10 @@ $moisActuel = (int)date("m", $dateTime->getTimestamp());
     } ?>
 <section class="login-box">
     <form method="post" action="/actions/actionsModifyPreferences.php">
+        <div class="user-box">
+            <input type="radio" name="radioPref" value="0" <?php if($dataPref->curseur_id ===0){echo"checked";}?>>
+            <img src="../ressources/img/cursors/cursor.png" alt="curseur ">
+        </div>
         <?php if($level>=0){
 // ------------------------------------ Zone Niveau classique 0 - 200 -----------------------------------------
 //            Cursor Set lvl 0-1 dans cette zone
