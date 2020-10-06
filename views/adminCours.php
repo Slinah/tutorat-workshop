@@ -158,7 +158,7 @@ if (isset($_SESSION['retourUser'])) {
             console.log('y');
             console.log(y);
             console.log("boucle");
-            /*http_post("https://api.scratchoverflow.fr/api/experiencePeople", {
+            http_post("https://api.scratchoverflow.fr/api/experiencePeople", {
                 "idPeople": infoPeople[y],
                 "experience": experience,
                 "idCourse": idCourse
@@ -168,8 +168,6 @@ if (isset($_SESSION['retourUser'])) {
                     $("#formulaireCloseCourse<?php echo $i - 1 ?>").submit();
                 }
             });
-            */
-
         }
         // on récupére dans info people toutes les id des gens marqués comme présent
         // on recupere dans numberForm, le numéro du formulaire qu'on est en train de traiter
