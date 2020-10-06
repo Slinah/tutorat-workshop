@@ -147,10 +147,16 @@ if (isset($_SESSION['retourUser'])) {
         $("#nbParticipants" + numberForm).val(infoPeople.length);
         experience = Math.round($("#duree" + numberForm).val());
         idCourse = $("#id_cours" + numberForm).val();
+        console.log('info');
         console.log(infoPeople);
+        console.log(infoPeople.length);
+        console.log('xp');
         console.log(experience);
+        console.log('idCourse');
         console.log(idCourse);
         for (var y = 0; y <= infoPeople.length - 1; y++) {
+            console.log('y');
+            console.log(y);
             console.log("boucle");
             http_post("https://api.scratchoverflow.fr/api/experiencePeople", {
                 "idPeople": infoPeople[y],
