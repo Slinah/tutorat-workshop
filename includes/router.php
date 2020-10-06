@@ -94,6 +94,7 @@ switch ($curseurId) {
 }
 
 switch ($request) {
+    case (preg_match('/\/\?fbclid=/', $request) ? true : false):
     case '':
     case '/' :
         header_options(["style", "nav", "button", "card",$cursor]);
