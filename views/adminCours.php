@@ -151,9 +151,9 @@ if (isset($_SESSION['retourUser'])) {
         console.log(experience);
         console.log(idCourse);
         for (var y = 0; y <= infoPeople.length - 1; y++) {
-            // console.log("boucle");
+            console.log("boucle");
             http_post("https://api.scratchoverflow.fr/api/experiencePeople", {
-                "idPeople": infoPeople[y].toString(),
+                "idPeople": infoPeople[y],
                 "experience": experience,
                 "idCourse": idCourse
             }).then(value => {
