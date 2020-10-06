@@ -179,8 +179,8 @@ if (isset($_SESSION['retourUser'])) {
     $(function () {
         $('#clore<?php echo $i - 1 ?>').click(function () {
             var numberForm = <?= $i - 1 ?>;
-            var idCours = $('input[name=id_cours]').val();
-            // console.log(idCours);
+            var idCours = $("#id_cours" + numberForm).val();
+            console.log(idCours);
             http_post("https://api.scratchoverflow.fr/api/listPeopleCourseById", {
                 "idCourse": idCours
             }).then(value => {
