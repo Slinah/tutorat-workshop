@@ -17,6 +17,10 @@ $dataCourses = hpost('http://localhost:4567/api/getRegisteredCourses', array('id
 //Récupérer les préférences
 $dataPref = hpost('http://localhost:4567/api/getPreferenceById', array('idPersonne' => $dataUser->id_personne));
 $dataPref = $dataPref[0];
+$dataIdCours=[];
+foreach ($dataCoursesTutor as $line){
+    $dataIdCours[]=$line->id_cours;
+}
 
 $timeZone = new DateTimeZone("Europe/Paris");
 $dateTime = new DateTime("now", $timeZone);
@@ -33,7 +37,8 @@ $moisActuel = (int)date("m", $dateTime->getTimestamp());
 </section>
 <section id="profilSection">
     <div>
-        <?php if ($data->image != null) { ?>
+        <?php
+        if ($data->image != null) { ?>
             <img src="<?= $data->image ?>"
                  width="100" height="100" alt="base64 test">
         <?php } ?>
@@ -76,8 +81,9 @@ $moisActuel = (int)date("m", $dateTime->getTimestamp());
                 <p><?= $dataCourseTutor->commentaires ?></p>
                 <button type="button" onclick="document.location.href='/tuteur-cours'">Modifier</button>
                 <div class="classeUpLeft"><?= $dataCourseTutor->promoIntitule ?></div>
-                <div class="dateUpRight"><?= date("d / m / y", strtotime($dataCourseTutor->date)); ?></div>
+                <div class="dateUpRight"><?= date("d / m / y", strtotime($dataCourseTutor->date)) ?></div>
                 <div class="salleDownLeft"><?= $dataCourseTutor->salle ?></div>
+                <div>Nb inscrit : <?= count(hpost('http://localhost:4567/api/listPeopleCourseById', array('idCourse' => $dataCourseTutor->id_cours))); ?></div>
             </section>
             <?php
         }

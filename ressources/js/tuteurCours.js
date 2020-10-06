@@ -57,7 +57,7 @@ function clickOpenBtnModal() {
 
 function loadMore(id) {
     console.log("heu");
-    http_get("http://localhost:4567/api/getCommentaireReply/" + id).then(value => {
+    http_get("https://api.scratchoverflow.fr/api/getCommentaireReply/" + id).then(value => {
         console.log(value);
     });
 }
