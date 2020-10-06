@@ -139,9 +139,9 @@ if (isset($_SESSION['retourUser'])) {
         var infoPeople = [];
         console.log("i : " + i);
         for (var x = 0; x < i; x++) {
-            var test = $("input[name='radio" + x + "']:checked").val();
-            if (test != 0) {
-                infoPeople.push(test);
+
+            if ($("input[name='radio" + x + "']:checked").val();) {
+                infoPeople.push($("input[name='radio" + x + "']:checked").val());
             }
         }
         $("#nbParticipants" + numberForm).val(infoPeople.length);
@@ -158,7 +158,7 @@ if (isset($_SESSION['retourUser'])) {
             console.log('y');
             console.log(y);
             console.log("boucle");
-            http_post("https://api.scratchoverflow.fr/api/experiencePeople", {
+            /*http_post("https://api.scratchoverflow.fr/api/experiencePeople", {
                 "idPeople": infoPeople[y],
                 "experience": experience,
                 "idCourse": idCourse
@@ -168,6 +168,8 @@ if (isset($_SESSION['retourUser'])) {
                     $("#formulaireCloseCourse<?php echo $i - 1 ?>").submit();
                 }
             });
+            */
+
         }
         // on récupére dans info people toutes les id des gens marqués comme présent
         // on recupere dans numberForm, le numéro du formulaire qu'on est en train de traiter
