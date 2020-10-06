@@ -80,3 +80,16 @@ Cinquin Andy : <img src="https://scratchoverflow.fr/ressources/img/cursors/curso
 ## Infos 
 D'autres curseurs arriverons au fur & à mesure de l'année ! :D  
 Pourquoi pas des récompenses uniques où limiter ? ♥
+  
+événements prévus :  
+Période Noel -> Décembre  
+Saint-Valentin -> 10 février  
+Nouvel An chinois -> fin janvier - début février  
+premier avril -> poisson d'avril , moyen de faire des trucs marrant  
+Fête de la musique -> 21 juin  
+Gay pride -> 6 juin 2020  
+fête nationale -> 14 juillet  
+saint patrick -> 17 mars  
+
+
+
