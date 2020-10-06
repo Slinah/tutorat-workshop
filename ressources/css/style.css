@@ -8,6 +8,8 @@
     list-style-type: none;
     max-width: 100vw;
     text-align: center;
+
+
 }
 
 html {
@@ -48,7 +50,7 @@ section {
     margin: 2em 0;
 }
 
-#retourUtilisateurContainer{
+#retourUtilisateurContainer {
     position: fixed;
     width: 100%;
     right: 0;
@@ -60,7 +62,8 @@ section {
     align-items: center;
     z-index: 100;
 }
-#retourUtilisateur{
+
+#retourUtilisateur {
     text-align: center;
     margin: 1vh;
     background-color: #111111;
@@ -72,28 +75,30 @@ section {
     opacity: 0;
     z-index: 100;
 }
+
 @keyframes transitionSlide {
-    from{
+    from {
         opacity: 1;
         z-index: 3;
         transform: translateX(20vw);
     }
-    30%{
+    30% {
         transform: translateX(-4.5vw);
     }
-    50%{
+    50% {
         transform: translateX(0vw);
     }
-    60%{
+    60% {
         opacity: 1;
         z-index: 3;
     }
-    to{
+    to {
         opacity: 0;
         z-index: -1;
     }
 
 }
+
 #backgroundTutorat {
     margin: 0;
     padding: 0;

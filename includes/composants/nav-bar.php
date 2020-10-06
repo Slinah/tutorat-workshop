@@ -20,7 +20,7 @@
         <ul>
             <div>
                 <li><a href="/"><img src="/ressources/img/faviconHalloween.png" alt="logo" class="logo"></a></li>
-                <li class="bold"><a href="/">Scratch Overflow</a></li>
+                <li class="bold"><a href="/">Scratch Overflow</a><img src="/ressources/img/Citrouille1.png" alt="ah" height="50%"></li>
             </div>
             <li><a href="/cours">Les cours</a></li>
             <li><a href="/donner-cours">Donner un cours</a></li>
