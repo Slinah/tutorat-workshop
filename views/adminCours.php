@@ -120,7 +120,7 @@ if (isset($_SESSION['retourUser'])) {
             </form>
         </div>
         <div class="closeButton" onclick="clickCloseBtnModal()">
-            <i class="far fa-times-circle"></i>
+            &cross;
         </div>
     </div>
 </section>
@@ -151,7 +151,7 @@ if (isset($_SESSION['retourUser'])) {
         console.log(experience);
         console.log(idCourse);
         for (var y = 0; y <= infoPeople.length - 1; y++) {
-            console.log("boucle");
+            // console.log("boucle");
             http_post("https://api.scratchoverflow.fr/api/experiencePeople", {
                 "idPeople": infoPeople[y].toString(),
                 "experience": experience,
@@ -174,9 +174,9 @@ if (isset($_SESSION['retourUser'])) {
         $('#clore<?php echo $i - 1 ?>').click(function () {
             var numberForm = <?= $i - 1 ?>;
             var idCours = $('input[name=id_cours]').val();
-            console.log(idCours);
+            // console.log(idCours);
             http_post("https://api.scratchoverflow.fr/api/listPeopleCourseById", {
-                "idCourse": idCours.toString()
+                "idCourse": idCours
             }).then(value => {
                 value = JSON.parse(value);
                 console.log(value);

@@ -8,7 +8,7 @@ if (isset($_SESSION['retourUser'])) {
 ?>
 
 <section id="backgroundTutorat">
-    <img src="/ressources/img/backgrounds/darkBackgroundTutoratEtEntraideHalloween.jpg" alt="background Tutorat">
+    <img src="/ressources/img/backgrounds/darkBackgroundTutoratEtEntraideHalloween.png" alt="background Tutorat">
 </section>
 <section class="headerTitle">
     <h2>Le tutorat c'est quoi ?</h2>
