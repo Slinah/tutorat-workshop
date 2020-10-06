@@ -8,7 +8,7 @@ $choixValid = false;
 $data = hpost('http://localhost:4567/api/personneById', array('idPersonne' => $id_personne));
 $nom = strtoupper($data->nom);
 $experience = $data->experience;
-$level = 0;
+$level = 1;
 for ($x = 0; $x < $experience; $x++) {
     if ($x % 10 === 0) {
         $level++;
