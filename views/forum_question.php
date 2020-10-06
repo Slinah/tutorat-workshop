@@ -52,9 +52,12 @@ $question = hget("http://localhost:4567/api/getQuestion/" . $id_question)[0];
 
 <section class="cardContainer">
 
+
     <?php
     $t = hget("http://localhost:4567/api/getCommentaire/" . $id_question);
-    if (!is_null($t)) {
+
+
+    if (!property_exists((object)$t, "error")) {
         foreach ($t as $c) {
             ?>
             <section class="card">
@@ -90,7 +93,10 @@ $question = hget("http://localhost:4567/api/getQuestion/" . $id_question)[0];
         }
     } else {
         ?>
-        <p>Aucun commentaire </p>
+        <section class='card'>
+            <header>auccun commentaire
+            </header>
+        </section>
         <?php
     }
     ?>
