@@ -76,7 +76,7 @@ if (isset($_SESSION['retourUser'])) {
 }
 ?>
     <section id="backgroundTutorat">
-        <img src="/ressources/img/backgrounds/darkBackgroundLesCoursHalloween.jpg" alt="background Tutorat">
+        <img src="/ressources/img/backgrounds/darkBackgroundLesCoursHalloween.png" alt="background Tutorat">
     </section>
     <section>
         <p>Tu ne trouves pas le cours que tu voulais ?</p>
