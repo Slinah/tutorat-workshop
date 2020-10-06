@@ -89,7 +89,7 @@ if (!empty($_POST)) {
             <span></span>
             <span></span>
             <span></span>
-            Je m'inscrit
+            Je m'inscris
         </a>
         <a href="/connexion">
             <span></span>
