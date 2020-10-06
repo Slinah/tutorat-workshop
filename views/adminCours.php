@@ -126,7 +126,7 @@ if (isset($_SESSION['retourUser'])) {
 </section>
 <script src="/ressources/js/jquery.js"></script>
 <script>
-    var i = 0;
+    var indexGen = 0;
 
     function form2form(formA, formB) {
         $(':input[name]', formA).each(function () {
@@ -137,11 +137,11 @@ if (isset($_SESSION['retourUser'])) {
 
     function clickCoursModal(numberForm) {
         var infoPeople = [];
-        console.log("i : " + i);
-        for (var x = 0; x < i; x++) {
-
-            if ($("input[name='radio" + x + "']:checked").val()) {
-                infoPeople.push($("input[name='radio" + x + "']:checked").val());
+        console.log("i : " + indexGen);
+        for (var x = 0; x < indexGen; x++) {
+        var test = $("input[name='radio" + x + "']:checked").val();
+            if (test) {
+                infoPeople.push(test);
             }
         }
         $("#nbParticipants" + numberForm).val(infoPeople.length);
@@ -198,6 +198,7 @@ if (isset($_SESSION['retourUser'])) {
                 }
                 $('#formModal').append("<input type='hidden' name='nombreParticipant' id='nombreParticipant' value='" + i + "'>" +
                     "<button type='button' id='cloreCoursModal' onclick='clickCoursModal(" + numberForm + ")'> Cloturer le cours</button>");
+                indexGen = i;
             });
             clickOpenBtnModal();
         });
