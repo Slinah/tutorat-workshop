@@ -90,6 +90,3 @@ Fête de la musique -> 21 juin
 Gay pride -> 6 juin 2020  
 fête nationale -> 14 juillet  
 saint patrick -> 17 mars  
-
-
-
