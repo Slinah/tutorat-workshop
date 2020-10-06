@@ -80,7 +80,7 @@ if (isset($_SESSION['retourUser'])) {
     </section>
     <section>
         <p>Tu ne trouves pas le cours que tu voulais ?</p>
-        <button onclick="document.location.href='/donner_cours'">Suggérer un cour</button>
+        <button onclick="document.location.href='/donner-cours'">Suggérer un cour</button>
     </section>
 <?php
 if ($unclosedCourses !== null) {
