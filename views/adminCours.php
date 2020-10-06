@@ -140,7 +140,7 @@ if (isset($_SESSION['retourUser'])) {
         console.log("i : " + i);
         for (var x = 0; x < i; x++) {
 
-            if ($("input[name='radio" + x + "']:checked").val();) {
+            if ($("input[name='radio" + x + "']:checked").val()) {
                 infoPeople.push($("input[name='radio" + x + "']:checked").val());
             }
         }
