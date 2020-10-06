@@ -2,11 +2,10 @@
 //include_once "includes/composants/nav-bar.php";
 
 $dataSchools = hget('http://localhost:4567/api/getAllSchools');
-retourUtilisateur($dataSchools);
+
 $dataPromosFromSchools = hget('http://localhost:4567/api/getPromoFromSchool');
-retourUtilisateur($dataPromosFromSchools);
+
 $dataClassesFromPromos = hget('http://localhost:4567/api/getClassFromPromo');
-retourUtilisateur($dataClassesFromPromos);
 
 
 if (isset($_SESSION['retourUser'])) {

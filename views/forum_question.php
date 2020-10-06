@@ -30,11 +30,12 @@ $question = hget("http://localhost:4567/api/getQuestion/" . $id_question)[0];
         <header>Post principal</header>
         <h2><?php echo $question->titre; ?> | <?php echo $question->status == 0 ? "❓" : "✔" ?> --
             <?php echo $question->intitule; ?></h2>
-        <p>
-            <?php echo $question->description; ?>
-        </p>
+        <p><?php echo $question->description; ?></p>
+
         <div class="dateUpRight">
-            <?php echo date('j/m/Y', strtotime($question->date)); ?>
+            <?php echo date('j/m/Y', strtotime($question->date)); ?><br>
+            <?php echo $question->id_personne == $_SESSION["me"]->id_personne || $_SESSION["me"]->role   ? "<a href='/forum/change/" . $id_question . "'>Editer</a>" : "" ?>
+
         </div>
         <div class="nameUpLeft">
             Nom - <?php echo $question->prenom; ?><br>

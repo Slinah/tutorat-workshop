@@ -35,7 +35,6 @@ if (isset($_SESSION['retourUser'])) {
 
 if (!empty($_POST)) {
     $DB_PASS = hpost("http://localhost:4567/api/connect", array("email" => sanitize($_POST["email"])));
-    $_SESSION['retourUser'] = $DB_PASS;
     if (password_verify($_POST["pass"], $DB_PASS->password)) {
         $_SESSION["me"] = $DB_PASS;
         header("Location: /");
