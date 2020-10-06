@@ -70,7 +70,7 @@ async function recuperationTxtModal() {
     var personne_id = document.getElementById("personne_id").value;
     let id_question;
     if (reply) {
-        http_post("http://scratchoverflow.fr:4567/api/replyComQuestion", {
+        http_post("https://api.scratchoverflow.fr/api/replyComQuestion", {
             "id_personne": personne_id,
             "id_comment": comment,
             "content": content
@@ -79,7 +79,7 @@ async function recuperationTxtModal() {
         });
     } else {
         id_question = document.URL.split("/").pop();
-        http_post("http://scratchoverflow.fr:4567/api/postComQuestion", {
+        http_post("https://api.scratchoverflow.fr/api/postComQuestion", {
             "id_personne": personne_id,
             "id_question": id_question,
             "content": content
@@ -91,7 +91,7 @@ async function recuperationTxtModal() {
 
 
 function loadMore(id) {
-    http_get("http://scratchoverflow.fr:4567/api/getCommentaireReply/" + id).then(value => {
+    http_get("https://api.scratchoverflow.fr/api/getCommentaireReply/" + id).then(value => {
         console.log(value);
     });
 }

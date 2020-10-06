@@ -71,10 +71,10 @@ switch ($curseurId) {
         $cursor = "cursorHalloween";
         break;
     case 600:
-        $cursor = "cursorCedric";
+        $cursor = "cursorPriscillia";
         break;
     case 601:
-        $cursor = "cursorPriscillia";
+        $cursor = "cursorCedric";
         break;
     case 602:
         $cursor = "cursorLelito";

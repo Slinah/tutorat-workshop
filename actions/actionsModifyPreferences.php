@@ -128,7 +128,6 @@ switch ($radioPref) {
         }
         break;
 }
-var_dump($choixValid);
 if ($choixValid === true) {
     $_SESSION['retourUser'] = hpost("http://localhost:4567/api/postModifPref", array("idPersonne" => $id_personne, "idCursor" => $radioPref));
     header('location: /profile');
@@ -136,5 +135,3 @@ if ($choixValid === true) {
     $_SESSION['retourUser'] = (object)array("error" => "Bien essayé ;) ! Petit malin ! ♥ ");
     header('location: /profile');
 }
-
-
