@@ -123,7 +123,7 @@ $moisActuel = (int)date("m", $dateTime->getTimestamp());
         }
     } ?>
 <section class="login-box">
-    <h2><a href="https://github.com/Slinah/tutorat-workshop">Clique ici pour voir les curseurs existant</a></h2>
+    <h2><a href="https://github.com/Slinah/tutorat-workshop/blob/master/ressources/css/cursors.md">Clique ici pour voir les curseurs existant</a></h2>
     <form method="post" action="/actions/actionsModifyPreferences.php">
         <div class="user-box">
             <input type="radio" name="radioPref" value="0" <?php if($dataPref->curseur_id ===0){echo"checked";}?>>
