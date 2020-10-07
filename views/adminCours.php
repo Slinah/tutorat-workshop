@@ -140,7 +140,7 @@ if (isset($_SESSION['retourUser'])) {
                 "experience": experience
             }
         ).then(value => {
-            if (y === (infoPeople.length)) {
+            if (y === (infoPeople.length-1)) {
                 form2form($("#formulaireModifyCourse" + numberForm), $("#formulaireCloseCourse" + numberForm));
                 $("#formulaireCloseCourse" + numberForm).submit();
             }
