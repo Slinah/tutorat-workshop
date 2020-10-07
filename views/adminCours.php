@@ -153,8 +153,8 @@ if (isset($_SESSION['retourUser'])) {
                     "idCourse": idCourse
                 }).then(value => {
                     if (y === (infoPeople.length)) {
-                        form2form($("#formulaireModifyCourse<?php echo $i - 1 ?>"), $("#formulaireCloseCourse<?php echo $i - 1 ?>"));
-                        $("#formulaireCloseCourse<?php echo $i - 1 ?>").submit();
+                        form2form($("#formulaireModifyCourse"+numberForm), $("#formulaireCloseCourse"+numberForm));
+                        $("#formulaireCloseCourse"+numberForm).submit();
                     }
                 });
             },100*y);
