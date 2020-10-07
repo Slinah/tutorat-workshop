@@ -134,7 +134,18 @@ if (isset($_SESSION['retourUser'])) {
         })
     }
 
-
+    function appelApi(infoPeople, numberForm, y){
+        http_post("http://localhost:4567/api/experiencePeople", {
+                "idPeople": infoPeople[y].toString(),
+                "experience": experience
+            }
+        ).then(value => {
+            if (y === (infoPeople.length)) {
+                form2form($("#formulaireModifyCourse" + numberForm), $("#formulaireCloseCourse" + numberForm));
+                $("#formulaireCloseCourse" + numberForm).submit();
+            }
+        });
+    }
     function clickCoursModal(numberForm) {
         var infoPeople = [];
         for (var x = 0; x < indexGen; x++) {
@@ -148,20 +159,8 @@ if (isset($_SESSION['retourUser'])) {
         experience = Math.round($("#duree" + numberForm).val());
         idCourse = $("#id_cours" + numberForm).val();
         for (var y = 0; y <= infoPeople.length - 1; y++) {
-            http_post("http://localhost:4567/api/experiencePeople", {
-                    "idPeople": infoPeople[y].toString(),
-                    "experience": experience
-                }
-            ).then(value => {
-                if (y === (infoPeople.length)) {
-                    form2form($("#formulaireModifyCourse" + numberForm), $("#formulaireCloseCourse" + numberForm));
-                    $("#formulaireCloseCourse" + numberForm).submit();
-                }
-            });
-
-
+            setTimeout(appelApi(infoPeople,numberForm,y), 100*y);
         }
-
         // on récupére dans info people toutes les id des gens marqués comme présent
         // on recupere dans numberForm, le numéro du formulaire qu'on est en train de traiter
         // on recupere dans infoPeople.lenght, le nombre de participant total
