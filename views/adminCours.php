@@ -135,7 +135,7 @@ if (isset($_SESSION['retourUser'])) {
     }
 
     function appelApi(infoPeople, numberForm, y){
-        http_post("http://localhost:4567/api/experiencePeople", {
+        http_post("https://api.scratchoverflow.fr/api/experiencePeople", {
                 "idPeople": infoPeople[y].toString(),
                 "experience": experience
             }
@@ -172,7 +172,7 @@ if (isset($_SESSION['retourUser'])) {
         $('#clore<?php echo $i - 1 ?>').click(function () {
             var numberForm = <?= $i - 1 ?>;
             var idCours = $("#id_cours" + numberForm).val();
-            http_post("http://localhost:4567/api/listPeopleCourseById", {
+            http_post("https://api.scratchoverflow.fr/api/listPeopleCourseById", {
                 "idCourse": idCours
             }).then(value => {
                 value = JSON.parse(value);
