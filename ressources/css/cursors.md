@@ -43,7 +43,7 @@ Cinquin Andy : <img src="https://scratchoverflow.fr/ressources/img/cursors/curso
 
 ## Infos 
 D'autres curseurs arriverons au fur & à mesure de l'année ! :D  
-Pourquoi pas des récompenses uniques où limiter ? ♥
+Pourquoi pas des récompenses uniques ou limitées ? ♥
   
 événements prévus :  
 Période Noel -> Décembre  

@@ -363,7 +363,7 @@ $moisActuel = (int)date("m", $dateTime->getTimestamp());
 <script>
     var exp = document.getElementById("experience");
     exp = exp.value;
-    var level = 1;
+    var level = 0;
     for (var x = 0; x < exp; x++) {
         if (x % 10 === 0) {
             level++;
