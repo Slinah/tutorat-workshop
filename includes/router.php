@@ -91,6 +91,9 @@ switch ($curseurId) {
     case 606:
         $cursor = "cursorAndy";
         break;
+    case 666:
+        $cursor = "cursorOberi";
+        break;
 }
 
 switch ($request) {

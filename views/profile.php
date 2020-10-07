@@ -355,6 +355,10 @@ $moisActuel = (int)date("m", $dateTime->getTimestamp());
             </div>
             <?php
         } ?>
+        <div class="user-box">
+            <input type="radio" name="radioPref" value="666" <?php if($dataPref->curseur_id ===666){echo"checked";}?>>
+            <img src="../ressources/img/cursors/cursorOberi.png" alt="curseur ">
+        </div>
         <br>
         <input type="hidden" name="idPersonne" value="<?php echo ($dataUser->id_personne) ?>">
         <button type="submit">Changer le curseur</button>
