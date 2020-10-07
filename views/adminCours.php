@@ -157,7 +157,7 @@ if (isset($_SESSION['retourUser'])) {
                         $("#formulaireCloseCourse"+numberForm).submit();
                     }
                 });
-            },100*y);
+            },200+100*y);
         }
         // on récupére dans info people toutes les id des gens marqués comme présent
         // on recupere dans numberForm, le numéro du formulaire qu'on est en train de traiter
