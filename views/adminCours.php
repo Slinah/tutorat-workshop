@@ -130,14 +130,12 @@ if (isset($_SESSION['retourUser'])) {
 
     function form2form(formA, formB) {
         $(':input[name]', formA).each(function () {
-            console.log("form copie");
             $('[name=' + $(this).attr('name') + ']', formB).val($(this).val());
         })
     }
 
     function clickCoursModal(numberForm) {
         var infoPeople = [];
-        console.log("i : " + indexGen);
         for (var x = 0; x < indexGen; x++) {
         var test = $("input[name='radio" + x + "']:checked").val();
             if (test) {
@@ -147,17 +145,7 @@ if (isset($_SESSION['retourUser'])) {
         $("#nbParticipants" + numberForm).val(infoPeople.length);
         experience = Math.round($("#duree" + numberForm).val());
         idCourse = $("#id_cours" + numberForm).val();
-        console.log('info');
-        console.log(infoPeople);
-        console.log(infoPeople.length);
-        console.log('xp');
-        console.log(experience);
-        console.log('idCourse');
-        console.log(idCourse);
         for (var y = 0; y <= infoPeople.length - 1; y++) {
-            console.log('y');
-            console.log(y);
-            console.log("boucle");
             http_post("https://api.scratchoverflow.fr/api/experiencePeople", {
                 "idPeople": infoPeople[y],
                 "experience": experience,
@@ -180,12 +168,10 @@ if (isset($_SESSION['retourUser'])) {
         $('#clore<?php echo $i - 1 ?>').click(function () {
             var numberForm = <?= $i - 1 ?>;
             var idCours = $("#id_cours" + numberForm).val();
-            console.log(idCours);
             http_post("https://api.scratchoverflow.fr/api/listPeopleCourseById", {
                 "idCourse": idCours
             }).then(value => {
                 value = JSON.parse(value);
-                console.log(value);
                 for (var i = 0; i < value.length; i++) {
                     $('#formModal').append("<input type='hidden' name='idCoursModal" + i + "' id='id_coursModal" + i + "' value='" + value[i]["id_cours"] + "'>" +
                         "<fieldset name='fieldModal" + i + "'>" +
