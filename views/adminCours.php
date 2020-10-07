@@ -70,13 +70,13 @@ if (isset($_SESSION['retourUser'])) {
             <input type='hidden' name='id_matiere' value='" . $ligne->id_matiere . "'>
             <input type='hidden' name='id_promo' value='" . $ligne->id_promo . "'>
             <div class='user-box'>";
-                $dateTimeFormatage = new DateTime($ligne->date, $timeZone);
-    echo "
+            $dateTimeFormatage = new DateTime($ligne->date, $timeZone);
+            echo "
             <input type='date' name='date' required value='" . $dateTimeFormatage->format("Y-m-d") . "'>
             <label>date</label>
             </div>
             <div class='user-box'>
-            <input type='time' name='dateHeure' required value='" . $dateTimeFormatage->format("H:i:s"). "'>
+            <input type='time' name='dateHeure' required value='" . $dateTimeFormatage->format("H:i:s") . "'>
             <label>heure</label>
             </div>";
             echo "<button type='submit'>Envoyer</button>
@@ -134,11 +134,12 @@ if (isset($_SESSION['retourUser'])) {
         })
     }
 
+
     function clickCoursModal(numberForm) {
         var infoPeople = [];
         for (var x = 0; x < indexGen; x++) {
-        var test = $("input[name='radio" + x + "']:checked").val();
-            if (test) {
+            var test = $("input[name='radio" + x + "']:checked").val();
+            if (test !== '0') {
                 infoPeople.push(test);
             }
         }
@@ -147,19 +148,20 @@ if (isset($_SESSION['retourUser'])) {
         experience = Math.round($("#duree" + numberForm).val());
         idCourse = $("#id_cours" + numberForm).val();
         for (var y = 0; y <= infoPeople.length - 1; y++) {
-            setTimeout(function (){
-                http_post("https://api.scratchoverflow.fr/api/experiencePeople", {
-                    "idPeople": infoPeople[y],
-                    "experience": experience,
-                    "idCourse": idCourse
-                }).then(value => {
-                    if (y === (infoPeople.length)) {
-                        form2form($("#formulaireModifyCourse"+numberForm), $("#formulaireCloseCourse"+numberForm));
-                        $("#formulaireCloseCourse"+numberForm).submit();
-                    }
-                });
-            },200+100*y);
+            http_post("http://localhost:4567/api/experiencePeople", {
+                    "idPeople": infoPeople[y].toString(),
+                    "experience": experience
+                }
+            ).then(value => {
+                if (y === (infoPeople.length)) {
+                    form2form($("#formulaireModifyCourse" + numberForm), $("#formulaireCloseCourse" + numberForm));
+                    $("#formulaireCloseCourse" + numberForm).submit();
+                }
+            });
+
+
         }
+
         // on récupére dans info people toutes les id des gens marqués comme présent
         // on recupere dans numberForm, le numéro du formulaire qu'on est en train de traiter
         // on recupere dans infoPeople.lenght, le nombre de participant total
@@ -171,7 +173,7 @@ if (isset($_SESSION['retourUser'])) {
         $('#clore<?php echo $i - 1 ?>').click(function () {
             var numberForm = <?= $i - 1 ?>;
             var idCours = $("#id_cours" + numberForm).val();
-            http_post("https://api.scratchoverflow.fr/api/listPeopleCourseById", {
+            http_post("http://localhost:4567/api/listPeopleCourseById", {
                 "idCourse": idCours
             }).then(value => {
                 value = JSON.parse(value);
