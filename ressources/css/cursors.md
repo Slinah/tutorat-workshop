@@ -40,6 +40,8 @@ Mathis Gauthier : <img src="https://scratchoverflow.fr/ressources/img/cursors/cu
 Bréval LeFloch : <img src="https://scratchoverflow.fr/ressources/img/cursors/cursorScratchHuberflow.png"> (605)   
 Cinquin Andy : <img src="https://scratchoverflow.fr/ressources/img/cursors/cursorAndy.png"> (606)   
 
+## ...
+L'oberi (un groupe... spécial...) ... : <img src="https://scratchoverflow.fr/ressources/img/cursors/cursorOberi.png"> (606)   
 
 ## Infos 
 D'autres curseurs arriverons au fur & à mesure de l'année ! :D  

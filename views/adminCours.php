@@ -142,6 +142,7 @@ if (isset($_SESSION['retourUser'])) {
                 infoPeople.push(test);
             }
         }
+        //pb
         $("#nbParticipants" + numberForm).val(infoPeople.length);
         experience = Math.round($("#duree" + numberForm).val());
         idCourse = $("#id_cours" + numberForm).val();
