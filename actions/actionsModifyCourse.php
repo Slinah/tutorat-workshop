@@ -17,7 +17,6 @@ if ($duree === "") {
     $duree = 0;
 }
 $salle = filter_input(INPUT_POST, "salle", FILTER_SANITIZE_SPECIAL_CHARS);
-var_dump($salle);
 if ($salle === "") {
     $salle = 0;
 }
