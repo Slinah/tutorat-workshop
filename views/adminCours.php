@@ -81,20 +81,6 @@ if (isset($_SESSION['retourUser'])) {
             </div>";
             echo "<button type='submit'>Envoyer</button>
             </form>
-            <form method='post' class='secondForm' action='/actions/actionsCloseCourse.php' id='formulaireCloseCourse" . $i . "'>
-            <input type='input' required name='coursIntitule' value='" . $ligne->coursIntitule . "'>
-            <input type='input' required name='matiereIntitule' value='" . $ligne->matiereIntitule . "'>
-            <input type='input' required name='commentaires' value='" . $ligne->commentaires . "'>
-            <input type='input' required name='promoIntitule' value='" . $ligne->promoIntitule . "'>
-            <input type='input' required name='nbParticipants' value='" . $ligne->nbParticipants . "'>
-            <input type='input' required step='0.1' name='duree' value='" . $ligne->duree . "'>
-            <input type='input' required name='salle' value='" . $ligne->salle . "'>
-            <input type='input' required name='id_cours' id='id_cours" . $i . "' value='" . $ligne->id_cours . "'>
-            <input type='input' required name='id_personne' value='" . $ligne->id_personne . "'>
-            <input type='input' required name='id_matiere' value='" . $ligne->id_matiere . "'>
-            <input type='input' required name='id_promo' value='" . $ligne->id_promo . "'>
-            <input type='input' required name='date' value='" . $dateTimeFormatage->format("Y-m-d") . "'>
-            <input type='input' required name='dateHeure' value='" . $dateTimeFormatage->format("H:i:s") . "'>
             <button type='button' id='clore" . $i . "'>Cloturer le cours</button>
             </form>
             </section>";
@@ -115,8 +101,21 @@ if (isset($_SESSION['retourUser'])) {
     <div class="container">
         <div class="comment">
             <h2>Présence : </h2>
-            <form action="POST" id="formModal">
-
+            <form method="post" action="/actions/actionsCloseCourse.php" id="formModal">
+                <input type='hidden' name='nbInscrit' id='nbInscrit' value=''>
+                <input type='hidden' name='coursIntitule' value=''>
+                <input type='hidden' name='matiereIntitule' value=''>
+                <input type='hidden' name='commentaires' value=''>
+                <input type='hidden' name='promoIntitule' value=''>
+                <input type='hidden' name='nbParticipants' value=''>
+                <input type='hidden' name='duree' value=''>
+                <input type='hidden' name='salle' value=''>
+                <input type='hidden' name='id_cours' value=''>
+                <input type='hidden' name='id_personne' value=''>
+                <input type='hidden' name='id_matiere' value=''>
+                <input type='hidden' name='id_promo' value=''>
+                <input type='hidden' name='date' value=''>
+                <input type='hidden' name='dateHeure' value=''>
             </form>
         </div>
         <div class="closeButton" onclick="clickCloseBtnModal()">
@@ -132,19 +131,12 @@ if (isset($_SESSION['retourUser'])) {
         $(':input[name]', formA).each(function () {
             $('[name=' + $(this).attr('name') + ']', formB).val($(this).val());
         })
-    }
-
-    function appelApi(infoPeople, numberForm, y) {
-        http_post("https://api.scratchoverflow.fr/api/experiencePeople", {
-                "idPeople": infoPeople[y].toString(),
-                "experience": experience
-            }
-        ).then(value => {
-            if (y === (infoPeople.length - 1)) {
-                form2form($("#formulaireModifyCourse" + numberForm), $("#formulaireCloseCourse" + numberForm));
-                $("#formulaireCloseCourse" + numberForm).submit();
-            }
-        });
+        $(':input[date]', formA).each(function () {
+            $('[name=' + $(this).attr('name') + ']', formB).val($(this).val());
+        })
+        $(':input[time]', formA).each(function () {
+            $('[name=' + $(this).attr('name') + ']', formB).val($(this).val());
+        })
     }
 
     function clickCoursModal(numberForm) {
@@ -159,9 +151,9 @@ if (isset($_SESSION['retourUser'])) {
         $("#nbParticipants" + numberForm).val(infoPeople.length);
         experience = Math.round($("#duree" + numberForm).val());
         idCourse = $("#id_cours" + numberForm).val();
-        for (var y = 0; y <= infoPeople.length - 1; y++) {
-            setTimeout(appelApi(infoPeople, numberForm, y), 100 * y);
-        }
+        $("#nbInscrit").val(indexGen);
+        form2form($("#formulaireModifyCourse" + numberForm), $("#formModal"));
+        $("#formModal").submit();
         // on récupére dans info people toutes les id des gens marqués comme présent
         // on recupere dans numberForm, le numéro du formulaire qu'on est en train de traiter
         // on recupere dans infoPeople.lenght, le nombre de participant total

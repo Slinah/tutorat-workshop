@@ -10,6 +10,7 @@
             <ul>
                 <li><a href="/cours" onclick="clickNavBtn();">Les cours</a></li>
                 <li><a href="/donner-cours" onclick="clickNavBtn();">Donner un cours</a></li>
+                <li><a href="/suggestion-liste" onclick="clickNavBtn();">Voir les suggestions</a></li>
                 <li><a href="/suggestion-cours" onclick="clickNavBtn();">Suggérer un cours</a></li>
                 <li><a href="/forum" onclick="clickNavBtn();">Forum</a></li>
                 <li><a href="/profile" onclick="clickNavBtn();">Mon profil</a></li>
@@ -24,6 +25,7 @@
             </div>
             <li><a href="/cours">Les cours</a></li>
             <li><a href="/donner-cours">Donner un cours</a></li>
+            <li><a href="/suggestion-liste">Voir les suggestions</a></li>
             <li><a href="/suggestion-cours">Suggérer un cours</a></li>
             <li><a href="/forum">Forum</a></li>
             <li><a href="/profile">Mon profil</a></li>
