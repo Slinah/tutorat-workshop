@@ -100,101 +100,101 @@ switch ($request) {
     case (preg_match('/\/\?fbclid=/', $request) ? true : false):
     case '':
     case '/' :
-        header_options(["style", "nav", "button", "card",$cursor]);
+        //header_options(["style", "nav", "button", "card",$cursor]);
         require 'views/maintenance.php';
-        footer_options(["lottie", "navBtn", "fonction"]);
+        //footer_options(["lottie", "navBtn", "fonction"]);
         break;
     case '/cours' :
-        HaveToBeConnected();
-        header_options(["style", "nav", "button", "card", "cardCours",$cursor]);
+        //HaveToBeConnected();
+        //header_options(["style", "nav", "button", "card", "cardCours",$cursor]);
         //require 'views/courses.php';
         require 'views/maintenance.php';
-        footer_options(["lottie", "navBtn", "fonction"]);
+        //footer_options(["lottie", "navBtn", "fonction"]);
         break;
     case '/donner-cours' :
-        HaveToBeConnected();
-        header_options(["style", "nav", "button", "formCours",$cursor]);
+        //HaveToBeConnected();
+        //header_options(["style", "nav", "button", "formCours",$cursor]);
         //require 'views/createCourses.php';
         require 'views/maintenance.php';
-        footer_options(["lottie", "navBtn", "fonction"]);
+        //footer_options(["lottie", "navBtn", "fonction"]);
         break;
     case '/suggestion-cours' :
-        HaveToBeConnected();
-        header_options(["style", "nav", "button", "formCours",$cursor]);
+        //HaveToBeConnected();
+        //header_options(["style", "nav", "button", "formCours",$cursor]);
         //require 'views/askForCourses.php';
         require 'views/maintenance.php';
-        footer_options(["lottie", "navBtn", "fonction"]);
+        //footer_options(["lottie", "navBtn", "fonction"]);
         break;
     case '/suggestion-liste':
-        HaveToBeConnected();
-        header_options(["style", "nav", "button", "card", "cardCours",$cursor]);
+        //HaveToBeConnected();
+        //header_options(["style", "nav", "button", "card", "cardCours",$cursor]);
         //require 'views/listSuggestions.php';
         require 'views/maintenance.php';
-        footer_options(["lottie", "navBtn", "fonction"]);
+        //footer_options(["lottie", "navBtn", "fonction"]);
         break;
     case '/tuteur-cours':
-        HaveToBeConnected();
-        header_options(["style", "nav", "button", "card", "formAdminCours", "modal",$cursor]);
+        //HaveToBeConnected();
+        //header_options(["style", "nav", "button", "card", "formAdminCours", "modal",$cursor]);
         //require 'views/adminCours.php';
         require 'views/maintenance.php';
-        footer_options(["lottie", "navBtn", "jquery", "fonction", "tuteurCours"]);
+        //footer_options(["lottie", "navBtn", "jquery", "fonction", "tuteurCours"]);
         break;
     case '/creer-matiere':
-        HaveToBeConnected();
-        header_options(["style", "nav", "button", "card", "formAdminCours",$cursor]);
+        //HaveToBeConnected();
+        //header_options(["style", "nav", "button", "card", "formAdminCours",$cursor]);
         //require 'views/createMatiere.php';
         require 'views/maintenance.php';
-        footer_options(["lottie", "navBtn", "fonction", "adminCours"]);
+        //footer_options(["lottie", "navBtn", "fonction", "adminCours"]);
         break;
     case '/forum' :
-        header_options(["style", "nav", "button", "card", "cardForum",$cursor]);
+        //header_options(["style", "nav", "button", "card", "cardForum",$cursor]);
         //require 'views/forum.php';
         require 'views/maintenance.php';
-        footer_options(["lottie", "navBtn", "fonction"]);
+        //footer_options(["lottie", "navBtn", "fonction"]);
         break;
     case '/admin' :
-        HaveToBeAdmin();
-        header_options(["style", "nav", "button", "card", "formAdmin",$cursor]);
+        //HaveToBeAdmin();
+        //header_options(["style", "nav", "button", "card", "formAdmin",$cursor]);
         //require 'views/panel_admin.php';
         require 'views/maintenance.php';
-        footer_options(["jquery", "panel_admin", "lottie", "navBtn", "fonction"]);
+        //footer_options(["jquery", "panel_admin", "lottie", "navBtn", "fonction"]);
         break;
     case '/profile' :
-        HaveToBeConnected();
-        header_options(["style", "nav", "button", "card", "profil",$cursor]);
+        //HaveToBeConnected();
+        //header_options(["style", "nav", "button", "card", "profil",$cursor]);
         //require 'views/profile.php';
         require 'views/maintenance.php';
-        footer_options(["jquery", "lottie", "navBtn", "profile"]);
+        //footer_options(["jquery", "lottie", "navBtn", "profile"]);
         break;
     case '/forum/create' :
-        HaveToBeConnected();
-        header_options(["style", "nav", "button", "formForumCreate",$cursor]);
+        //HaveToBeConnected();
+        //header_options(["style", "nav", "button", "formForumCreate",$cursor]);
         //require 'views/forum_create.php';
         require 'views/maintenance.php';
-        footer_options(["lottie", "navBtn", "fonction"]);
+        //footer_options(["lottie", "navBtn", "fonction"]);
         break;
     case (preg_match('/\/forum\/./', $request) ? true : false) :
-        header_options(["style", "nav", "button", "card", "cardSujetForum", "modal",$cursor]);
+        //header_options(["style", "nav", "button", "card", "cardSujetForum", "modal",$cursor]);
         //require 'views/forum_question.php';
         require 'views/maintenance.php';
-        footer_options(["lottie", "navBtn", "fonction", "forum"]);
+        //footer_options(["lottie", "navBtn", "fonction", "forum"]);
         break;
     case '/connexion' :
-        HaveToBeNOTConnected();
-        header_options(["style", "nav", "button", "form",$cursor]);
+        //HaveToBeNOTConnected();
+        //header_options(["style", "nav", "button", "form",$cursor]);
         //require 'views/connexion.php';
         require 'views/maintenance.php';
-        footer_options(["lottie", "navBtn", "fonction", "connexionSubmitFormEnter"]);
+        //footer_options(["lottie", "navBtn", "fonction", "connexionSubmitFormEnter"]);
         break;
     case '/register' :
-        HaveToBeNOTConnected();
-        header_options(["style", "nav", "button", "form",$cursor]);
+        //HaveToBeNOTConnected();
+        //header_options(["style", "nav", "button", "form",$cursor]);
         //require 'views/register.php';
         require 'views/maintenance.php';
-        footer_options(["jquery", "register", "fonction", "registerSubmitFormEnter"]);
+        //footer_options(["jquery", "register", "fonction", "registerSubmitFormEnter"]);
         break;
     case '/dc':
-        Destroy();
+        //Destroy();
         //header('location: /connexion');
         require 'views/maintenance.php';
         break;
