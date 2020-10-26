@@ -2,7 +2,6 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <title>Maintenance</title>
   <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4.3.2/css/metro-all.min.css">
   <link rel='stylesheet' href='/ressources/css/maintenance.css'>
   <script src="https://cdn.metroui.org.ua/v4.3.2/js/metro.min.js"></script>
